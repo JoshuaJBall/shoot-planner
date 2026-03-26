@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,8 +7,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Shoot Planner">
 <meta name="theme-color" content="#0a0a0a">
+<link rel="manifest" href="/shoot-planner/manifest.json">
 <title>Shoot Planner | Joshua Ball</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -18,7 +18,7 @@
   --text: #f0f0f0; --text-muted: #666666; --text-dim: #3a3a3a;
   --accent: #ffffff;
 }
-html, body { min-height: 100%; background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; }
+html, body { min-height: 100%; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 {
   --bg: #0a0a0a; --surface: #141414; --surface2: #1c1c1c;
@@ -30,7 +30,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
   width: 100% !important; height: 100% !important;
   background: #0a0a0a !important;
   color: #f0f0f0;
-  font-family: 'DM Sans', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   z-index: 999999 !important;
@@ -46,7 +46,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 .header h1 { font-size: 1.4rem; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2; }
 .header p { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem; line-height: 1.5; }
 .stage-tabs { display: flex; margin-bottom: 2rem; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
-.stage-tab { flex: 1; padding: 0.7rem; font-size: 0.78rem; font-weight: 400; font-family: 'DM Sans', sans-serif; background: transparent; border: none; color: var(--text-muted); cursor: pointer; transition: all 0.2s; }
+.stage-tab { flex: 1; padding: 0.7rem; font-size: 0.78rem; font-weight: 400; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: transparent; border: none; color: var(--text-muted); cursor: pointer; transition: all 0.2s; }
 .stage-tab.active { background: var(--surface2); color: var(--text); font-weight: 500; }
 .stage-tab:first-child { border-right: 1px solid var(--border); }
 .screen { display: none; }
@@ -61,13 +61,13 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 .question-text { font-size: 1.05rem; font-weight: 500; color: var(--text); line-height: 1.4; margin-bottom: 0.4rem; letter-spacing: -0.01em; }
 .question-hint { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.5; }
 .options { display: flex; flex-direction: column; gap: 0.5rem; }
-.option-btn { display: block; width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 0.85rem 1rem; font-size: 0.88rem; font-family: 'DM Sans', sans-serif; font-weight: 300; color: var(--text-muted); cursor: pointer; text-align: left; transition: all 0.15s ease; -webkit-appearance: none; -webkit-text-fill-color: var(--text-muted); }
+.option-btn { display: block; width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 0.85rem 1rem; font-size: 0.88rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; font-weight: 300; color: var(--text-muted); cursor: pointer; text-align: left; transition: all 0.15s ease; -webkit-appearance: none; -webkit-text-fill-color: var(--text-muted); }
 .option-btn:hover { border-color: var(--border-active); color: var(--text); -webkit-text-fill-color: var(--text); }
 .option-btn.selected { border-color: var(--accent); color: var(--text); background: var(--surface2); -webkit-text-fill-color: var(--text); }
 .nav-row { display: flex; gap: 0.75rem; margin-top: 1.5rem; padding-bottom: 3rem; }
-.btn-back { background: transparent; border: 1px solid var(--border); color: var(--text-muted); border-radius: 4px; padding: 0.85rem 1.25rem; font-size: 0.85rem; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: all 0.2s; -webkit-appearance: none; }
+.btn-back { background: transparent; border: 1px solid var(--border); color: var(--text-muted); border-radius: 4px; padding: 0.85rem 1.25rem; font-size: 0.85rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; cursor: pointer; transition: all 0.2s; -webkit-appearance: none; }
 .btn-back:hover { border-color: var(--border-active); color: var(--text); }
-.btn-next { flex: 1; background: var(--accent); border: none; color: #000; border-radius: 4px; padding: 0.85rem; font-size: 0.88rem; font-weight: 500; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: background 0.2s; -webkit-appearance: none; }
+.btn-next { flex: 1; background: var(--accent); border: none; color: #000; border-radius: 4px; padding: 0.85rem; font-size: 0.88rem; font-weight: 500; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; cursor: pointer; transition: background 0.2s; -webkit-appearance: none; }
 .btn-next:hover { background: #e0e0e0; }
 .shoot-header { padding: 0.5rem 0 1.25rem; border-bottom: 1px solid var(--border); margin-bottom: 1.5rem; }
 .shoot-tag { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem; }
@@ -86,16 +86,16 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 .decision-body { display: none; padding: 0 1.1rem 1.1rem; border-top: 1px solid var(--border); }
 .decision-item.open .decision-body { display: block; }
 .decision-content { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; margin-top: 0.85rem; }
-.decision-mark-btn { margin-top: 1rem; width: 100%; background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: 0.7rem; font-size: 0.82rem; font-family: 'DM Sans', sans-serif; color: var(--text-muted); cursor: pointer; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text-muted); }
+.decision-mark-btn { margin-top: 1rem; width: 100%; background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: 0.7rem; font-size: 0.82rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; color: var(--text-muted); cursor: pointer; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text-muted); }
 .decision-mark-btn:hover { border-color: var(--border-active); color: var(--text); -webkit-text-fill-color: var(--text); }
 .shoot-progress-wrap { margin-bottom: 1.75rem; }
 .complete-msg { text-align: center; padding: 1.5rem; background: var(--surface); border-radius: 6px; margin-bottom: 1.5rem; }
 .complete-msg p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
 .complete-msg strong { color: var(--text); font-weight: 500; }
 .action-row { display: flex; gap: 0.75rem; padding-bottom: 3rem; }
-.btn-outline { flex: 1; background: transparent; border: 1px solid var(--border); color: var(--text-muted); border-radius: 4px; padding: 0.85rem; font-size: 0.85rem; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: all 0.2s; text-align: center; -webkit-appearance: none; }
+.btn-outline { flex: 1; background: transparent; border: 1px solid var(--border); color: var(--text-muted); border-radius: 4px; padding: 0.85rem; font-size: 0.85rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; cursor: pointer; transition: all 0.2s; text-align: center; -webkit-appearance: none; }
 .btn-outline:hover { border-color: var(--border-active); color: var(--text); }
-.btn-solid { flex: 1; background: var(--accent); border: none; color: #000; border-radius: 4px; padding: 0.85rem; font-size: 0.85rem; font-weight: 500; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: background 0.2s; text-align: center; -webkit-appearance: none; }
+.btn-solid { flex: 1; background: var(--accent); border: none; color: #000; border-radius: 4px; padding: 0.85rem; font-size: 0.85rem; font-weight: 500; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; cursor: pointer; transition: background 0.2s; text-align: center; -webkit-appearance: none; }
 .btn-solid:hover { background: #e0e0e0; }
 .footer-link { text-align: center; padding: 1rem 0 2.5rem; font-size: 0.75rem; color: var(--text-dim); }
 .footer-link a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
@@ -124,142 +124,137 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 </div>
 
 <!-- HOME SCREEN -->
-
 <div id="screen-home" class="screen active">
   <div style="padding: 1rem 0 3rem;">
     <p style="font-size: 0.78rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.5rem;">The camera doesn't decide. You do.</p>
     <h2 style="font-size: 1.3rem; font-weight: 500; line-height: 1.4; letter-spacing: -0.02em; color: var(--text); margin-bottom: 1.25rem;">Most shoots go wrong before the shutter.</h2>
     <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 2.5rem;">Not because of gear. Not because of settings. Because the decisions that should happen before you raise the camera never got made.</p>
 
-```
-<!-- SECTION: SHOOT -->
-<div style="margin-bottom: 1.75rem;">
-  <div style="font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.75rem; padding-left: 0.25rem;">The Shoot</div>
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;">
-    <button onclick="goToPlanner()" style="background: var(--accent); border: none; border-radius: 8px; padding: 1rem; font-family: inherit; color: #000; cursor: pointer; text-align: left; transition: background 0.2s; -webkit-appearance: none;">
-      <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-      <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Plan</div>
-      <div style="font-size: 0.7rem; color: #555;">Before the shoot</div>
-    </button>
-    <button onclick="goToChecklist()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
-      <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Five decisions</div>
-      <div style="font-size: 0.7rem; color: var(--text-muted);">On the shoot</div>
-    </button>
-    <button onclick="goToLightTool()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
-      <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
-      <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Read the light</div>
-      <div style="font-size: 0.7rem; color: var(--text-muted);">On location</div>
-    </button>
-    <button onclick="goToGear()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
-      <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 6v2a4 4 0 0 0-8 0V6"/><rect x="2" y="8" width="20" height="14" rx="2"/><path d="M8 14h8"/></svg></div>
-      <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Gear check</div>
-      <div style="font-size: 0.7rem; color: var(--text-muted);">Before you leave</div>
-    </button>
-  </div>
-</div>
+    <!-- SECTION: SHOOT -->
+    <div style="margin-bottom: 1.75rem;">
+      <div style="font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.75rem; padding-left: 0.25rem;">The Shoot</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;">
+        <button onclick="goToPlanner()" style="background: var(--accent); border: none; border-radius: 8px; padding: 1rem; font-family: inherit; color: #000; cursor: pointer; text-align: left; transition: background 0.2s; -webkit-appearance: none;">
+          <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Plan</div>
+          <div style="font-size: 0.7rem; color: #555;">Before the shoot</div>
+        </button>
+        <button onclick="goToChecklist()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
+          <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Five decisions</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted);">On the shoot</div>
+        </button>
+        <button onclick="goToLightTool()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
+          <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
+          <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Read the light</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted);">On location</div>
+        </button>
+        <button onclick="goToGear()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
+          <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 6v2a4 4 0 0 0-8 0V6"/><rect x="2" y="8" width="20" height="14" rx="2"/><path d="M8 14h8"/></svg></div>
+          <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Gear check</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted);">Before you leave</div>
+        </button>
+      </div>
+    </div>
 
-<!-- SECTION: EDIT -->
-<div style="margin-bottom: 1.75rem;">
-  <div style="font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.75rem; padding-left: 0.25rem;">The Edit</div>
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;">
-    <button onclick="goToEditChecklist()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
-      <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="7" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="17" y2="20"/><line x1="2" y1="9" x2="7" y2="9"/><line x1="17" y1="9" x2="22" y2="9"/><line x1="2" y1="15" x2="7" y2="15"/><line x1="17" y1="15" x2="22" y2="15"/></svg></div>
-      <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Edit checklist</div>
-      <div style="font-size: 0.7rem; color: var(--text-muted);">After the shoot</div>
-    </button>
-    <button onclick="goToReflection()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
-      <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
-      <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Reflection</div>
-      <div style="font-size: 0.7rem; color: var(--text-muted);">After editing</div>
-    </button>
-  </div>
-</div>
+    <!-- SECTION: EDIT -->
+    <div style="margin-bottom: 1.75rem;">
+      <div style="font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.75rem; padding-left: 0.25rem;">The Edit</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;">
+        <button onclick="goToEditChecklist()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
+          <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="7" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="17" y2="20"/><line x1="2" y1="9" x2="7" y2="9"/><line x1="17" y1="9" x2="22" y2="9"/><line x1="2" y1="15" x2="7" y2="15"/><line x1="17" y1="15" x2="22" y2="15"/></svg></div>
+          <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Edit checklist</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted);">After the shoot</div>
+        </button>
+        <button onclick="goToReflection()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
+          <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+          <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Reflection</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted);">After editing</div>
+        </button>
+      </div>
+    </div>
 
-<!-- SECTION: REFERENCE -->
-<div style="margin-bottom: 1.75rem;">
-  <div style="font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.75rem; padding-left: 0.25rem;">Reference</div>
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;">
-    <button onclick="goToExposure()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
-      <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-      <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Exposure</div>
-      <div style="font-size: 0.7rem; color: var(--text-muted);">Settings guide</div>
-    </button>
-    <button onclick="goToWB()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
-      <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div>
-      <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">White balance</div>
-      <div style="font-size: 0.7rem; color: var(--text-muted);">Kelvin guide</div>
-    </button>
-  </div>
-</div>
+    <!-- SECTION: REFERENCE -->
+    <div style="margin-bottom: 1.75rem;">
+      <div style="font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.75rem; padding-left: 0.25rem;">Reference</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;">
+        <button onclick="goToExposure()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
+          <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+          <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Exposure</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted);">Settings guide</div>
+        </button>
+        <button onclick="goToWB()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
+          <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div>
+          <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">White balance</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted);">Kelvin guide</div>
+        </button>
+      </div>
+    </div>
 
-<!-- SECTION: IMPROVE -->
-<div style="margin-bottom: 2rem;">
-  <div style="font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.75rem; padding-left: 0.25rem;">Improve</div>
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;">
-    <button onclick="goToAudit()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
-      <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-      <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Decision audit</div>
-      <div style="font-size: 0.7rem; color: var(--text-muted);">When it went wrong</div>
-    </button>
-    <button onclick="goToTracker()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
-      <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-      <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Consistency</div>
-      <div style="font-size: 0.7rem; color: var(--text-muted);">Over time</div>
-    </button>
-    <button onclick="goToBrief()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text); grid-column: span 2;">
-      <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-      <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Shoot brief</div>
-      <div style="font-size: 0.7rem; color: var(--text-muted);">Practice with a constraint</div>
-    </button>
-  </div>
-</div>
+    <!-- SECTION: IMPROVE -->
+    <div style="margin-bottom: 2rem;">
+      <div style="font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.75rem; padding-left: 0.25rem;">Improve</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;">
+        <button onclick="goToAudit()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
+          <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Decision audit</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted);">When it went wrong</div>
+        </button>
+        <button onclick="goToTracker()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
+          <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+          <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Consistency</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted);">Over time</div>
+        </button>
+        <button onclick="goToBrief()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text); grid-column: span 2;">
+          <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Shoot brief</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted);">Practice with a constraint</div>
+        </button>
+      </div>
+    </div>
 
-<!-- SECTION: REFERENCE EXTENDED -->
-<div style="margin-bottom: 1.75rem;">
-  <div style="font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.75rem; padding-left: 0.25rem;">Tools</div>
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;">
-    <button onclick="goToHistogram()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
-      <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/><line x1="7" y1="17" x2="7" y2="10"/><line x1="10" y1="17" x2="10" y2="6"/><line x1="13" y1="17" x2="13" y2="12"/><line x1="16" y1="17" x2="16" y2="8"/></svg></div>
-      <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Histogram</div>
-      <div style="font-size: 0.7rem; color: var(--text-muted);">Read your exposure</div>
-    </button>
-    <button onclick="goToFocal()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
-      <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M20.188 10.934c.2.646.312 1.232.312 1.066 0-.166-.112.42-.312 1.066M3.812 10.934C3.612 11.58 3.5 12.166 3.5 12c0-.166.112.42.312 1.066M15.536 6.464A6 6 0 0 0 12 6"/><path d="M6.464 15.536A6 6 0 0 0 12 18"/></svg></div>
-      <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Focal length</div>
-      <div style="font-size: 0.7rem; color: var(--text-muted);">Choose your perspective</div>
-    </button>
-    <button onclick="goToColour()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
-      <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="10.5" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="12.5" r="2.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></div>
-      <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Colour cast</div>
-      <div style="font-size: 0.7rem; color: var(--text-muted);">Fix or use it</div>
-    </button>
-    <button onclick="goToLocation()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
-      <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-      <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Location scout</div>
-      <div style="font-size: 0.7rem; color: var(--text-muted);">Before you arrive</div>
-    </button>
-    <button onclick="goToPlanHistory()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text); grid-column: span 2;">
-      <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg></div>
-      <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Plan history</div>
-      <div style="font-size: 0.7rem; color: var(--text-muted);">Every shoot you have planned</div>
-    </button>
-  </div>
-</div>
+    <!-- SECTION: REFERENCE EXTENDED -->
+    <div style="margin-bottom: 1.75rem;">
+      <div style="font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.75rem; padding-left: 0.25rem;">Tools</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;">
+        <button onclick="goToHistogram()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
+          <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/><line x1="7" y1="17" x2="7" y2="10"/><line x1="10" y1="17" x2="10" y2="6"/><line x1="13" y1="17" x2="13" y2="12"/><line x1="16" y1="17" x2="16" y2="8"/></svg></div>
+          <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Histogram</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted);">Read your exposure</div>
+        </button>
+        <button onclick="goToFocal()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
+          <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M20.188 10.934c.2.646.312 1.232.312 1.066 0-.166-.112.42-.312 1.066M3.812 10.934C3.612 11.58 3.5 12.166 3.5 12c0-.166.112.42.312 1.066M15.536 6.464A6 6 0 0 0 12 6"/><path d="M6.464 15.536A6 6 0 0 0 12 18"/></svg></div>
+          <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Focal length</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted);">Choose your perspective</div>
+        </button>
+        <button onclick="goToColour()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
+          <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="10.5" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="12.5" r="2.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></div>
+          <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Colour cast</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted);">Fix or use it</div>
+        </button>
+        <button onclick="goToLocation()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text);">
+          <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Location scout</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted);">Before you arrive</div>
+        </button>
+        <button onclick="goToPlanHistory()" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: all 0.2s; -webkit-appearance: none; -webkit-text-fill-color: var(--text); grid-column: span 2;">
+          <div style="margin-bottom: 0.4rem; color: currentColor;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <div style="font-size: 0.82rem; font-weight: 500; margin-bottom: 0.1rem;">Plan history</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted);">Every shoot you have planned</div>
+        </button>
+      </div>
+    </div>
 
-<div style="display: none;">
-  </div>
-</div>
+    <div style="display: none;">
+      </div>
+    </div>
 
-</div>
-<p style="font-size: 0.75rem; color: var(--text-dim); text-align: center; line-height: 1.6;">If you didn't decide, you guessed.</p>
-```
-
+    </div>
+    <p style="font-size: 0.75rem; color: var(--text-dim); text-align: center; line-height: 1.6;">If you didn't decide, you guessed.</p>
   </div>
 </div>
 
 <!-- PLAN STAGE -->
-
 <div id="plan-stage">
 
   <div id="screen-q1" class="screen">
@@ -409,10 +404,10 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </div>
   </div>
 
+
 </div>
 
 <!-- SHOOT STAGE -->
-
 <div id="shoot-stage" style="display:none;">
   <div class="shoot-header">
     <div class="shoot-tag">Your five decisions</div>
@@ -430,7 +425,6 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
   </div>
 
   <!-- EDIT REMINDER SCREEN -->
-
   <div id="edit-reminder" style="display:none; animation: fadeUp 0.3s ease;">
     <div style="padding:1rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
       <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Edit Reminder</div>
@@ -461,8 +455,9 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
   </div>
 </div>
 
-<!-- WHITE BALANCE HELPER -->
 
+
+<!-- WHITE BALANCE HELPER -->
 <div id="wb-helper" style="display:none; animation: fadeUp 0.3s ease; max-width:560px; margin:0 auto; padding:0 1.25rem;">
   <div style="padding:0.5rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
     <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Before the shoot</div>
@@ -484,17 +479,14 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
       </div>
     </div>
 
-```
-<div>
-  <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.6rem;">What mood do you want?</div>
-  <div style="display:flex; gap:0.5rem;">
-    <button id="wb-mood-accurate" onclick="selectWBMood('accurate')" style="flex:1; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.15s;">Accurate</button>
-    <button id="wb-mood-warmer" onclick="selectWBMood('warmer')" style="flex:1; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.15s;">Warmer</button>
-    <button id="wb-mood-cooler" onclick="selectWBMood('cooler')" style="flex:1; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.15s;">Cooler</button>
-  </div>
-</div>
-```
-
+    <div>
+      <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.6rem;">What mood do you want?</div>
+      <div style="display:flex; gap:0.5rem;">
+        <button id="wb-mood-accurate" onclick="selectWBMood('accurate')" style="flex:1; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.15s;">Accurate</button>
+        <button id="wb-mood-warmer" onclick="selectWBMood('warmer')" style="flex:1; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.15s;">Warmer</button>
+        <button id="wb-mood-cooler" onclick="selectWBMood('cooler')" style="flex:1; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.15s;">Cooler</button>
+      </div>
+    </div>
   </div>
 
   <div id="wb-result" style="display:none; background:var(--surface); border-radius:6px; padding:1.25rem; margin-bottom:2rem;">
@@ -503,12 +495,10 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     <div id="wb-note" style="font-size:0.85rem; color:var(--text-muted); line-height:1.6;"></div>
   </div>
 
-<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
-
+  <button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
 </div>
 
 <!-- EXPOSURE TRIANGLE -->
-
 <div id="exposure-tool" style="display:none; animation: fadeUp 0.3s ease; max-width:560px; margin:0 auto; padding:0 1.25rem;">
   <div style="padding:0.5rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
     <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Settings reference</div>
@@ -526,25 +516,22 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
       </div>
     </div>
 
-```
-<div>
-  <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.6rem;">How much depth do you want?</div>
-  <div style="display:flex; gap:0.5rem;">
-    <button id="exp-depth-shallow" onclick="selectExp('depth','shallow')" style="flex:1; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.15s;">Shallow</button>
-    <button id="exp-depth-full" onclick="selectExp('depth','full')" style="flex:1; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.15s;">Full scene</button>
-  </div>
-</div>
+    <div>
+      <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.6rem;">How much depth do you want?</div>
+      <div style="display:flex; gap:0.5rem;">
+        <button id="exp-depth-shallow" onclick="selectExp('depth','shallow')" style="flex:1; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.15s;">Shallow</button>
+        <button id="exp-depth-full" onclick="selectExp('depth','full')" style="flex:1; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.15s;">Full scene</button>
+      </div>
+    </div>
 
-<div>
-  <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.6rem;">What is the light like?</div>
-  <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-    <button id="exp-light-bright" onclick="selectExp('light','bright')" style="flex:1; min-width:80px; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.15s;">Bright</button>
-    <button id="exp-light-overcast" onclick="selectExp('light','overcast')" style="flex:1; min-width:80px; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.15s;">Overcast</button>
-    <button id="exp-light-low" onclick="selectExp('light','low')" style="flex:1; min-width:80px; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.15s;">Low light</button>
-  </div>
-</div>
-```
-
+    <div>
+      <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.6rem;">What is the light like?</div>
+      <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <button id="exp-light-bright" onclick="selectExp('light','bright')" style="flex:1; min-width:80px; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.15s;">Bright</button>
+        <button id="exp-light-overcast" onclick="selectExp('light','overcast')" style="flex:1; min-width:80px; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.15s;">Overcast</button>
+        <button id="exp-light-low" onclick="selectExp('light','low')" style="flex:1; min-width:80px; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.15s;">Low light</button>
+      </div>
+    </div>
   </div>
 
   <div id="exp-result" style="display:none; margin-bottom:2rem;">
@@ -562,12 +549,10 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </div>
   </div>
 
-<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
-
+  <button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
 </div>
 
 <!-- BEFORE AND AFTER REFLECTION -->
-
 <div id="reflection-tool" style="display:none; animation: fadeUp 0.3s ease; max-width:560px; margin:0 auto; padding:0 1.25rem;">
   <div style="padding:0.5rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
     <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">After editing</div>
@@ -581,25 +566,22 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
       <textarea id="reflect-intention" placeholder="What was the image supposed to feel like when you pressed the shutter?" style="width:100%; background:var(--surface2); border:1px solid var(--border); border-radius:4px; padding:0.75rem 0.9rem; font-size:0.85rem; font-family:inherit; font-weight:300; color:var(--text); outline:none; resize:none; min-height:80px; line-height:1.6; -webkit-appearance:none;"></textarea>
     </div>
 
-```
-<div style="background:var(--surface); border-radius:6px; padding:1.1rem 1.25rem;">
-  <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.5rem;">What did you actually produce?</div>
-  <textarea id="reflect-actual" placeholder="What does the finished image actually feel like?" style="width:100%; background:var(--surface2); border:1px solid var(--border); border-radius:4px; padding:0.75rem 0.9rem; font-size:0.85rem; font-family:inherit; font-weight:300; color:var(--text); outline:none; resize:none; min-height:80px; line-height:1.6; -webkit-appearance:none;"></textarea>
-</div>
+    <div style="background:var(--surface); border-radius:6px; padding:1.1rem 1.25rem;">
+      <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.5rem;">What did you actually produce?</div>
+      <textarea id="reflect-actual" placeholder="What does the finished image actually feel like?" style="width:100%; background:var(--surface2); border:1px solid var(--border); border-radius:4px; padding:0.75rem 0.9rem; font-size:0.85rem; font-family:inherit; font-weight:300; color:var(--text); outline:none; resize:none; min-height:80px; line-height:1.6; -webkit-appearance:none;"></textarea>
+    </div>
 
-<div style="background:var(--surface); border-radius:6px; padding:1.1rem 1.25rem;">
-  <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.5rem;">Where did the gap come from?</div>
-  <div style="display:flex; flex-direction:column; gap:0.5rem;" id="reflect-gap-options">
-    <button class="option-btn" onclick="selectReflect('gap','I did not decide the subject clearly enough before shooting',this)">I did not decide the subject clearly enough before shooting</button>
-    <button class="option-btn" onclick="selectReflect('gap','The light was different to what I planned for',this)">The light was different to what I planned for</button>
-    <button class="option-btn" onclick="selectReflect('gap','The composition included too much',this)">The composition included too much</button>
-    <button class="option-btn" onclick="selectReflect('gap','My settings did not serve the subject',this)">My settings did not serve the subject</button>
-    <button class="option-btn" onclick="selectReflect('gap','I did not have a clear edit intention before I opened Lightroom',this)">I did not have a clear edit intention before I opened Lightroom</button>
-    <button class="option-btn" onclick="selectReflect('gap','The intention and the result matched',this)">The intention and the result matched</button>
-  </div>
-</div>
-```
-
+    <div style="background:var(--surface); border-radius:6px; padding:1.1rem 1.25rem;">
+      <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.5rem;">Where did the gap come from?</div>
+      <div style="display:flex; flex-direction:column; gap:0.5rem;" id="reflect-gap-options">
+        <button class="option-btn" onclick="selectReflect('gap','I did not decide the subject clearly enough before shooting',this)">I did not decide the subject clearly enough before shooting</button>
+        <button class="option-btn" onclick="selectReflect('gap','The light was different to what I planned for',this)">The light was different to what I planned for</button>
+        <button class="option-btn" onclick="selectReflect('gap','The composition included too much',this)">The composition included too much</button>
+        <button class="option-btn" onclick="selectReflect('gap','My settings did not serve the subject',this)">My settings did not serve the subject</button>
+        <button class="option-btn" onclick="selectReflect('gap','I did not have a clear edit intention before I opened Lightroom',this)">I did not have a clear edit intention before I opened Lightroom</button>
+        <button class="option-btn" onclick="selectReflect('gap','The intention and the result matched',this)">The intention and the result matched</button>
+      </div>
+    </div>
   </div>
 
   <div id="reflect-result" style="display:none; background:var(--surface); border-radius:6px; padding:1.25rem; margin-bottom:1.5rem;">
@@ -623,7 +605,6 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 </div>
 
 <!-- SHOOT BRIEF GENERATOR -->
-
 <div id="brief-generator" style="display:none; animation: fadeUp 0.3s ease; max-width:560px; margin:0 auto; padding:0 1.25rem;">
   <div style="padding:0.5rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
     <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Practice</div>
@@ -675,7 +656,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </div>
   </div>
 
-<button onclick="generateBrief()" style="width:100%; background:var(--accent); border:none; border-radius:4px; padding:0.85rem; font-size:0.88rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none; margin-bottom:1rem;">Generate my brief</button>
+  <button onclick="generateBrief()" style="width:100%; background:var(--accent); border:none; border-radius:4px; padding:0.85rem; font-size:0.88rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none; margin-bottom:1rem;">Generate my brief</button>
 
   <div id="brief-result" style="display:none; margin-bottom:2rem;">
     <div style="background:var(--surface); border-radius:6px; padding:1.25rem; margin-bottom:0.75rem;">
@@ -688,12 +669,10 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     <button onclick="generateBrief()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.75rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted);">Generate a different brief</button>
   </div>
 
-<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
-
+  <button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
 </div>
 
 <!-- PRE-SHOOT GEAR CHECKLIST -->
-
 <div id="gear-checklist" style="display:none; animation: fadeUp 0.3s ease; max-width:560px; margin:0 auto; padding:0 1.25rem;">
   <div style="padding:0.5rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
     <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Before you leave</div>
@@ -722,7 +701,6 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 </div>
 
 <!-- LIGHT READING TOOL -->
-
 <div id="light-tool" style="display:none; animation: fadeUp 0.3s ease; max-width:560px; margin:0 auto; padding:0 1.25rem;">
   <div style="padding:0.5rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
     <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">On Location</div>
@@ -738,25 +716,22 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
       <input type="text" id="light-q1" placeholder="e.g. Low from the left, about 30 degrees above horizon" style="width:100%; background:var(--surface2); border:1px solid var(--border); border-radius:4px; padding:0.75rem 0.9rem; font-size:0.85rem; font-family:inherit; font-weight:300; color:var(--text); outline:none; -webkit-appearance:none;">
     </div>
 
-```
-<div style="background:var(--surface); border-radius:6px; padding:1.1rem 1.25rem;">
-  <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.5rem;">Question 2</div>
-  <div style="font-size:0.9rem; font-weight:500; color:var(--text); margin-bottom:0.75rem;">Is it hard or soft?</div>
-  <div style="font-size:0.78rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.75rem;">Hard light has sharp shadow edges and high contrast. Soft light has gradual transitions and low contrast. Hard light suits graphic subjects. Soft light suits texture and detail.</div>
-  <div style="display:flex; gap:0.5rem;">
-    <button id="light-hard-btn" onclick="selectLightQuality('hard')" style="flex:1; background:var(--surface2); border:1px solid var(--border); border-radius:4px; padding:0.7rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.15s;">Hard</button>
-    <button id="light-soft-btn" onclick="selectLightQuality('soft')" style="flex:1; background:var(--surface2); border:1px solid var(--border); border-radius:4px; padding:0.7rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.15s;">Soft</button>
-  </div>
-</div>
+    <div style="background:var(--surface); border-radius:6px; padding:1.1rem 1.25rem;">
+      <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.5rem;">Question 2</div>
+      <div style="font-size:0.9rem; font-weight:500; color:var(--text); margin-bottom:0.75rem;">Is it hard or soft?</div>
+      <div style="font-size:0.78rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.75rem;">Hard light has sharp shadow edges and high contrast. Soft light has gradual transitions and low contrast. Hard light suits graphic subjects. Soft light suits texture and detail.</div>
+      <div style="display:flex; gap:0.5rem;">
+        <button id="light-hard-btn" onclick="selectLightQuality('hard')" style="flex:1; background:var(--surface2); border:1px solid var(--border); border-radius:4px; padding:0.7rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.15s;">Hard</button>
+        <button id="light-soft-btn" onclick="selectLightQuality('soft')" style="flex:1; background:var(--surface2); border:1px solid var(--border); border-radius:4px; padding:0.7rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.15s;">Soft</button>
+      </div>
+    </div>
 
-<div style="background:var(--surface); border-radius:6px; padding:1.1rem 1.25rem;">
-  <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.5rem;">Question 3</div>
-  <div style="font-size:0.9rem; font-weight:500; color:var(--text); margin-bottom:0.75rem;">Where does it fall on the subject?</div>
-  <div style="font-size:0.78rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.75rem;">This tells you whether your current position will produce the image you are imagining. If the light is falling on the background instead of the subject, move.</div>
-  <input type="text" id="light-q3" placeholder="e.g. Side lit, shadow on right, falling across the texture" style="width:100%; background:var(--surface2); border:1px solid var(--border); border-radius:4px; padding:0.75rem 0.9rem; font-size:0.85rem; font-family:inherit; font-weight:300; color:var(--text); outline:none; -webkit-appearance:none;">
-</div>
-```
-
+    <div style="background:var(--surface); border-radius:6px; padding:1.1rem 1.25rem;">
+      <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.5rem;">Question 3</div>
+      <div style="font-size:0.9rem; font-weight:500; color:var(--text); margin-bottom:0.75rem;">Where does it fall on the subject?</div>
+      <div style="font-size:0.78rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.75rem;">This tells you whether your current position will produce the image you are imagining. If the light is falling on the background instead of the subject, move.</div>
+      <input type="text" id="light-q3" placeholder="e.g. Side lit, shadow on right, falling across the texture" style="width:100%; background:var(--surface2); border:1px solid var(--border); border-radius:4px; padding:0.75rem 0.9rem; font-size:0.85rem; font-family:inherit; font-weight:300; color:var(--text); outline:none; -webkit-appearance:none;">
+    </div>
   </div>
 
   <div id="light-summary" style="display:none; background:var(--surface); border-radius:6px; padding:1.25rem; margin-bottom:1rem;">
@@ -772,7 +747,6 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 </div>
 
 <!-- EDIT CHECKLIST -->
-
 <div id="edit-checklist" style="display:none; animation: fadeUp 0.3s ease; max-width:560px; margin:0 auto; padding:0 1.25rem;">
   <div style="padding:0.5rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
     <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">After the shoot</div>
@@ -805,7 +779,6 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 </div>
 
 <!-- DECISION AUDIT -->
-
 <div id="decision-audit" style="display:none; animation: fadeUp 0.3s ease; max-width:560px; margin:0 auto; padding:0 1.25rem;">
   <div style="padding:0.5rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
     <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">When it went wrong</div>
@@ -831,7 +804,6 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 </div>
 
 <!-- CONSISTENCY TRACKER -->
-
 <div id="consistency-tracker" style="display:none; animation: fadeUp 0.3s ease; max-width:560px; margin:0 auto; padding:0 1.25rem;">
   <div style="padding:0.5rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
     <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Over time</div>
@@ -853,8 +825,8 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
   </div>
 </div>
 
-<!-- PLAN HISTORY -->
 
+<!-- PLAN HISTORY -->
 <div id="plan-history-tool" style="display:none; animation: fadeUp 0.3s ease; max-width:560px; margin:0 auto; padding:0 1.25rem;">
   <div style="padding:0.5rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
     <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Your shoots</div>
@@ -866,7 +838,6 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 </div>
 
 <!-- HISTOGRAM TOOL -->
-
 <div id="histogram-tool" style="display:none; animation: fadeUp 0.3s ease; max-width:560px; margin:0 auto; padding:0 1.25rem;">
   <div style="padding:0.5rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
     <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Exposure reference</div>
@@ -908,12 +879,10 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </div>
   </div>
 
-<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
-
+  <button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
 </div>
 
 <!-- FOCAL LENGTH HELPER -->
-
 <div id="focal-tool" style="display:none; animation: fadeUp 0.3s ease; max-width:560px; margin:0 auto; padding:0 1.25rem;">
   <div style="padding:0.5rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
     <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Settings reference</div>
@@ -954,12 +923,10 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </div>
   </div>
 
-<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
-
+  <button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
 </div>
 
 <!-- COLOUR CAST IDENTIFIER -->
-
 <div id="colour-tool" style="display:none; animation: fadeUp 0.3s ease; max-width:560px; margin:0 auto; padding:0 1.25rem;">
   <div style="padding:0.5rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
     <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Edit reference</div>
@@ -1000,12 +967,10 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </div>
   </div>
 
-<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
-
+  <button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
 </div>
 
 <!-- LOCATION SCOUTING CHECKLIST -->
-
 <div id="location-tool" style="display:none; animation: fadeUp 0.3s ease; max-width:560px; margin:0 auto; padding:0 1.25rem;">
   <div style="padding:0.5rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
     <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Before you arrive</div>
@@ -1038,8 +1003,8 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
   </div>
 </div>
 
-<!-- DEPTH OF FIELD CALCULATOR -->
 
+<!-- DEPTH OF FIELD CALCULATOR -->
 <div id="dof-tool" style="display:none; animation: fadeUp 0.3s ease; max-width:560px; margin:0 auto; padding:0 1.25rem;">
   <div style="padding:0.5rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
     <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Settings reference</div>
@@ -1062,46 +1027,43 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
       <input type="number" id="dof-focal-custom" placeholder="Or enter mm" min="8" max="800" style="margin-top:0.5rem; width:100%; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem 1rem; font-size:0.88rem; font-family:inherit; font-weight:300; color:var(--text); outline:none; -webkit-appearance:none;" oninput="dofState.focal = this.value; updateDOF();">
     </div>
 
-```
-<div>
-  <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.6rem;">Aperture (f/)</div>
-  <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-    <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('aperture','1.4',this)">1.4</button>
-    <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('aperture','1.8',this)">1.8</button>
-    <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('aperture','2.8',this)">2.8</button>
-    <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('aperture','4',this)">4</button>
-    <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('aperture','5.6',this)">5.6</button>
-    <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('aperture','8',this)">8</button>
-    <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('aperture','11',this)">11</button>
-    <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('aperture','16',this)">16</button>
-  </div>
-</div>
+    <div>
+      <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.6rem;">Aperture (f/)</div>
+      <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('aperture','1.4',this)">1.4</button>
+        <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('aperture','1.8',this)">1.8</button>
+        <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('aperture','2.8',this)">2.8</button>
+        <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('aperture','4',this)">4</button>
+        <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('aperture','5.6',this)">5.6</button>
+        <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('aperture','8',this)">8</button>
+        <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('aperture','11',this)">11</button>
+        <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('aperture','16',this)">16</button>
+      </div>
+    </div>
 
-<div>
-  <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.6rem;">Distance to subject (metres)</div>
-  <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-    <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('distance','0.5',this)">0.5m</button>
-    <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('distance','1',this)">1m</button>
-    <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('distance','2',this)">2m</button>
-    <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('distance','5',this)">5m</button>
-    <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('distance','10',this)">10m</button>
-    <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('distance','20',this)">20m</button>
-    <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('distance','50',this)">50m</button>
-  </div>
-  <input type="number" id="dof-distance-custom" placeholder="Or enter metres" min="0.1" max="1000" step="0.1" style="margin-top:0.5rem; width:100%; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem 1rem; font-size:0.88rem; font-family:inherit; font-weight:300; color:var(--text); outline:none; -webkit-appearance:none;" oninput="dofState.distance = this.value; updateDOF();">
-</div>
+    <div>
+      <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.6rem;">Distance to subject (metres)</div>
+      <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('distance','0.5',this)">0.5m</button>
+        <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('distance','1',this)">1m</button>
+        <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('distance','2',this)">2m</button>
+        <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('distance','5',this)">5m</button>
+        <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('distance','10',this)">10m</button>
+        <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('distance','20',this)">20m</button>
+        <button class="option-btn" style="flex:1; min-width:55px;" onclick="selectDOF('distance','50',this)">50m</button>
+      </div>
+      <input type="number" id="dof-distance-custom" placeholder="Or enter metres" min="0.1" max="1000" step="0.1" style="margin-top:0.5rem; width:100%; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem 1rem; font-size:0.88rem; font-family:inherit; font-weight:300; color:var(--text); outline:none; -webkit-appearance:none;" oninput="dofState.distance = this.value; updateDOF();">
+    </div>
 
-<div>
-  <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.6rem;">Sensor size</div>
-  <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.5rem;">
-    <button class="option-btn" style="flex:1;" onclick="selectDOF('sensor','full',this)">Full frame</button>
-    <button class="option-btn" style="flex:1;" onclick="selectDOF('sensor','crop',this)">APS-C / Crop</button>
-    <button class="option-btn" style="flex:1;" onclick="selectDOF('sensor','mft',this)">Micro 4/3</button>
-  </div>
-  <div id="dof-crop-note" style="display:none; font-size:0.75rem; color:var(--text-muted); background:var(--surface); border-radius:4px; padding:0.65rem 0.9rem; line-height:1.5;"></div>
-</div>
-```
-
+    <div>
+      <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.6rem;">Sensor size</div>
+      <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.5rem;">
+        <button class="option-btn" style="flex:1;" onclick="selectDOF('sensor','full',this)">Full frame</button>
+        <button class="option-btn" style="flex:1;" onclick="selectDOF('sensor','crop',this)">APS-C / Crop</button>
+        <button class="option-btn" style="flex:1;" onclick="selectDOF('sensor','mft',this)">Micro 4/3</button>
+      </div>
+      <div id="dof-crop-note" style="display:none; font-size:0.75rem; color:var(--text-muted); background:var(--surface); border-radius:4px; padding:0.65rem 0.9rem; line-height:1.5;"></div>
+    </div>
   </div>
 
   <div id="dof-result" style="display:none; margin-bottom:2rem;">
@@ -1129,12 +1091,10 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </div>
   </div>
 
-<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
-
+  <button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
 </div>
 
 <!-- SHOT LIST BUILDER -->
-
 <div id="shotlist-tool" style="display:none; animation: fadeUp 0.3s ease; max-width:560px; margin:0 auto; padding:0 1.25rem;">
   <div style="padding:0.5rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
     <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Before and during the shoot</div>
@@ -1167,8 +1127,8 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
   </div>
 </div>
 
-<!-- RECIPROCITY FAILURE CALCULATOR -->
 
+<!-- RECIPROCITY FAILURE CALCULATOR -->
 <div id="reciprocity-tool" style="display:none; animation: fadeUp 0.3s ease; max-width:560px; margin:0 auto; padding:0 1.25rem;">
   <div style="padding:0.5rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
     <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Film reference</div>
@@ -1198,22 +1158,19 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
       </div>
     </div>
 
-```
-<div>
-  <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.6rem;">Metered exposure time (seconds)</div>
-  <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.5rem;">
-    <button class="option-btn" style="flex:1; min-width:50px;" onclick="selectRecip('time','1',this)">1s</button>
-    <button class="option-btn" style="flex:1; min-width:50px;" onclick="selectRecip('time','2',this)">2s</button>
-    <button class="option-btn" style="flex:1; min-width:50px;" onclick="selectRecip('time','4',this)">4s</button>
-    <button class="option-btn" style="flex:1; min-width:50px;" onclick="selectRecip('time','8',this)">8s</button>
-    <button class="option-btn" style="flex:1; min-width:50px;" onclick="selectRecip('time','15',this)">15s</button>
-    <button class="option-btn" style="flex:1; min-width:50px;" onclick="selectRecip('time','30',this)">30s</button>
-    <button class="option-btn" style="flex:1; min-width:50px;" onclick="selectRecip('time','60',this)">60s</button>
-  </div>
-  <input type="number" id="recip-time-custom" placeholder="Or enter seconds" min="1" max="3600" style="width:100%; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem 1rem; font-size:0.88rem; font-family:inherit; font-weight:300; color:var(--text); outline:none; -webkit-appearance:none;" oninput="recipState.time = parseFloat(this.value); updateRecip();">
-</div>
-```
-
+    <div>
+      <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.6rem;">Metered exposure time (seconds)</div>
+      <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.5rem;">
+        <button class="option-btn" style="flex:1; min-width:50px;" onclick="selectRecip('time','1',this)">1s</button>
+        <button class="option-btn" style="flex:1; min-width:50px;" onclick="selectRecip('time','2',this)">2s</button>
+        <button class="option-btn" style="flex:1; min-width:50px;" onclick="selectRecip('time','4',this)">4s</button>
+        <button class="option-btn" style="flex:1; min-width:50px;" onclick="selectRecip('time','8',this)">8s</button>
+        <button class="option-btn" style="flex:1; min-width:50px;" onclick="selectRecip('time','15',this)">15s</button>
+        <button class="option-btn" style="flex:1; min-width:50px;" onclick="selectRecip('time','30',this)">30s</button>
+        <button class="option-btn" style="flex:1; min-width:50px;" onclick="selectRecip('time','60',this)">60s</button>
+      </div>
+      <input type="number" id="recip-time-custom" placeholder="Or enter seconds" min="1" max="3600" style="width:100%; background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:0.75rem 1rem; font-size:0.88rem; font-family:inherit; font-weight:300; color:var(--text); outline:none; -webkit-appearance:none;" oninput="recipState.time = parseFloat(this.value); updateRecip();">
+    </div>
   </div>
 
   <div id="recip-result" style="display:none; margin-bottom:2rem;">
@@ -1233,12 +1190,10 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </div>
   </div>
 
-<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
-
+  <button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
 </div>
 
 <!-- RAW VS JPEG HELPER -->
-
 <div id="rawjpeg-tool" style="display:none; animation: fadeUp 0.3s ease; max-width:560px; margin:0 auto; padding:0 1.25rem;">
   <div style="padding:0.5rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
     <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Before the shoot</div>
@@ -1286,12 +1241,10 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </div>
   </div>
 
-<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
-
+  <button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
 </div>
 
 <!-- PRINTING CALCULATOR -->
-
 <div id="print-tool" style="display:none; animation: fadeUp 0.3s ease; max-width:560px; margin:0 auto; padding:0 1.25rem;">
   <div style="padding:0.5rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
     <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Print reference</div>
@@ -1315,30 +1268,27 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
       </div>
     </div>
 
-```
-<div>
-  <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.6rem;">Your image resolution</div>
-  <div style="display:flex; flex-direction:column; gap:0.5rem;">
-    <button class="option-btn" onclick="selectPrint('res','12',this)">12 megapixels (e.g. older Canon, Nikon)</button>
-    <button class="option-btn" onclick="selectPrint('res','20',this)">20 megapixels (e.g. Sony A7, Canon R)</button>
-    <button class="option-btn" onclick="selectPrint('res','24',this)">24 megapixels (e.g. Sony A6000, Nikon Z5)</button>
-    <button class="option-btn" onclick="selectPrint('res','33',this)">33 megapixels (e.g. Nikon Z8)</button>
-    <button class="option-btn" onclick="selectPrint('res','45',this)">45 megapixels (e.g. Sony A7R IV, Canon R5)</button>
-    <button class="option-btn" onclick="selectPrint('res','61',this)">61 megapixels (e.g. Sony A7R IV)</button>
-    <button class="option-btn" onclick="selectPrint('res','100',this)">100+ megapixels (medium format)</button>
-  </div>
-</div>
+    <div>
+      <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.6rem;">Your image resolution</div>
+      <div style="display:flex; flex-direction:column; gap:0.5rem;">
+        <button class="option-btn" onclick="selectPrint('res','12',this)">12 megapixels (e.g. older Canon, Nikon)</button>
+        <button class="option-btn" onclick="selectPrint('res','20',this)">20 megapixels (e.g. Sony A7, Canon R)</button>
+        <button class="option-btn" onclick="selectPrint('res','24',this)">24 megapixels (e.g. Sony A6000, Nikon Z5)</button>
+        <button class="option-btn" onclick="selectPrint('res','33',this)">33 megapixels (e.g. Nikon Z8)</button>
+        <button class="option-btn" onclick="selectPrint('res','45',this)">45 megapixels (e.g. Sony A7R IV, Canon R5)</button>
+        <button class="option-btn" onclick="selectPrint('res','61',this)">61 megapixels (e.g. Sony A7R IV)</button>
+        <button class="option-btn" onclick="selectPrint('res','100',this)">100+ megapixels (medium format)</button>
+      </div>
+    </div>
 
-<div>
-  <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.6rem;">Viewing distance</div>
-  <div style="display:flex; gap:0.5rem;">
-    <button class="option-btn" style="flex:1;" onclick="selectPrint('viewing','close',this)">Close up</button>
-    <button class="option-btn" style="flex:1;" onclick="selectPrint('viewing','normal',this)">Normal</button>
-    <button class="option-btn" style="flex:1;" onclick="selectPrint('viewing','far',this)">From a distance</button>
-  </div>
-</div>
-```
-
+    <div>
+      <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.6rem;">Viewing distance</div>
+      <div style="display:flex; gap:0.5rem;">
+        <button class="option-btn" style="flex:1;" onclick="selectPrint('viewing','close',this)">Close up</button>
+        <button class="option-btn" style="flex:1;" onclick="selectPrint('viewing','normal',this)">Normal</button>
+        <button class="option-btn" style="flex:1;" onclick="selectPrint('viewing','far',this)">From a distance</button>
+      </div>
+    </div>
   </div>
 
   <div id="print-result" style="display:none; margin-bottom:2rem;">
@@ -1353,8 +1303,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </div>
   </div>
 
-<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
-
+  <button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
 </div>
 
 <div class="footer-link"><a href="https://www.joshuajball.com/method">The Photographer's Method</a></div>
@@ -3575,7 +3524,18 @@ function loadState() {
 loadState();
 </script>
 
+
 </div>
 
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/shoot-planner/sw.js')
+      .then(function(reg) { console.log('SW registered'); })
+      .catch(function(err) { console.log('SW failed:', err); });
+  });
+}
+</script>
 </body>
 </html>
