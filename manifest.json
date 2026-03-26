@@ -1,0 +1,22 @@
+{
+  "name": "Shoot Planner by Joshua Ball",
+  "short_name": "Shoot Planner",
+  "description": "Plan your shoot. Take your five decisions out with you.",
+  "start_url": "/shoot-planner/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/shoot-planner/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/shoot-planner/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
