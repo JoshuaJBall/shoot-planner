@@ -4408,10 +4408,8 @@ window.scrollTo({ top: 0, behavior: ‘smooth’ });
 
 <script>
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/shoot-planner/sw.js')
-      .then(function(reg) { console.log('SW registered'); })
-      .catch(function(err) { /* SW not available - app works without it */ });
+  navigator.serviceWorker.getRegistrations().then(function(registrations) {
+    for (var reg of registrations) { reg.unregister(); }
   });
 }
 </script>
