@@ -301,7 +301,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 
 <!-- PLAN STAGE -->
 
-<div id="plan-stage" style="padding:0 1.25rem;">
+<div id="plan-stage" style="padding:0 1.25rem; min-height:100vh; background:var(--bg);">
 
   <div id="screen-q1" class="screen">
     <div class="progress-wrap">
@@ -3142,9 +3142,9 @@ function loadPlanForEdit(i) {
       const el = document.getElementById(q);
       if (el) el.value = entry.answers[q] || '';
     });
-    // Pre-select option buttons
-    ['q3','q4','q5','q6'].forEach(function(q) {
-      const num = q.replace('q','');
+    // Pre-select option buttons for ALL questions
+    ['q1','q2','q3','q4','q5','q6'].forEach(function(q) {
+      var num = q.replace('q','');
       document.querySelectorAll('#screen-q' + num + ' .option-btn').forEach(function(btn) {
         btn.classList.toggle('selected', btn.textContent.trim() === entry.answers[q]);
       });
