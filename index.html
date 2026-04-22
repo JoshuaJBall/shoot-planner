@@ -504,7 +504,15 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
   <div style="padding-bottom:1rem;">
     <button onclick="exportShootSummary()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.2s;">Export shoot summary</button>
   </div>
-  <button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">← Home</button>
+    <div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--border);">
+    <div style="font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-dim); margin-bottom:1rem;">Shooting sessions</div>
+    <div id="sessions-log-container">
+      <p style="font-size:0.82rem; color:var(--text-dim); text-align:center; padding:1rem 0;">No sessions recorded yet. Use Shooting mode on your next shoot.</p>
+    </div>
+  </div>
+
+<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">← Home</button>
+
 </div>
 
 <!-- WHITE BALANCE HELPER -->
@@ -620,7 +628,6 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
   <div id="reflect-plan-banner" style="display:none; background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:1rem 1.25rem; margin-bottom:1rem;">
     <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Last shoot plan</div>
     <div id="reflect-plan-summary" style="font-size:0.85rem; color:var(--text); line-height:1.5; margin-bottom:0.75rem;"></div>
-    <button onclick="loadPlanIntoReflection()" style="font-size:0.78rem; color:var(--accent); background:none; border:none; padding:0; cursor:pointer; font-family:inherit; -webkit-appearance:none;">Use this plan as my intention</button>
   </div>
 
   <div style="display:flex; flex-direction:column; gap:0.75rem; margin-bottom:1.5rem;">
@@ -939,7 +946,15 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
       <div id="import-result" style="display:none; margin-top:0.75rem; font-size:0.82rem; color:var(--text-muted); line-height:1.5;"></div>
     </div>
   </div>
-  <button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">← Home</button>
+    <div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--border);">
+    <div style="font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-dim); margin-bottom:1rem;">Shooting sessions</div>
+    <div id="sessions-log-container">
+      <p style="font-size:0.82rem; color:var(--text-dim); text-align:center; padding:1rem 0;">No sessions recorded yet. Use Shooting mode on your next shoot.</p>
+    </div>
+  </div>
+
+<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">← Home</button>
+
 </div>
 
 <!-- HISTOGRAM TOOL -->
@@ -1454,7 +1469,8 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
   </label>
 </div>
 
-<button onclick="startShootMode()" style="width:100%; background:var(--accent); border:none; border-radius:4px; padding:0.85rem; font-size:0.88rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none;">Start shooting</button>
+<button onclick="startShootMode()" style="width:100%; background:var(--accent); border:none; border-radius:4px; padding:0.85rem; font-size:0.88rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none; margin-bottom:0.75rem;">Start shooting</button>
+<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">← Home</button>
 
   </div>
 
@@ -1498,10 +1514,11 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
       <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.75rem;">Session summary</div>
       <div id="shoot-mode-summary-text" style="font-size:0.88rem; color:var(--text); line-height:1.7;"></div>
     </div>
-    <div style="display:flex; gap:0.75rem; padding-bottom:3rem;">
-      <button onclick="goToReflection()" style="flex:1; background:var(--accent); border:none; border-radius:4px; padding:0.85rem; font-size:0.85rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none;">Reflect on this shoot</button>
+    <div style="display:flex; gap:0.75rem; margin-bottom:0.75rem;">
+      <button onclick="var el = document.getElementById('shoot-mode-summary-text'); window._lastSessionSummary = el ? el.textContent : ''; window._lastSessionData = { total: window._shootTotal || 0, keepers: window._shootKeepers || 0, rate: window._shootTotal > 0 ? Math.round((window._shootKeepers/window._shootTotal)*100) : null, mins: Math.floor((window._shootSeconds||0)/60) }; goToReflection();" style="flex:1; background:var(--accent); border:none; border-radius:4px; padding:0.85rem; font-size:0.85rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none;">Reflect on this shoot</button>
       <button onclick="goHome()" style="flex:1; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted);">← Home</button>
     </div>
+
   </div>
 </div>
 
@@ -1574,6 +1591,20 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 </div>
 
 <script>
+window.onerror = function(msg, src, line, col, err) {
+  // Suppress cross-origin errors (line 0) - these are Safari PWA sandboxing artifacts
+  if (line === 0) return true;
+  var d = document.getElementById('_err');
+  if (!d) {
+    d = document.createElement('div');
+    d.id = '_err';
+    d.style.cssText = 'position:fixed;bottom:80px;left:0;right:0;background:#c00;color:#fff;padding:0.75rem 1rem;font-size:0.75rem;z-index:99999;word-break:break-all;';
+    document.body ? document.body.appendChild(d) : document.addEventListener('DOMContentLoaded', function(){ document.body.appendChild(d); });
+  }
+  d.innerHTML += '<div>' + msg + ' | line:' + line + ' | ' + (src || '').split('/').pop() + '</div>';
+  return false;
+};
+window.addEventListener('unhandledrejection', function(e) { if (e) e.preventDefault(); });
 const ans = {};
 const checked = { subject: false, light: false, composition: false, settings: false, edit: false };
 const decisionOrder = ['subject','light','composition','settings','edit'];
@@ -2354,7 +2385,7 @@ function showTool(id) {
 function goToLightTool() { showTool('light-tool'); }
 function goToEditChecklist() { renderEditChecklist(); showTool('edit-checklist'); }
 function goToAudit() { renderAudit(); showTool('decision-audit'); }
-function goToTracker() { renderTracker(); showTool('consistency-tracker'); }
+function goToTracker() { renderTracker(); showTool('consistency-tracker'); try { if (typeof window.renderSessionsLog === 'function') window.renderSessionsLog(); } catch(e) {} }
 
 // Override goHome to also hide tools
 
@@ -2575,33 +2606,37 @@ function resetAudit() {
 const trackerDecisions = ['Subject','Light','Composition','Settings','Edit'];
 
 function renderTracker() {
-  const checks = document.getElementById('tracker-decision-checks');
-  checks.innerHTML = trackerDecisions.map(d => `
-    <label style="display:flex; align-items:center; gap:0.75rem; background:var(--surface); border-radius:4px; padding:0.75rem 1rem; cursor:pointer;">
-      <input type="checkbox" id="tracker-${d}" style="width:16px; height:16px; accent-color:var(--accent); cursor:pointer;">
-      <span style="font-size:0.88rem; color:var(--text-muted);">${d} decision made</span>
-    </label>
-  `).join('');
-
-  renderTrackerHistory();
+  try {
+    var checks = document.getElementById('tracker-decision-checks');
+    if (!checks) return;
+    var checkHtml = '';
+    trackerDecisions.forEach(function(d) {
+      checkHtml += '<label style="display:flex; align-items:center; gap:0.75rem; background:var(--surface); border-radius:4px; padding:0.75rem 1rem; cursor:pointer; margin-bottom:0.5rem;">';
+      checkHtml += '<input type="checkbox" id="tracker-' + d + '" style="width:16px; height:16px; accent-color:var(--accent); cursor:pointer;">';
+      checkHtml += '<span style="font-size:0.88rem; color:var(--text-muted);">' + d + ' decision made</span>';
+      checkHtml += '</label>';
+    });
+    checks.innerHTML = checkHtml;
+    try { renderTrackerHistory(); } catch(e) {}
+  } catch(e) {}
 }
 
 function logShoot() {
-  const name = document.getElementById('tracker-shoot-name').value.trim();
+  var name = document.getElementById('tracker-shoot-name').value.trim();
   if (!name) { alert('Name this shoot before logging it.'); return; }
 
-  const made = trackerDecisions.filter(d => document.getElementById('tracker-' + d).checked);
-  const skipped = trackerDecisions.filter(d => !document.getElementById('tracker-' + d).checked);
+  var made = trackerDecisions.filter(function(d) { return document.getElementById('tracker-' + d).checked; });
+  var skipped = trackerDecisions.filter(function(d) { return !document.getElementById('tracker-' + d).checked; });
 
-  const log = {
+  var log = {
     date: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }),
-    name,
-    made,
-    skipped
+    name: name,
+    made: made,
+    skipped: skipped
   };
 
   try {
-    const existing = JSON.parse(localStorage.getItem('shoot-log') || '[]');
+    var existing = JSON.parse(localStorage.getItem('shoot-log') || '[]');
     existing.unshift(log);
     if (existing.length >= 50) { alert('Your shoot log is full. The oldest entry has been removed to make space. Your log stores a maximum of 50 shoots.'); }
     try { localStorage.setItem('shoot-log', JSON.stringify(existing.slice(0, 50))); } catch(e) {}
@@ -2628,56 +2663,64 @@ function deleteShootEntry(i) {
 }
 
 function renderTrackerHistory() {
-  const container = document.getElementById('tracker-history');
+  var container = document.getElementById('tracker-history');
   try {
-    const log = JSON.parse(localStorage.getItem('shoot-log') || '[]');
+    var log = JSON.parse(localStorage.getItem('shoot-log') || '[]');
     if (log.length === 0) {
       container.innerHTML = '<p style="font-size:0.82rem; color:var(--text-dim); text-align:center; padding:1rem 0;">No shoots logged yet.</p>';
       return;
     }
 
     // Pattern analysis
-    const skippedCounts = {};
-    trackerDecisions.forEach(d => skippedCounts[d] = 0);
-    log.forEach(entry => entry.skipped.forEach(d => skippedCounts[d]++));
-    const mostSkipped = Object.entries(skippedCounts).sort((a,b) => b[1]-a[1])[0];
+    var skippedCounts = {};
+    trackerDecisions.forEach(function(d) { skippedCounts[d] = 0; });
+    log.forEach(function(entry) {
+      if (entry.skipped) entry.skipped.forEach(function(d) { skippedCounts[d] = (skippedCounts[d] || 0) + 1; });
+    });
+    var mostSkipped = null;
+    var mostSkippedCount = 0;
+    Object.keys(skippedCounts).forEach(function(k) {
+      if (skippedCounts[k] > mostSkippedCount) { mostSkippedCount = skippedCounts[k]; mostSkipped = [k, skippedCounts[k]]; }
+    });
 
-    let patternHtml = '';
-    const patternExplanations = {
-      Subject: 'You keep skipping the subject decision. That means you are raising the camera before deciding what the photo is about. The result is collected scenes rather than intentional photographs. Before your next shoot, name the subject in one sentence before pressing the shutter.',
-      Light: 'You keep skipping the light decision. That means you are composing for the subject without asking what the light is doing. The result is photos where the light works against the subject rather than for it. Before your next shoot, ask where the light is coming from, whether it is hard or soft, and where it falls.',
-      Composition: 'You keep skipping the composition decision. That means you are including things in the frame that compete with the subject without noticing. The result is busy frames with no clear structure. Before your next shoot, ask what does not belong in this frame and remove it before shooting.',
-      Settings: 'You keep skipping the settings decision. That means you are setting ISO first and letting shutter speed and aperture be compromises. The result is settings that are technically correct but creatively wrong. Before your next shoot, set shutter speed first based on movement, aperture based on depth, and ISO last.',
-      Edit: 'You keep skipping the edit decision. That means you are opening Lightroom without knowing what the image should feel like. The result is a search through presets rather than a build toward an intention. Before your next shoot, decide the mood before you raise the camera.'
+    var patternExplanations = {
+      Subject: 'You keep skipping the subject decision. That means you are raising the camera before you know what the photo is about.',
+      Light: 'You keep skipping the light decision. That means you are not reading conditions before you shoot.',
+      Composition: 'You keep skipping the composition decision. That means you are framing on instinct rather than intention.',
+      Settings: 'You keep skipping the settings decision. That means your camera may not be set up for what you are trying to capture.',
+      Edit: 'You keep skipping the edit decision. That means you are opening Lightroom without a clear intention.'
     };
 
-    if (log.length >= 3 && mostSkipped[1] > 0) {
-      patternHtml = `<div style="background:var(--surface); border-radius:6px; padding:1rem 1.25rem; margin-bottom:1rem;">
-        <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Pattern identified</div>
-        <div style="font-size:0.85rem; color:var(--text); line-height:1.6; margin-bottom:0.5rem;">${patternExplanations[mostSkipped[0]]}</div>
-        <div style="font-size:0.75rem; color:var(--text-dim);">Skipped ${mostSkipped[1]} time${mostSkipped[1] > 1 ? 's' : ''} across your last ${log.length} shoots.</div>
-      </div>`;
+    var patternHtml = '';
+    if (mostSkipped && mostSkipped[1] > 1) {
+      var explanation = patternExplanations[mostSkipped[0]] || '';
+      patternHtml = '<div style="background:var(--surface); border-radius:6px; padding:1rem 1.25rem; margin-bottom:1rem;">';
+      patternHtml += '<div style="font-size:0.65rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.5rem;">Pattern spotted</div>';
+      patternHtml += '<div style="font-size:0.88rem; color:var(--text); margin-bottom:0.4rem;">' + mostSkipped[0] + ' skipped ' + mostSkipped[1] + ' times</div>';
+      patternHtml += '<div style="font-size:0.82rem; color:var(--text-muted); line-height:1.6;">' + explanation + '</div>';
+      patternHtml += '</div>';
     }
 
-    const entriesHtml = log.map((entry, i) => `
-      <div style="background:var(--surface); border-radius:6px; padding:1rem 1.25rem; margin-bottom:0.5rem;">
-        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
-          <div style="flex:1; min-width:0;">
-            <div style="font-size:0.88rem; font-weight:500; color:var(--text);">${entry.name}</div>
-            <div style="font-size:0.75rem; color:var(--text-dim); margin-top:0.1rem;">${entry.date}</div>
-          </div>
-          <button onclick="deleteShootEntry(${i})" style="background:none; border:none; color:var(--text-dim); font-size:1rem; cursor:pointer; padding:0; line-height:1; flex-shrink:0; margin-left:0.75rem; -webkit-appearance:none;" title="Delete this entry">×</button>
-        </div>
-        <div style="font-size:0.78rem; color:var(--text-muted);">Made: ${entry.made.length > 0 ? entry.made.join(', ') : 'none'}</div>
-        ${entry.skipped.length > 0 ? `<div style="font-size:0.78rem; color:#ff8888; margin-top:0.2rem;">Skipped: ${entry.skipped.join(', ')}</div>` : ''}
-      </div>
-    `).join('');
+    var entriesHtml = '';
+    log.forEach(function(entry, i) {
+      var madeList = entry.made ? entry.made.join(', ') : 'None';
+      var skippedList = entry.skipped ? entry.skipped.join(', ') : 'None';
+      entriesHtml += '<div style="background:var(--surface); border-radius:6px; padding:1rem 1.25rem; margin-bottom:0.5rem;">';
+      entriesHtml += '<div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">';
+      entriesHtml += '<div style="font-size:0.82rem; font-weight:500; color:var(--text);">' + (entry.name || 'Unnamed shoot') + '</div>';
+      entriesHtml += '<div style="font-size:0.72rem; color:var(--text-dim);">' + entry.date + '</div>';
+      entriesHtml += '</div>';
+      if (entry.made && entry.made.length > 0) {
+        entriesHtml += '<div style="font-size:0.75rem; color:var(--text-muted); margin-bottom:0.2rem;"><span style="color:var(--text-dim); text-transform:uppercase; font-size:0.65rem; letter-spacing:0.1em;">Made: </span>' + madeList + '</div>';
+      }
+      if (entry.skipped && entry.skipped.length > 0) {
+        entriesHtml += '<div style="font-size:0.75rem; color:var(--text-dim);"><span style="text-transform:uppercase; font-size:0.65rem; letter-spacing:0.1em;">Skipped: </span>' + skippedList + '</div>';
+      }
+      entriesHtml += '</div>';
+    });
 
-    container.innerHTML = '<div style="font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.75rem;">Shoot history</div>' + patternHtml + entriesHtml;
-    setTimeout(function() { drawTrackerChart(log); }, 50);
-  } catch(e) {
-    container.innerHTML = '';
-  }
+    container.innerHTML = patternHtml + entriesHtml;
+  } catch(e) {}
 }
 
 
@@ -2816,7 +2859,15 @@ function saveReflection() {
 
   try {
     const log = JSON.parse(localStorage.getItem('reflection-log') || '[]');
-    log.unshift({ date: new Date().toLocaleDateString('en-GB'), intention, actual, gap: reflectGap });
+    var entry = { date: new Date().toLocaleDateString('en-GB'), intention: intention, actual: actual, gap: reflectGap };
+    if (window._lastSessionData) {
+      entry.sessionTotal = window._lastSessionData.total;
+      entry.sessionKeepers = window._lastSessionData.keepers;
+      entry.sessionRate = window._lastSessionData.rate;
+      entry.sessionMins = window._lastSessionData.mins;
+      window._lastSessionData = null;
+    }
+    log.unshift(entry);
     try { localStorage.setItem('reflection-log', JSON.stringify(log.slice(0, 20))); } catch(e) {}
   } catch(e) {}
 
@@ -2833,23 +2884,34 @@ function clearReflectionHistory() {
 
 function renderReflectionHistory() {
   try {
-    const log = JSON.parse(localStorage.getItem('reflection-log') || '[]');
-    const container = document.getElementById('reflect-history-list');
+    var log = JSON.parse(localStorage.getItem('reflection-log') || '[]');
+    var container = document.getElementById('reflect-history-list');
     if (log.length === 0) {
       container.innerHTML = '<p style="font-size:0.82rem; color:var(--text-dim); text-align:center; padding:1rem 0;">No reflections saved yet.</p>';
       return;
     }
-    container.innerHTML = log.map((entry, i) => `
-      <div style="background:var(--surface); border-radius:6px; padding:1rem 1.25rem; margin-bottom:0.5rem;">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
-          <div style="font-size:0.78rem; font-weight:500; color:var(--text);">Reflection ${log.length - i}</div>
-          <div style="font-size:0.72rem; color:var(--text-dim);">${entry.date}</div>
-        </div>
-        <div style="font-size:0.78rem; color:var(--text-muted); margin-bottom:0.3rem;"><span style="color:var(--text-dim); font-size:0.65rem; text-transform:uppercase; letter-spacing:0.1em;">Intended: </span>${entry.intention}</div>
-        <div style="font-size:0.78rem; color:var(--text-muted); margin-bottom:0.3rem;"><span style="color:var(--text-dim); font-size:0.65rem; text-transform:uppercase; letter-spacing:0.1em;">Produced: </span>${entry.actual}</div>
-        <div style="font-size:0.78rem; color:var(--text-muted);"><span style="color:var(--text-dim); font-size:0.65rem; text-transform:uppercase; letter-spacing:0.1em;">Gap: </span>${entry.gap}</div>
-      </div>
-    `).join('');
+    var html = '';
+    log.forEach(function(entry, i) {
+      html += '<div style="background:var(--surface); border-radius:6px; padding:1rem 1.25rem; margin-bottom:0.75rem;">';
+      html += '<div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">';
+      html += '<div style="font-size:0.78rem; font-weight:500; color:var(--text);">Reflection ' + (log.length - i) + '</div>';
+      html += '<div style="font-size:0.72rem; color:var(--text-dim);">' + entry.date + '</div>';
+      html += '</div>';
+      // Session stats if saved with this reflection
+      if (entry.sessionTotal > 0) {
+        var rateText = entry.sessionRate !== null ? entry.sessionRate + '% keepers' : '';
+        html += '<div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:0.6rem; padding:0.4rem 0.6rem; background:var(--surface2); border-radius:4px; display:inline-block;">';
+        html += entry.sessionTotal + ' frames, ' + entry.sessionKeepers + ' keepers';
+        if (rateText) html += ' (' + rateText + ')';
+        if (entry.sessionMins) html += ' &middot; ' + entry.sessionMins + ' min';
+        html += '</div><br>';
+      }
+      html += '<div style="font-size:0.78rem; color:var(--text-muted); margin-bottom:0.3rem;"><span style="color:var(--text-dim); font-size:0.65rem; text-transform:uppercase; letter-spacing:0.1em;">Intended: </span>' + entry.intention + '</div>';
+      html += '<div style="font-size:0.78rem; color:var(--text-muted); margin-bottom:0.3rem;"><span style="color:var(--text-dim); font-size:0.65rem; text-transform:uppercase; letter-spacing:0.1em;">Produced: </span>' + entry.actual + '</div>';
+      html += '<div style="font-size:0.78rem; color:var(--text-muted);"><span style="color:var(--text-dim); font-size:0.65rem; text-transform:uppercase; letter-spacing:0.1em;">Gap: </span>' + entry.gap + '</div>';
+      html += '</div>';
+    });
+    container.innerHTML = html;
   } catch(e) {}
 }
 
@@ -3889,6 +3951,10 @@ function showToolById(id) {
   document.getElementById('stage-tabs').style.display = 'none';
   var el = document.getElementById(id);
   if (el) el.style.display = 'block';
+  // Render sessions log when consistency tracker opens
+  if (id === 'consistency-tracker' && typeof window.renderSessionsLog === 'function') {
+    window.renderSessionsLog();
+  }
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -3961,7 +4027,23 @@ window.goToReflection = window.goToReflection || function() {
   showToolById('reflection-tool');
   if (typeof renderReflectionHistory === 'function') renderReflectionHistory();
   var banner = document.getElementById('reflect-plan-banner');
-  if (banner) banner.style.display = 'none';
+  var summary = document.getElementById('reflect-plan-summary');
+  if (banner && summary) {
+    var lines = [];
+    if (window._lastSessionSummary) {
+      lines.push(window._lastSessionSummary);
+      window._lastSessionSummary = null;
+    }
+    if (window._currentPlan && window._currentPlan.subject) {
+      lines.push('Plan: ' + window._currentPlan.subject.substring(0, 80));
+    }
+    if (lines.length > 0) {
+      summary.textContent = lines.join(' | ');
+      banner.style.display = 'block';
+    } else {
+      banner.style.display = 'none';
+    }
+  }
 };
 
 window.exportShootSummary = window.exportShootSummary || function() {
@@ -4069,6 +4151,34 @@ window.stopShootMode = window.stopShootMode || function() {
   }
   var el = document.getElementById('shoot-mode-summary-text');
   if (el) el.textContent = text;
+
+  // Save session to log
+  // Read frame counts from DOM as most reliable source
+  var totalEl = document.getElementById('total-frames');
+  var keeperEl = document.getElementById('keeper-frames');
+  var domTotal = totalEl ? parseInt(totalEl.textContent) || 0 : 0;
+  var domKeepers = keeperEl ? parseInt(keeperEl.textContent) || 0 : 0;
+  var finalTotal = domTotal > 0 ? domTotal : (window._shootTotal || 0);
+  var finalKeepers = domKeepers > 0 ? domKeepers : (window._shootKeepers || 0);
+  // Get shoot name from plan title, subject, or shoot type
+  var shootName = 'Untitled shoot';
+  if (window._currentPlan) {
+    shootName = window._currentPlan.title || window._currentPlan.subject || 'Untitled shoot';
+  }
+  var session = {
+    date: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }),
+    shoot: shootName,
+    mins: mins,
+    total: finalTotal,
+    keepers: finalKeepers,
+    rate: finalTotal > 0 ? Math.round((finalKeepers / finalTotal) * 100) : null,
+    interval: window._shootIntervalMins || 20
+  };
+  try {
+    var sessions = JSON.parse(localStorage.getItem('shooting-sessions') || '[]');
+    sessions.unshift(session);
+    localStorage.setItem('shooting-sessions', JSON.stringify(sessions.slice(0, 50)));
+  } catch(e) {}
 };
 
 window.addFrame = window.addFrame || function(isKeeper) {
@@ -4164,6 +4274,76 @@ window.handleImportFile = function(input) {
   };
   reader.readAsText(file);
 };
+
+window.renderSessionsLog = function() {
+  var container = document.getElementById('sessions-log-container');
+  if (!container) return;
+  try {
+    var sessions = JSON.parse(localStorage.getItem('shooting-sessions') || '[]');
+    if (sessions.length === 0) {
+      container.innerHTML = '<p style="font-size:0.82rem; color:var(--text-dim); text-align:center; padding:1rem 0;">No sessions recorded yet. Use Shooting mode on your next shoot.</p>';
+      return;
+    }
+
+    // Calculate averages
+    var withFrames = sessions.filter(function(s) { return s.total > 0; });
+    var avgRate = withFrames.length > 0
+      ? Math.round(withFrames.reduce(function(sum, s) { return sum + s.rate; }, 0) / withFrames.length)
+      : null;
+
+    var html = '';
+
+    // Summary stats
+    if (avgRate !== null) {
+      html += '<div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.75rem; margin-bottom:1.5rem;">';
+      html += '<div style="background:var(--surface); border-radius:6px; padding:0.85rem; text-align:center;">';
+      html += '<div style="font-size:1.2rem; font-weight:500;">' + sessions.length + '</div>';
+      html += '<div style="font-size:0.65rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.1em; margin-top:0.2rem;">Sessions</div></div>';
+      html += '<div style="background:var(--surface); border-radius:6px; padding:0.85rem; text-align:center;">';
+      html += '<div style="font-size:1.2rem; font-weight:500;">' + avgRate + '%</div>';
+      html += '<div style="font-size:0.65rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.1em; margin-top:0.2rem;">Avg keepers</div></div>';
+      var bestSession = withFrames.reduce(function(best, s) { return s.rate > best.rate ? s : best; }, withFrames[0]);
+      html += '<div style="background:var(--surface); border-radius:6px; padding:0.85rem; text-align:center;">';
+      html += '<div style="font-size:1.2rem; font-weight:500;">' + bestSession.rate + '%</div>';
+      html += '<div style="font-size:0.65rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.1em; margin-top:0.2rem;">Best session</div></div>';
+      html += '</div>';
+    }
+
+    // Session list
+    sessions.forEach(function(s, i) {
+      var rateText = s.rate !== null ? s.rate + '% keepers' : 'No frames logged';
+      var rateColor = s.rate === null ? 'var(--text-dim)' : s.rate >= 50 ? 'var(--text)' : s.rate >= 25 ? 'var(--text-muted)' : 'var(--text-dim)';
+      html += '<div style="border:1px solid var(--border); border-radius:6px; padding:1rem; margin-bottom:0.75rem;">';
+      html += '<div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">';
+      html += '<div style="font-size:0.85rem; font-weight:500; color:var(--text); flex:1; padding-right:0.5rem;">' + s.shoot + '</div>';
+      html += '<div style="font-size:0.75rem; color:var(--text-dim); white-space:nowrap;">' + s.date + '</div>';
+      html += '</div>';
+      html += '<div style="display:flex; gap:1rem; font-size:0.78rem; color:var(--text-muted);">';
+      html += '<span>' + s.mins + ' min</span>';
+      if (s.total > 0) {
+        html += '<span>' + s.total + ' frames</span>';
+        html += '<span style="color:' + rateColor + ';">' + rateText + '</span>';
+      }
+      html += '</div>';
+      html += '<button onclick="deleteSession(' + i + ')" style="margin-top:0.6rem; font-size:0.72rem; color:var(--text-dim); background:none; border:none; padding:0; cursor:pointer; font-family:inherit; -webkit-appearance:none;">Delete</button>';
+      html += '</div>';
+    });
+
+    container.innerHTML = html;
+  } catch(e) {
+    container.innerHTML = '<p style="font-size:0.82rem; color:var(--text-dim);">Could not load sessions.</p>';
+  }
+};
+
+window.deleteSession = function(i) {
+  try {
+    var sessions = JSON.parse(localStorage.getItem('shooting-sessions') || '[]');
+    sessions.splice(i, 1);
+    localStorage.setItem('shooting-sessions', JSON.stringify(sessions));
+    window.renderSessionsLog();
+  } catch(e) {}
+};
+
 </script>
 
 <script>
@@ -4331,7 +4511,7 @@ ctx.scale(dpr, dpr);
 ctx.clearRect(0, 0, w, h);
 
 const entries = log.slice().reverse(); // oldest first
-const scores = entries.map(e => (e.made ? e.made.length : 0) / 5);
+const scores = entries.map(function(e) { return (e.made ? e.made.length : 0) / 5; });
 const pad = 20;
 const chartW = w - pad * 2;
 const chartH = h - pad * 2;
@@ -4339,7 +4519,7 @@ const chartH = h - pad * 2;
 // Grid lines
 ctx.strokeStyle = 'rgba(255,255,255,0.06)';
 ctx.lineWidth = 1;
-[0, 0.25, 0.5, 0.75, 1].forEach(pct => {
+[0, 0.25, 0.5, 0.75, 1].forEach(function(pct) {
 const y = pad + chartH * (1 - pct);
 ctx.beginPath();
 ctx.moveTo(pad, y);
@@ -4351,7 +4531,7 @@ ctx.stroke();
 ctx.beginPath();
 ctx.strokeStyle = 'rgba(255,255,255,0.7)';
 ctx.lineWidth = 1.5;
-scores.forEach((score, i) => {
+scores.forEach(function(score, i) {
 const x = pad + (i / Math.max(scores.length - 1, 1)) * chartW;
 const y = pad + chartH * (1 - score);
 if (i === 0) ctx.moveTo(x, y);
@@ -4360,7 +4540,7 @@ else ctx.lineTo(x, y);
 ctx.stroke();
 
 // Dots
-scores.forEach((score, i) => {
+scores.forEach(function(score, i) {
 const x = pad + (i / Math.max(scores.length - 1, 1)) * chartW;
 const y = pad + chartH * (1 - score);
 ctx.beginPath();
@@ -4370,7 +4550,7 @@ ctx.fill();
 });
 
 // Average label
-const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+const avg = scores.reduce(function(a, b) { return a + b; }, 0) / scores.length;
 ctx.fillStyle = 'rgba(255,255,255,0.4)';
 ctx.font = '10px -apple-system, sans-serif';
 ctx.fillText('Avg: ' + Math.round(avg * 100) + '%', pad, pad - 6);
@@ -4398,7 +4578,7 @@ let promptIndex = 0;
 
 function selectShootInterval(mins, btn) {
 shootModeIntervalMinutes = mins;
-document.querySelectorAll('#shoot-mode-tool .option-btn').forEach(b => b.classList.remove('selected'));
+document.querySelectorAll('#shoot-mode-tool .option-btn').forEach(function(b) { b.classList.remove('selected'); });
 btn.classList.add('selected');
 }
 
@@ -4533,61 +4713,7 @@ const _origGenerateBrief = window.generateBrief;
 // FEATURE 6: EXPORT SHOOT SUMMARY
 // ============================================================
 function exportShootSummary() {
-if (!window._currentPlan) {
-alert('Build a shoot plan first before exporting.');
-return;
-}
-const plan = window._currentPlan;
-const shoot = (ans && ans.q1) ? ans.q1 : 'Shoot plan';
-const date = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-
-const decisions = [
-{ label: 'Subject', content: plan.subject || '' },
-{ label: 'Light', content: plan.light || '' },
-{ label: 'Composition', content: plan.composition || '' },
-{ label: 'Settings', content: plan.settings || '' },
-{ label: 'Edit', content: plan.edit || '' }
-];
-
-const checkedCount = Object.values(checked).filter(Boolean).length;
-
-let exportHtml = `<!DOCTYPE html>
-
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Shoot Summary: ${shoot}<\/title>
-<style>
-  body { font-family: -apple-system, sans-serif; max-width: 600px; margin: 40px auto; padding: 0 20px; color: #111; line-height: 1.6; }
-  .brand { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #666; margin-bottom: 0.5rem; }
-  h1 { font-size: 1.5rem; font-weight: 600; margin: 0 0 0.25rem; }
-  .date { font-size: 0.85rem; color: #888; margin-bottom: 2rem; }
-  .section { margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: #f8f8f8; border-radius: 6px; }
-  .label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #888; margin-bottom: 0.4rem; }
-  .content { font-size: 0.9rem; color: #333; }
-  .footer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #eee; font-size: 0.75rem; color: #aaa; }
-  .progress { font-size: 0.85rem; color: #555; margin-bottom: 2rem; }
-<\/style>
-<\/head>
-<body>
-<div class="brand">Joshua Ball: The Photographer's Method</div>
-<h1>${shoot}</h1>
-<div class="date">${date}</div>
-<div class="progress">${checkedCount} of 5 decisions confirmed before shooting</div>
-${decisions.map(d => `<div class="section"><div class="label">${d.label}</div><div class="content">${d.content}</div></div>`).join('')}
-<div class="footer">Generated by Shoot Planner: joshuajball.com/method</div>
-<\/body>
-<\/html>`;
-
-const blob = new Blob([exportHtml], { type: 'text/html' });
-const url = URL.createObjectURL(blob);
-const a = document.createElement('a');
-a.href = url;
-a.download = shoot.replace(/[^a-z0-9]/gi, '-').toLowerCase() + '-shoot-plan.html';
-document.body.appendChild(a);
-a.click();
-document.body.removeChild(a);
-URL.revokeObjectURL(url);
+  if (window.exportShootSummary) window.exportShootSummary();
 }
 
 // ============================================================
@@ -4640,10 +4766,12 @@ window.scrollTo({ top: 0, behavior: 'smooth' });
 </script>
 
 <script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(reg){reg.unregister();});});
-  });
+if ('serviceWorker' in navigator && navigator.serviceWorker.getRegistrations) {
+  try {
+    navigator.serviceWorker.getRegistrations().then(function(r){
+      if (r && r.forEach) r.forEach(function(reg){ try { reg.unregister(); } catch(e){} });
+    }).catch(function(){});
+  } catch(e) {}
 }
 </script>
 
