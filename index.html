@@ -301,7 +301,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 
 <!-- PLAN STAGE -->
 
-<div id="plan-stage">
+<div id="plan-stage" style="padding:0 1.25rem;">
 
   <div id="screen-q1" class="screen">
     <div class="progress-wrap">
@@ -932,10 +932,8 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.75rem;">Import a plan</div>
     <div style="background:var(--surface); border-radius:6px; padding:1.1rem 1.25rem; margin-bottom:0.75rem;">
       <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.6; margin-bottom:0.85rem;">Import a shoot summary exported from this app. It will be added to your plan history.</div>
-      <label style="display:block; width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; text-align:center; -webkit-appearance:none;">
-        Choose file to import
-        <input type="file" id="import-file-input" accept=".html" style="display:none;" onchange="importShootSummary(this)">
-      </label>
+      <button onclick="document.getElementById('import-file-input').click()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted);">Choose file to import</button>
+      <input type="file" id="import-file-input" accept=".html" style="display:none; position:absolute; left:-9999px;">
       <div id="import-result" style="display:none; margin-top:0.75rem; font-size:0.82rem; color:var(--text-muted); line-height:1.5;"></div>
     </div>
   </div>
@@ -4554,6 +4552,15 @@ if ('serviceWorker' in navigator) {
     }
   };
   document.addEventListener('DOMContentLoaded',function(){
+    // Wire up file import input
+    var importInput = document.getElementById('import-file-input');
+    if (importInput) {
+      importInput.addEventListener('change', function() {
+        if (this.files && this.files[0]) {
+          importShootSummary(this);
+        }
+      });
+    }
     var input=document.getElementById('gate-input');
     if(input){input.addEventListener('keydown',function(e){if(e.key==='Enter')window.checkPassword();});}
     var unlocked=false;
