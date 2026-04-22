@@ -39,10 +39,10 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
   -webkit-overflow-scrolling: touch;
 }
 .app { max-width: 560px; margin: 0 auto; padding: 0 1.25rem; min-height: 100%; display: flex; flex-direction: column; }
-.header { padding: 0; margin-bottom: 0; }
-.header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0; min-height: 0; }
+.header { padding: 0.25rem 0 0; margin-bottom: 1.5rem; }
+.header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; }
 .brand { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); }
-.reset-btn { font-size: 0.7rem; color: var(--text-dim); background: none; border: none; cursor: pointer; font-family: inherit; padding: 0; transition: color 0.2s; }
+.reset-btn { font-size: 1rem; font-weight: 500; color: var(--text); background: none; border: none; cursor: pointer; font-family: inherit; padding: 0.75rem 0 0.25rem; transition: color 0.2s; }
 .reset-btn:hover { color: var(--text-muted); }
 .header h1 { font-size: 1.4rem; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2; }
 .header p { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem; line-height: 1.5; }
@@ -103,7 +103,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 .footer-link a:hover { color: var(--text-muted); }
 .gear-note { font-size: 0.78rem; color: var(--text-muted); background: var(--surface); border-radius: 4px; padding: 0.75rem 1rem; margin-top: 0.75rem; line-height: 1.5; }
 
-  #password-gate{position:fixed;inset:0;background:#0a0a0a;display:flex;align-items:center;justify-content:center;z-index:9999;padding:2rem;}
+  #password-gate{position:fixed;inset:0;background:#0a0a0a;display:none;align-items:center;justify-content:center;z-index:9999;padding:2rem;}
   #password-gate.hidden{display:none;}
   .gate-wrap{width:100%;max-width:360px;}
   .gate-brand{font-size:0.65rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#666666;margin-bottom:1.5rem;}
@@ -135,7 +135,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 
 <div class="header">
   <div class="header-top">
-    <button class="reset-btn" id="home-btn" onclick="goHome()" style="display:none;">Home</button>
+    <button class="reset-btn" id="home-btn" onclick="goHome()" style="display:none;"></button>
   </div>
   <div id="header-detail" style="display:none;">
     <h1 style="font-size:1.4rem; font-weight:500; letter-spacing:-0.02em; line-height:1.2; margin-bottom:0.4rem;">Shoot Planner</h1>
@@ -295,7 +295,6 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 </div>
 
 </div>
-<p style="font-size: 0.75rem; color: var(--text-dim); text-align: center; line-height: 1.6;">If you didn't decide, you guessed.</p>
 
   </div>
 </div>
@@ -327,6 +326,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
       </div>
     </div>
     <div class="nav-row"><button class="btn-next" onclick="nextQ(1)">Continue</button></div>
+  <button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">← Home</button>
   </div>
 
   <div id="screen-q2" class="screen">
@@ -504,6 +504,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
   <div style="padding-bottom:1rem;">
     <button onclick="exportShootSummary()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); transition:all 0.2s;">Export shoot summary</button>
   </div>
+  <button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">← Home</button>
 </div>
 
 <!-- WHITE BALANCE HELPER -->
@@ -546,7 +547,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     <div id="wb-note" style="font-size:0.85rem; color:var(--text-muted); line-height:1.6;"></div>
   </div>
 
-<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
+<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">← Home</button>
 
 </div>
 
@@ -603,7 +604,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </div>
   </div>
 
-<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
+<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">← Home</button>
 
 </div>
 
@@ -663,7 +664,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 
   <div style="display:flex; gap:0.75rem; margin-bottom:3rem;">
     <button onclick="clearReflectionHistory()" style="flex:1; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted);">Clear history</button>
-    <button onclick="goHome()" style="flex:1; background:var(--accent); border:none; border-radius:4px; padding:0.85rem; font-size:0.85rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none;">Home</button>
+    <button onclick="goHome()" style="flex:1; background:var(--accent); border:none; border-radius:4px; padding:0.85rem; font-size:0.85rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none;">← Home</button>
   </div>
 </div>
 
@@ -747,7 +748,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     <button onclick="generateBrief()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.75rem; font-size:0.82rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted);">Generate a different brief</button>
   </div>
 
-<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
+<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">← Home</button>
 
 </div>
 
@@ -776,7 +777,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 
   <div style="display:flex; gap:0.75rem; padding-bottom:3rem;">
     <button onclick="resetGearChecklist()" style="flex:1; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted);">Reset</button>
-    <button onclick="goHome()" style="flex:1; background:var(--accent); border:none; border-radius:4px; padding:0.85rem; font-size:0.85rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none;">Home</button>
+    <button onclick="goHome()" style="flex:1; background:var(--accent); border:none; border-radius:4px; padding:0.85rem; font-size:0.85rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none;">← Home</button>
   </div>
 </div>
 
@@ -824,7 +825,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 
   <div style="display:flex; flex-direction:column; gap:0.75rem; padding-bottom:3rem;">
     <button onclick="generateLightSummary()" style="background:var(--accent); border:none; border-radius:4px; padding:0.85rem; font-size:0.88rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none;">Save light reading</button>
-    <button onclick="clearLightTool(); goHome();" style="background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted);">Back to home</button>
+    <button onclick="clearLightTool(); goHome();" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">← Home</button>
   </div>
 </div>
 
@@ -857,7 +858,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 
   <div style="display:flex; gap:0.75rem; padding-bottom:3rem;">
     <button onclick="resetEditChecklist()" style="flex:1; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted);">Reset</button>
-    <button onclick="goHome()" style="flex:1; background:var(--accent); border:none; border-radius:4px; padding:0.85rem; font-size:0.85rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none;">Home</button>
+    <button onclick="goHome()" style="flex:1; background:var(--accent); border:none; border-radius:4px; padding:0.85rem; font-size:0.85rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none;">← Home</button>
   </div>
 </div>
 
@@ -883,7 +884,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 
   <div style="display:flex; gap:0.75rem; padding-bottom:3rem;">
     <button onclick="resetAudit()" style="flex:1; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted);">Reset</button>
-    <button onclick="goHome()" style="flex:1; background:var(--accent); border:none; border-radius:4px; padding:0.85rem; font-size:0.85rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none;">Home</button>
+    <button onclick="goHome()" style="flex:1; background:var(--accent); border:none; border-radius:4px; padding:0.85rem; font-size:0.85rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none;">← Home</button>
   </div>
 </div>
 
@@ -914,7 +915,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
   <div id="tracker-history" style="margin-bottom:1.5rem;"></div>
 
   <div style="padding-bottom:3rem;">
-    <button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted);">Back to home</button>
+    <button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">← Home</button>
   </div>
 </div>
 
@@ -938,7 +939,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
       <div id="import-result" style="display:none; margin-top:0.75rem; font-size:0.82rem; color:var(--text-muted); line-height:1.5;"></div>
     </div>
   </div>
-  <button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
+  <button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">← Home</button>
 </div>
 
 <!-- HISTOGRAM TOOL -->
@@ -984,7 +985,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </div>
   </div>
 
-<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
+<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">← Home</button>
 
 </div>
 
@@ -1030,7 +1031,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </div>
   </div>
 
-<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
+<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">← Home</button>
 
 </div>
 
@@ -1076,7 +1077,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </div>
   </div>
 
-<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
+<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">← Home</button>
 
 </div>
 
@@ -1110,7 +1111,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 
   <div style="display:flex; gap:0.75rem; padding-bottom:3rem;">
     <button onclick="resetLocationChecklist()" style="flex:1; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted);">Reset</button>
-    <button onclick="goHome()" style="flex:1; background:var(--accent); border:none; border-radius:4px; padding:0.85rem; font-size:0.85rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none;">Home</button>
+    <button onclick="goHome()" style="flex:1; background:var(--accent); border:none; border-radius:4px; padding:0.85rem; font-size:0.85rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none;">← Home</button>
   </div>
 </div>
 
@@ -1203,7 +1204,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </div>
   </div>
 
-<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
+<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">← Home</button>
 
 </div>
 
@@ -1237,7 +1238,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 
   <div style="display:flex; gap:0.75rem; padding-bottom:3rem;">
     <button onclick="resetShotList()" style="flex:1; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted);">Clear list</button>
-    <button onclick="goHome()" style="flex:1; background:var(--accent); border:none; border-radius:4px; padding:0.85rem; font-size:0.85rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none;">Home</button>
+    <button onclick="goHome()" style="flex:1; background:var(--accent); border:none; border-radius:4px; padding:0.85rem; font-size:0.85rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none;">← Home</button>
   </div>
 </div>
 
@@ -1305,7 +1306,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </div>
   </div>
 
-<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
+<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">← Home</button>
 
 </div>
 
@@ -1358,7 +1359,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </div>
   </div>
 
-<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
+<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">← Home</button>
 
 </div>
 
@@ -1423,7 +1424,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </div>
   </div>
 
-<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">Back to home</button>
+<button onclick="goHome()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">← Home</button>
 
 </div>
 
@@ -1488,7 +1489,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
   <div id="keeper-rate-display" style="text-align:center; margin-top:0.75rem; font-size:0.78rem; color:var(--text-dim);"></div>
 </div>
 
-<button onclick="stopShootMode()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted); margin-bottom:3rem;">End session</button>
+<button onclick="stopShootMode()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text); margin-bottom:3rem;">End session</button>
 
   </div>
 
@@ -1499,7 +1500,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </div>
     <div style="display:flex; gap:0.75rem; padding-bottom:3rem;">
       <button onclick="goToReflection()" style="flex:1; background:var(--accent); border:none; border-radius:4px; padding:0.85rem; font-size:0.85rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none;">Reflect on this shoot</button>
-      <button onclick="goHome()" style="flex:1; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted);">Home</button>
+      <button onclick="goHome()" style="flex:1; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted);">← Home</button>
     </div>
   </div>
 </div>
@@ -3830,7 +3831,7 @@ function goHome() {
 }
 
 function showToolById(id) {
-  var allTools = ["light-tool", "edit-checklist", "decision-audit", "consistency-tracker", "wb-helper", "exposure-tool", "reflection-tool", "brief-generator", "gear-checklist", "plan-history-tool", "histogram-tool", "focal-tool", "colour-tool", "location-tool", "dof-tool", "shotlist-tool", "reciprocity-tool", "rawjpeg-tool", "print-tool"];
+  var allTools = ["light-tool", "edit-checklist", "decision-audit", "consistency-tracker", "wb-helper", "exposure-tool", "reflection-tool", "brief-generator", "gear-checklist", "plan-history-tool", "histogram-tool", "focal-tool", "colour-tool", "location-tool", "dof-tool", "shotlist-tool", "reciprocity-tool", "rawjpeg-tool", "print-tool", "shoot-mode-tool"];
   allTools.forEach(function(t) { var el = document.getElementById(t); if(el) el.style.display = 'none'; });
   var planStage = document.getElementById('plan-stage');
   var shootStage = document.getElementById('shoot-stage');
@@ -3841,7 +3842,7 @@ function showToolById(id) {
   var hd = document.getElementById('header-detail');
   var hb = document.getElementById('home-btn');
   if (hd) hd.style.display = 'none';
-  if (hb) hb.style.display = 'block';
+  if (hb) hb.style.display = 'none';
   document.getElementById('stage-tabs').style.display = 'none';
   var el = document.getElementById(id);
   if (el) el.style.display = 'block';
@@ -3910,8 +3911,25 @@ function onboardDone() {
   if (overlay) overlay.style.display = 'none';
 }
 loadState();
-initAppFeatures();
-checkOnboarding();
+
+// Define critical navigation functions directly on window
+// so they work even if script 2 has issues
+window.goToReflection = window.goToReflection || function() {
+  showToolById('reflection-tool');
+  if (typeof renderReflectionHistory === 'function') renderReflectionHistory();
+  var banner = document.getElementById('reflect-plan-banner');
+  if (banner) banner.style.display = 'none';
+};
+
+window.goToShootMode = window.goToShootMode || function() {
+  var s = document.getElementById('shoot-mode-setup');
+  var a = document.getElementById('shoot-mode-active');
+  var su = document.getElementById('shoot-mode-summary');
+  if (s) s.style.display = 'block';
+  if (a) a.style.display = 'none';
+  if (su) su.style.display = 'none';
+  showToolById('shoot-mode-tool');
+};
 </script>
 
 <script>
@@ -3921,14 +3939,14 @@ checkOnboarding();
 function importShootSummary(input) {
 const file = input.files[0];
 if (!file) return;
-const resultEl = document.getElementById(‘import-result’);
+const resultEl = document.getElementById('import-result');
 
 const reader = new FileReader();
 reader.onload = function(e) {
 try {
 const content = e.target.result;
 const parser = new DOMParser();
-const doc = parser.parseFromString(content, ‘text/html’);
+const doc = parser.parseFromString(content, 'text/html');
 
   // Extract shoot title from <h1>
   const h1 = doc.querySelector('h1');
@@ -3997,35 +4015,35 @@ reader.readAsText(file);
 // FEATURE 1: PLAN TO REFLECTION CONNECTION
 // ============================================================
 function goToReflection() {
-showToolById(‘reflection-tool’);
+showToolById('reflection-tool');
 renderReflectionHistory();
 try {
-const log = JSON.parse(localStorage.getItem(‘reflection-log’) || ‘[]’);
-if (log.length > 0) document.getElementById(‘reflect-history’).style.display = ‘block’;
+const log = JSON.parse(localStorage.getItem('reflection-log') || '[]');
+if (log.length > 0) document.getElementById('reflect-history').style.display = 'block';
 } catch(e) {}
 // Show plan banner if a current plan exists
-const banner = document.getElementById(‘reflect-plan-banner’);
-const summary = document.getElementById(‘reflect-plan-summary’);
+const banner = document.getElementById('reflect-plan-banner');
+const summary = document.getElementById('reflect-plan-summary');
 if (window._currentPlan && banner && summary) {
 summary.textContent = window._currentPlan.subject
-? ’Subject: ’ + window._currentPlan.subject.substring(0, 100) + ‘…’
-: ‘Your last shoot plan is available.’;
-banner.style.display = ‘block’;
+? 'Subject: ' + window._currentPlan.subject.substring(0, 100) + '...'
+: 'Your last shoot plan is available.';
+banner.style.display = 'block';
 } else if (banner) {
-banner.style.display = ‘none’;
+banner.style.display = 'none';
 }
 }
 
 function loadPlanIntoReflection() {
 if (!window._currentPlan) return;
-const intention = document.getElementById(‘reflect-intention’);
+const intention = document.getElementById('reflect-intention');
 if (intention) {
 const parts = [];
-if (window._currentPlan.subject) parts.push(‘Subject: ’ + window._currentPlan.subject);
-if (window._currentPlan.edit) parts.push(‘Edit intention: ’ + window._currentPlan.edit);
-intention.value = parts.join(’\n\n’);
+if (window._currentPlan.subject) parts.push('Subject: ' + window._currentPlan.subject);
+if (window._currentPlan.edit) parts.push('Edit intention: ' + window._currentPlan.edit);
+intention.value = parts.join('\n\n');
 }
-document.getElementById(‘reflect-plan-banner’).style.display = ‘none’;
+document.getElementById('reflect-plan-banner').style.display = 'none';
 }
 
 // ============================================================
@@ -4033,47 +4051,47 @@ document.getElementById(‘reflect-plan-banner’).style.display = ‘none’;
 // ============================================================
 function checkPostShootPrompt() {
 try {
-const lastVisit = localStorage.getItem(‘sp-last-visit’);
-const dismissed = localStorage.getItem(‘sp-prompt-dismissed’);
+const lastVisit = localStorage.getItem('sp-last-visit');
+const dismissed = localStorage.getItem('sp-prompt-dismissed');
 const now = Date.now();
 const twoHours = 2 * 60 * 60 * 1000;
-const prompt = document.getElementById(‘post-shoot-prompt’);
+const prompt = document.getElementById('post-shoot-prompt');
 if (!prompt) return;
-if (window._currentPlan && lastVisit && (now - parseInt(lastVisit)) > twoHours && dismissed !== ‘true’) {
-prompt.style.display = ‘block’;
+if (window._currentPlan && lastVisit && (now - parseInt(lastVisit)) > twoHours && dismissed !== 'true') {
+prompt.style.display = 'block';
 }
-try { localStorage.setItem(‘sp-last-visit’, now.toString()); } catch(e) {}
-try { localStorage.setItem(‘sp-prompt-dismissed’, ‘false’); } catch(e) {}
+try { localStorage.setItem('sp-last-visit', now.toString()); } catch(e) {}
+try { localStorage.setItem('sp-prompt-dismissed', 'false'); } catch(e) {}
 } catch(e) {}
 }
 
 function dismissPostShootPrompt() {
-const prompt = document.getElementById(‘post-shoot-prompt’);
-if (prompt) prompt.style.display = ‘none’;
-try { localStorage.setItem(‘sp-prompt-dismissed’, ‘true’); } catch(e) {}
+const prompt = document.getElementById('post-shoot-prompt');
+if (prompt) prompt.style.display = 'none';
+try { localStorage.setItem('sp-prompt-dismissed', 'true'); } catch(e) {}
 }
 
 // ============================================================
 // FEATURE 3: PROGRESS CHART IN TRACKER
 // ============================================================
 function drawTrackerChart(log) {
-const canvas = document.getElementById(‘tracker-chart’);
-const progress = document.getElementById(‘tracker-progress’);
+const canvas = document.getElementById('tracker-chart');
+const progress = document.getElementById('tracker-progress');
 if (!canvas || !log || log.length < 2) {
-if (progress) progress.style.display = ‘none’;
+if (progress) progress.style.display = 'none';
 return;
 }
-progress.style.display = ‘block’;
+progress.style.display = 'block';
 
-const ctx = canvas.getContext(‘2d’);
+const ctx = canvas.getContext('2d');
 const dpr = window.devicePixelRatio || 1;
 const rect = canvas.getBoundingClientRect();
 const w = canvas.offsetWidth || 300;
 const h = 120;
 canvas.width = w * dpr;
 canvas.height = h * dpr;
-canvas.style.width = w + ‘px’;
-canvas.style.height = h + ‘px’;
+canvas.style.width = w + 'px';
+canvas.style.height = h + 'px';
 ctx.scale(dpr, dpr);
 
 ctx.clearRect(0, 0, w, h);
@@ -4085,7 +4103,7 @@ const chartW = w - pad * 2;
 const chartH = h - pad * 2;
 
 // Grid lines
-ctx.strokeStyle = ‘rgba(255,255,255,0.06)’;
+ctx.strokeStyle = 'rgba(255,255,255,0.06)';
 ctx.lineWidth = 1;
 [0, 0.25, 0.5, 0.75, 1].forEach(pct => {
 const y = pad + chartH * (1 - pct);
@@ -4097,7 +4115,7 @@ ctx.stroke();
 
 // Line
 ctx.beginPath();
-ctx.strokeStyle = ‘rgba(255,255,255,0.7)’;
+ctx.strokeStyle = 'rgba(255,255,255,0.7)';
 ctx.lineWidth = 1.5;
 scores.forEach((score, i) => {
 const x = pad + (i / Math.max(scores.length - 1, 1)) * chartW;
@@ -4113,15 +4131,15 @@ const x = pad + (i / Math.max(scores.length - 1, 1)) * chartW;
 const y = pad + chartH * (1 - score);
 ctx.beginPath();
 ctx.arc(x, y, 3, 0, Math.PI * 2);
-ctx.fillStyle = ‘#ffffff’;
+ctx.fillStyle = '#ffffff';
 ctx.fill();
 });
 
 // Average label
 const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
-ctx.fillStyle = ‘rgba(255,255,255,0.4)’;
-ctx.font = ‘10px -apple-system, sans-serif’;
-ctx.fillText(’Avg: ’ + Math.round(avg * 100) + ‘%’, pad, pad - 6);
+ctx.fillStyle = 'rgba(255,255,255,0.4)';
+ctx.font = '10px -apple-system, sans-serif';
+ctx.fillText('Avg: ' + Math.round(avg * 100) + '%', pad, pad - 6);
 }
 
 // ============================================================
@@ -4136,34 +4154,34 @@ let totalFrames = 0;
 let keeperFrames = 0;
 
 const decisionPrompts = [
-‘Are you still shooting toward your original subject intention, or have you drifted?’,
-‘Is the light doing what you expected? Have conditions changed and has your plan changed with them?’,
-‘Look at your last five frames. Is each one about the same thing, or are you collecting rather than deciding?’,
-‘When did you last consciously choose a composition rather than react to one?’,
-‘Are your settings still serving what you are shooting, or are you on autopilot?’
+'Are you still shooting toward your original subject intention, or have you drifted?',
+'Is the light doing what you expected? Have conditions changed and has your plan changed with them?',
+'Look at your last five frames. Is each one about the same thing, or are you collecting rather than deciding?',
+'When did you last consciously choose a composition rather than react to one?',
+'Are your settings still serving what you are shooting, or are you on autopilot?'
 ];
 let promptIndex = 0;
 
 function selectShootInterval(mins, btn) {
 shootModeIntervalMinutes = mins;
-document.querySelectorAll(’#shoot-mode-tool .option-btn’).forEach(b => b.classList.remove(‘selected’));
-btn.classList.add(‘selected’);
+document.querySelectorAll('#shoot-mode-tool .option-btn').forEach(b => b.classList.remove('selected'));
+btn.classList.add('selected');
 }
 
 function startShootMode() {
-const trackFrames = document.getElementById(‘track-frames’).checked;
+const trackFrames = document.getElementById('track-frames').checked;
 totalFrames = 0;
 keeperFrames = 0;
 shootModeSeconds = 0;
 shootModeNextCheck = shootModeIntervalMinutes * 60;
 promptIndex = 0;
 
-document.getElementById(‘shoot-mode-setup’).style.display = ‘none’;
-document.getElementById(‘shoot-mode-active’).style.display = ‘block’;
-document.getElementById(‘shoot-mode-summary’).style.display = ‘none’;
+document.getElementById('shoot-mode-setup').style.display = 'none';
+document.getElementById('shoot-mode-active').style.display = 'block';
+document.getElementById('shoot-mode-summary').style.display = 'none';
 
-const frameCounter = document.getElementById(‘shoot-mode-frame-counter’);
-if (frameCounter) frameCounter.style.display = trackFrames ? ‘block’ : ‘none’;
+const frameCounter = document.getElementById('shoot-mode-frame-counter');
+if (frameCounter) frameCounter.style.display = trackFrames ? 'block' : 'none';
 
 updateShootModeDisplay();
 
@@ -4182,36 +4200,36 @@ function updateShootModeDisplay() {
 const elapsed = shootModeSeconds;
 const mins = Math.floor(elapsed / 60);
 const secs = elapsed % 60;
-const display = document.getElementById(‘shoot-mode-timer-display’);
-if (display) display.textContent = String(mins).padStart(2,‘0’) + ‘:’ + String(secs).padStart(2,‘0’);
+const display = document.getElementById('shoot-mode-timer-display');
+if (display) display.textContent = String(mins).padStart(2,'0') + ':' + String(secs).padStart(2,'0');
 
 const nextMins = Math.floor(shootModeNextCheck / 60);
 const nextSecs = shootModeNextCheck % 60;
-const nextDisplay = document.getElementById(‘shoot-mode-next’);
-if (nextDisplay) nextDisplay.textContent = ’Next check in ’ + String(nextMins).padStart(2,‘0’) + ‘:’ + String(nextSecs).padStart(2,‘0’);
+const nextDisplay = document.getElementById('shoot-mode-next');
+if (nextDisplay) nextDisplay.textContent = 'Next check in ' + String(nextMins).padStart(2,'0') + ':' + String(nextSecs).padStart(2,'0');
 
-const totalEl = document.getElementById(‘total-frames’);
-const keeperEl = document.getElementById(‘keeper-frames’);
-const rateEl = document.getElementById(‘keeper-rate-display’);
+const totalEl = document.getElementById('total-frames');
+const keeperEl = document.getElementById('keeper-frames');
+const rateEl = document.getElementById('keeper-rate-display');
 if (totalEl) totalEl.textContent = totalFrames;
 if (keeperEl) keeperEl.textContent = keeperFrames;
 if (rateEl && totalFrames > 0) {
-rateEl.textContent = Math.round((keeperFrames / totalFrames) * 100) + ‘% keeper rate’;
+rateEl.textContent = Math.round((keeperFrames / totalFrames) * 100) + '% keeper rate';
 }
 }
 
 function showDecisionPrompt() {
-const prompt = document.getElementById(‘shoot-mode-decision-prompt’);
-const text = document.getElementById(‘shoot-mode-prompt-text’);
+const prompt = document.getElementById('shoot-mode-decision-prompt');
+const text = document.getElementById('shoot-mode-prompt-text');
 if (!prompt || !text) return;
 text.textContent = decisionPrompts[promptIndex % decisionPrompts.length];
 promptIndex++;
-prompt.style.display = ‘block’;
+prompt.style.display = 'block';
 }
 
 function dismissDecisionPrompt() {
-const prompt = document.getElementById(‘shoot-mode-decision-prompt’);
-if (prompt) prompt.style.display = ‘none’;
+const prompt = document.getElementById('shoot-mode-decision-prompt');
+if (prompt) prompt.style.display = 'none';
 }
 
 function addFrame(isKeeper) {
@@ -4222,25 +4240,25 @@ updateShootModeDisplay();
 
 function stopShootMode() {
 if (shootModeTimer) { clearInterval(shootModeTimer); shootModeTimer = null; }
-document.getElementById(‘shoot-mode-active’).style.display = ‘none’;
-document.getElementById(‘shoot-mode-summary’).style.display = ‘block’;
+document.getElementById('shoot-mode-active').style.display = 'none';
+document.getElementById('shoot-mode-summary').style.display = 'block';
 
 const mins = Math.floor(shootModeSeconds / 60);
-let summaryText = ‘Session time: ’ + mins + ’ minute’ + (mins !== 1 ? ‘s’ : ‘’) + ‘.’;
+let summaryText = 'Session time: ' + mins + ' minute' + (mins !== 1 ? 's' : '') + '.';
 if (totalFrames > 0) {
 const rate = Math.round((keeperFrames / totalFrames) * 100);
-summaryText += ’ Frames: ’ + totalFrames + ’ total, ’ + keeperFrames + ’ keepers (’ + rate + ‘%).’;
+summaryText += ' Frames: ' + totalFrames + ' total, ' + keeperFrames + ' keepers (' + rate + '%).';
 }
-summaryText += ’ Log this shoot in the Consistency Tracker to track your progress over time.’;
-const el = document.getElementById(‘shoot-mode-summary-text’);
+summaryText += ' Log this shoot in the Consistency Tracker to track your progress over time.';
+const el = document.getElementById('shoot-mode-summary-text');
 if (el) el.textContent = summaryText;
 }
 
 function goToShootMode() {
-document.getElementById(‘shoot-mode-setup’).style.display = ‘block’;
-document.getElementById(‘shoot-mode-active’).style.display = ‘none’;
-document.getElementById(‘shoot-mode-summary’).style.display = ‘none’;
-showToolById(‘shoot-mode-tool’);
+document.getElementById('shoot-mode-setup').style.display = 'block';
+document.getElementById('shoot-mode-active').style.display = 'none';
+document.getElementById('shoot-mode-summary').style.display = 'none';
+showToolById('shoot-mode-tool');
 }
 
 // ============================================================
@@ -4248,29 +4266,29 @@ showToolById(‘shoot-mode-tool’);
 // ============================================================
 const briefExtras = {
 Subject: {
-time: ‘Any time of day works for subject-focused shooting. Early morning and late afternoon give you softer, more directional light that helps separate subjects from backgrounds.’,
-location: ‘Look for locations where your subject naturally occurs in isolation. Backgrounds matter as much as the subject. Scout before you commit to a time.’,
-mood: ‘Think of photographers like Henri Cartier-Bresson or Fan Ho. Their subjects are specific and everything else serves that specificity.’
+time: 'Any time of day works for subject-focused shooting. Early morning and late afternoon give you softer, more directional light that helps separate subjects from backgrounds.',
+location: 'Look for locations where your subject naturally occurs in isolation. Backgrounds matter as much as the subject. Scout before you commit to a time.',
+mood: 'Think of photographers like Henri Cartier-Bresson or Fan Ho. Their subjects are specific and everything else serves that specificity.'
 },
 Light: {
-time: ‘Golden hour (one hour after sunrise, one hour before sunset) and blue hour (20 minutes either side of golden hour) give you the most dynamic and changing light.’,
-location: ‘For light study, a single familiar location is better than a new one. You already know what is there. You are learning what the light does to it.’,
-mood: ‘Look at the work of Michael Kenna or Josef Koudelka for how light can be the entire subject of an image.’
+time: 'Golden hour (one hour after sunrise, one hour before sunset) and blue hour (20 minutes either side of golden hour) give you the most dynamic and changing light.',
+location: 'For light study, a single familiar location is better than a new one. You already know what is there. You are learning what the light does to it.',
+mood: 'Look at the work of Michael Kenna or Josef Koudelka for how light can be the entire subject of an image.'
 },
 Composition: {
-time: ‘Overcast light is actually ideal for composition work because flat light removes the distraction of dramatic lighting. You are forced to find structure in the scene itself.’,
-location: ‘Urban environments with strong geometry, woodland with natural framing, or any location with clear foreground, midground and background layers.’,
-mood: ‘Look at the work of Hiroshi Sugimoto or Andreas Gursky for radical compositional decisions. What would you remove from their frames?’
+time: 'Overcast light is actually ideal for composition work because flat light removes the distraction of dramatic lighting. You are forced to find structure in the scene itself.',
+location: 'Urban environments with strong geometry, woodland with natural framing, or any location with clear foreground, midground and background layers.',
+mood: 'Look at the work of Hiroshi Sugimoto or Andreas Gursky for radical compositional decisions. What would you remove from their frames?'
 },
 Settings: {
-time: ‘Changing light conditions at golden hour or mixed indoor and outdoor light are ideal for settings practice because they force frequent adjustments.’,
-location: ‘A single location with varied lighting conditions. A room with a window, a forest edge where light breaks through, a street corner where light and shade meet.’,
-mood: ‘The goal is not beautiful images. The goal is understanding what each setting decision does. Ugly but deliberate is more useful than beautiful but accidental.’
+time: 'Changing light conditions at golden hour or mixed indoor and outdoor light are ideal for settings practice because they force frequent adjustments.',
+location: 'A single location with varied lighting conditions. A room with a window, a forest edge where light breaks through, a street corner where light and shade meet.',
+mood: 'The goal is not beautiful images. The goal is understanding what each setting decision does. Ugly but deliberate is more useful than beautiful but accidental.'
 },
 Edit: {
-time: ‘Shoot in flat overcast light so the edit decision is entirely in your hands. The light is not doing the work for you.’,
-location: ‘Anywhere. The edit brief is about what happens after the shoot, not where you shoot.’,
-mood: ‘Look at photographers with a highly recognisable style. Saul Leiter for warm, layered colour. Sebastiao Salgado for high contrast black and white. What single decision defines their look?’
+time: 'Shoot in flat overcast light so the edit decision is entirely in your hands. The light is not doing the work for you.',
+location: 'Anywhere. The edit brief is about what happens after the shoot, not where you shoot.',
+mood: 'Look at photographers with a highly recognisable style. Saul Leiter for warm, layered colour. Sebastiao Salgado for high contrast black and white. What single decision defines their look?'
 }
 };
 
@@ -4282,19 +4300,19 @@ const _origGenerateBrief = window.generateBrief;
 // ============================================================
 function exportShootSummary() {
 if (!window._currentPlan) {
-alert(‘Build a shoot plan first before exporting.’);
+alert('Build a shoot plan first before exporting.');
 return;
 }
 const plan = window._currentPlan;
-const shoot = (ans && ans.q1) ? ans.q1 : ‘Shoot plan’;
-const date = new Date().toLocaleDateString(‘en-GB’, { day: ‘numeric’, month: ‘long’, year: ‘numeric’ });
+const shoot = (ans && ans.q1) ? ans.q1 : 'Shoot plan';
+const date = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 
 const decisions = [
-{ label: ‘Subject’, content: plan.subject || ‘’ },
-{ label: ‘Light’, content: plan.light || ‘’ },
-{ label: ‘Composition’, content: plan.composition || ‘’ },
-{ label: ‘Settings’, content: plan.settings || ‘’ },
-{ label: ‘Edit’, content: plan.edit || ‘’ }
+{ label: 'Subject', content: plan.subject || '' },
+{ label: 'Light', content: plan.light || '' },
+{ label: 'Composition', content: plan.composition || '' },
+{ label: 'Settings', content: plan.settings || '' },
+{ label: 'Edit', content: plan.edit || '' }
 ];
 
 const checkedCount = Object.values(checked).filter(Boolean).length;
@@ -4327,11 +4345,11 @@ ${decisions.map(d => `<div class="section"><div class="label">${d.label}</div><d
 <\/body>
 <\/html>`;
 
-const blob = new Blob([exportHtml], { type: ‘text/html’ });
+const blob = new Blob([exportHtml], { type: 'text/html' });
 const url = URL.createObjectURL(blob);
-const a = document.createElement(‘a’);
+const a = document.createElement('a');
 a.href = url;
-a.download = shoot.replace(/[^a-z0-9]/gi, ‘-’).toLowerCase() + ‘-shoot-plan.html’;
+a.download = shoot.replace(/[^a-z0-9]/gi, '-').toLowerCase() + '-shoot-plan.html';
 document.body.appendChild(a);
 a.click();
 document.body.removeChild(a);
@@ -4346,44 +4364,44 @@ checkPostShootPrompt();
 }
 
 // Add shoot-mode-tool to goHome and showToolById tool lists
-const _allToolsExtended = [“light-tool”, “edit-checklist”, “decision-audit”, “consistency-tracker”, “wb-helper”, “exposure-tool”, “reflection-tool”, “brief-generator”, “gear-checklist”, “plan-history-tool”, “histogram-tool”, “focal-tool”, “colour-tool”, “location-tool”, “dof-tool”, “shotlist-tool”, “reciprocity-tool”, “rawjpeg-tool”, “print-tool”, “shoot-mode-tool”];
+const _allToolsExtended = ["light-tool", "edit-checklist", "decision-audit", "consistency-tracker", "wb-helper", "exposure-tool", "reflection-tool", "brief-generator", "gear-checklist", "plan-history-tool", "histogram-tool", "focal-tool", "colour-tool", "location-tool", "dof-tool", "shotlist-tool", "reciprocity-tool", "rawjpeg-tool", "print-tool", "shoot-mode-tool"];
 
 const _origGoHome = window.goHome;
 window.goHome = function() {
 if (shootModeTimer) { clearInterval(shootModeTimer); shootModeTimer = null; }
-_allToolsExtended.forEach(function(t) { var el = document.getElementById(t); if(el) el.style.display = ‘none’; });
-var planStage = document.getElementById(‘plan-stage’);
-var shootStage = document.getElementById(‘shoot-stage’);
-if (planStage) planStage.style.display = ‘none’;
-if (shootStage) shootStage.style.display = ‘none’;
-document.querySelectorAll(’.screen’).forEach(function(s) { s.classList.remove(‘active’); });
-document.getElementById(‘screen-home’).classList.add(‘active’);
-document.getElementById(‘screen-home’).style.display = ‘block’;
-document.getElementById(‘stage-tabs’).style.display = ‘none’;
-var hd = document.getElementById(‘header-detail’);
-var hb = document.getElementById(‘home-btn’);
-if (hd) hd.style.display = ‘none’;
-if (hb) hb.style.display = ‘none’;
-window.scrollTo({ top: 0, behavior: ‘smooth’ });
+_allToolsExtended.forEach(function(t) { var el = document.getElementById(t); if(el) el.style.display = 'none'; });
+var planStage = document.getElementById('plan-stage');
+var shootStage = document.getElementById('shoot-stage');
+if (planStage) planStage.style.display = 'none';
+if (shootStage) shootStage.style.display = 'none';
+document.querySelectorAll('.screen').forEach(function(s) { s.classList.remove('active'); });
+document.getElementById('screen-home').classList.add('active');
+document.getElementById('screen-home').style.display = 'block';
+document.getElementById('stage-tabs').style.display = 'none';
+var hd = document.getElementById('header-detail');
+var hb = document.getElementById('home-btn');
+if (hd) hd.style.display = 'none';
+if (hb) hb.style.display = 'none';
+window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
 const _origShowToolById = window.showToolById;
 window.showToolById = function(id) {
-_allToolsExtended.forEach(function(t) { var el = document.getElementById(t); if(el) el.style.display = ‘none’; });
-var planStage = document.getElementById(‘plan-stage’);
-var shootStage = document.getElementById(‘shoot-stage’);
-if (planStage) planStage.style.display = ‘none’;
-if (shootStage) shootStage.style.display = ‘none’;
-document.getElementById(‘screen-home’).classList.remove(‘active’);
-document.getElementById(‘screen-home’).style.display = ‘none’;
-var hd = document.getElementById(‘header-detail’);
-var hb = document.getElementById(‘home-btn’);
-if (hd) hd.style.display = ‘none’;
-if (hb) hb.style.display = ‘block’;
-document.getElementById(‘stage-tabs’).style.display = ‘none’;
+_allToolsExtended.forEach(function(t) { var el = document.getElementById(t); if(el) el.style.display = 'none'; });
+var planStage = document.getElementById('plan-stage');
+var shootStage = document.getElementById('shoot-stage');
+if (planStage) planStage.style.display = 'none';
+if (shootStage) shootStage.style.display = 'none';
+document.getElementById('screen-home').classList.remove('active');
+document.getElementById('screen-home').style.display = 'none';
+var hd = document.getElementById('header-detail');
+var hb = document.getElementById('home-btn');
+if (hd) hd.style.display = 'none';
+if (hb) hb.style.display = 'block';
+document.getElementById('stage-tabs').style.display = 'none';
 var el = document.getElementById(id);
-if (el) el.style.display = ‘block’;
-window.scrollTo({ top: 0, behavior: ‘smooth’ });
+if (el) el.style.display = 'block';
+window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 </script>
 
@@ -4404,7 +4422,8 @@ if ('serviceWorker' in navigator) {
     var err=document.getElementById('gate-error');
     if(input===PASS){
       try{localStorage.setItem(KEY,'1');}catch(e){}
-      document.getElementById('password-gate').classList.add('hidden');
+      var gate=document.getElementById('password-gate');
+      if(gate) gate.style.display='none';
     }else{
       err.style.display='block';
       document.getElementById('gate-input').value='';
@@ -4413,8 +4432,15 @@ if ('serviceWorker' in navigator) {
   document.addEventListener('DOMContentLoaded',function(){
     var input=document.getElementById('gate-input');
     if(input){input.addEventListener('keydown',function(e){if(e.key==='Enter')window.checkPassword();});}
-    try{if(localStorage.getItem(KEY)==='1'){document.getElementById('password-gate').classList.add('hidden');}}catch(e){}
+    var unlocked=false;
+    try{unlocked=localStorage.getItem(KEY)==='1';}catch(e){}
+    if(!unlocked){
+      var gate=document.getElementById('password-gate');
+      if(gate) gate.style.display='flex';
+    }
   });
+  if(typeof initAppFeatures==='function') initAppFeatures();
+  if(typeof checkOnboarding==='function') checkOnboarding();
 })();
 </script>
 
