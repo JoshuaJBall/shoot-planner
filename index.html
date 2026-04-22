@@ -932,8 +932,10 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.75rem;">Import a plan</div>
     <div style="background:var(--surface); border-radius:6px; padding:1.1rem 1.25rem; margin-bottom:0.75rem;">
       <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.6; margin-bottom:0.85rem;">Import a shoot summary exported from this app. It will be added to your plan history.</div>
-      <button onclick="document.getElementById('import-file-input').click()" style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); cursor:pointer; -webkit-appearance:none; -webkit-text-fill-color:var(--text-muted);">Choose file to import</button>
-      <input type="file" id="import-file-input" accept=".html" style="display:none; position:absolute; left:-9999px;">
+      <div style="position:relative; width:100%;">
+        <input type="file" id="import-file-input" accept=".html" style="position:absolute; inset:0; width:100%; height:100%; opacity:0; cursor:pointer; z-index:2;" onchange="handleImportFile(this)">
+        <div style="width:100%; background:transparent; border:1px solid var(--border); border-radius:4px; padding:0.85rem; font-size:0.85rem; font-family:inherit; color:var(--text-muted); text-align:center; pointer-events:none;">Choose file to import</div>
+      </div>
       <div id="import-result" style="display:none; margin-top:0.75rem; font-size:0.82rem; color:var(--text-muted); line-height:1.5;"></div>
     </div>
   </div>
@@ -4051,6 +4053,74 @@ window.goToShootMode = window.goToShootMode || function() {
   if (a) a.style.display = 'none';
   if (su) su.style.display = 'none';
   showToolById('shoot-mode-tool');
+};
+
+window.handleImportFile = function(input) {
+  if (!input || !input.files || !input.files[0]) return;
+  var file = input.files[0];
+  var resultEl = document.getElementById('import-result');
+  if (resultEl) { resultEl.style.display = 'block'; resultEl.textContent = 'Reading file...'; resultEl.style.color = 'var(--text-muted)'; }
+
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      var content = e.target.result;
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(content, 'text/html');
+
+      var h1 = doc.querySelector('h1');
+      var shoot = h1 ? h1.textContent.trim() : 'Imported plan';
+
+      var dateEl = doc.querySelector('.date');
+      var importDate = dateEl ? dateEl.textContent.trim() : new Date().toLocaleDateString('en-GB');
+
+      var sections = doc.querySelectorAll('.section');
+      var plan = {};
+      sections.forEach(function(section) {
+        var labelEl = section.querySelector('.label');
+        var contentEl = section.querySelector('.content');
+        if (labelEl && contentEl) {
+          var key = labelEl.textContent.trim().toLowerCase();
+          if (['subject','light','composition','settings','edit'].indexOf(key) >= 0) {
+            plan[key] = contentEl.textContent.trim();
+          }
+        }
+      });
+
+      if (!plan.subject && !plan.light && !plan.composition) {
+        if (resultEl) resultEl.textContent = 'This does not look like a valid shoot summary exported from this app.';
+        return;
+      }
+
+      var historyEntry = {
+        date: importDate + ' (imported)',
+        shoot: shoot,
+        light: plan.light ? plan.light.substring(0, 40) : 'Imported',
+        camera: '',
+        answers: null,
+        plan: plan
+      };
+
+      var history = [];
+      try { history = JSON.parse(localStorage.getItem('plan-history') || '[]'); } catch(err) {}
+      history.unshift(historyEntry);
+      try { localStorage.setItem('plan-history', JSON.stringify(history.slice(0, 30))); } catch(err) {}
+
+      if (resultEl) {
+        resultEl.textContent = 'Plan imported successfully. Added to your plan history above.';
+        resultEl.style.color = 'var(--text)';
+      }
+      if (typeof renderPlanHistory === 'function') renderPlanHistory();
+      input.value = '';
+
+    } catch(err) {
+      if (resultEl) resultEl.textContent = 'Something went wrong. Make sure the file is a shoot summary exported from this app.';
+    }
+  };
+  reader.onerror = function() {
+    if (resultEl) resultEl.textContent = 'Could not read the file. Try again.';
+  };
+  reader.readAsText(file);
 };
 </script>
 
