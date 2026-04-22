@@ -2257,7 +2257,7 @@ function renderShootView() {
     out += '<div class="decision-content">' + content + '</div>';
     out += '<div style="margin-top:1rem;">';
     out += '<div style="font-size:0.7rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.5rem;">Your answer</div>';
-    out += '<textarea id="response-' + key + '" data-key="' + key + '" oninput="setDecisionResponse(this.dataset.key, this.value)" style="width:100%; background:var(--surface2); border:1px solid var(--border); border-radius:4px; padding:0.75rem 0.9rem; font-size:0.85rem; font-family:inherit; font-weight:300; color:var(--text); outline:none; -webkit-appearance:none; resize:none; min-height:80px; line-height:1.5;">' + savedResponse.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</textarea>';
+    out += '<textarea id="response-' + key + '" data-key="' + key + '" oninput="setDecisionResponse(this.getAttribute(&quot;data-key&quot;), this.value)" style="width:100%; background:var(--surface2); border:1px solid var(--border); border-radius:4px; padding:0.75rem 0.9rem; font-size:0.85rem; font-family:inherit; font-weight:300; color:var(--text); outline:none; -webkit-appearance:none; resize:none; min-height:80px; line-height:1.5;">' + savedResponse.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</textarea>';
 
 ```
 out += '</div>';
