@@ -70,7 +70,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 .btn-back:hover { border-color: var(--border-active); color: var(--text); }
 .btn-next { flex: 1; background: var(--accent); border: none; color: #000; border-radius: 4px; padding: 0.85rem; font-size: 0.88rem; font-weight: 500; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; cursor: pointer; transition: background 0.2s; -webkit-appearance: none; }
 .btn-next:hover { background: #e0e0e0; }
-.shoot-header { padding: 0.5rem 0 1.25rem; border-bottom: 1px solid var(--border); margin-bottom: 1.5rem; }
+.shoot-header { padding: 0.5rem 0 0.75rem; margin-bottom: 1rem; }
 .shoot-tag { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem; }
 .shoot-title { font-size: 1.2rem; font-weight: 500; letter-spacing: -0.02em; }
 .shoot-subtitle { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem; }
@@ -455,7 +455,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 
 <!-- SHOOT STAGE -->
 
-<div id="shoot-stage" style="display:none;">
+<div id="shoot-stage" style="display:none; padding:0 1.25rem;">
   <div class="shoot-header">
     <div class="shoot-tag">Your five decisions</div>
     <div class="shoot-title" id="shoot-title"></div>
@@ -591,15 +591,15 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 
   <div id="exp-result" style="display:none; margin-bottom:2rem;">
     <div style="background:var(--surface); border-radius:6px; padding:1.25rem; margin-bottom:0.75rem;">
-      <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Shutter speed — decide first</div>
+      <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Shutter speed: decide first</div>
       <div id="exp-shutter" style="font-size:0.9rem; color:var(--text); line-height:1.6;"></div>
     </div>
     <div style="background:var(--surface); border-radius:6px; padding:1.25rem; margin-bottom:0.75rem;">
-      <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Aperture — decide second</div>
+      <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Aperture: decide second</div>
       <div id="exp-aperture" style="font-size:0.9rem; color:var(--text); line-height:1.6;"></div>
     </div>
     <div style="background:var(--surface); border-radius:6px; padding:1.25rem;">
-      <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">ISO — set last</div>
+      <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">ISO: set last</div>
       <div id="exp-iso" style="font-size:0.9rem; color:var(--text); line-height:1.6;"></div>
     </div>
   </div>
@@ -1084,7 +1084,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 <!-- LOCATION SCOUTING CHECKLIST -->
 
 <div id="location-tool" style="display:none; animation: fadeUp 0.3s ease; max-width:560px; margin:0 auto; padding:0 1.25rem;">
-  <div style="padding:0.5rem 0 1.25rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem;">
+  <div style="padding:0.5rem 0 1.25rem; margin-bottom:1rem;">
     <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">Before you arrive</div>
     <div style="font-size:1.2rem; font-weight:500; letter-spacing:-0.02em;">Location Scout</div>
     <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.25rem;">Work through this before committing to a shoot.</div>
@@ -1376,7 +1376,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     <div>
       <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:0.6rem;">Print size</div>
       <div style="display:flex; flex-direction:column; gap:0.5rem;">
-        <button class="option-btn" onclick="selectPrint('size','4x6',this)">4 × 6 inch (10 × 15cm) — standard print</button>
+        <button class="option-btn" onclick="selectPrint('size','4x6',this)">4 × 6 inch (10 × 15cm): standard print</button>
         <button class="option-btn" onclick="selectPrint('size','5x7',this)">5 × 7 inch (13 × 18cm)</button>
         <button class="option-btn" onclick="selectPrint('size','6x8',this)">6 × 8 inch (15 × 20cm)</button>
         <button class="option-btn" onclick="selectPrint('size','8x10',this)">8 × 10 inch (20 × 25cm)</button>
@@ -1515,7 +1515,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 <div id="onboard-step-1">
   <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:1rem;">Step 1 of 3</div>
   <h2 style="font-size:1.4rem; font-weight:500; letter-spacing:-0.02em; line-height:1.3; color:var(--text); margin-bottom:1rem;">Plan before you leave the house.</h2>
-  <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.8; margin-bottom:2.5rem;">Answer six questions and get your five decisions built around your specific shoot. Subject, light, composition, settings, and edit — decided before you raise the camera.</p>
+  <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.8; margin-bottom:2.5rem;">Answer six questions and get your five decisions built around your specific shoot. Subject, light, composition, settings, and edit: decided before you raise the camera.</p>
   <div style="background:var(--surface); border-radius:8px; padding:1.25rem; margin-bottom:2.5rem;">
     <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.5rem;">The camera doesn't decide. You do.</div>
     <div style="font-size:0.85rem; color:var(--text-muted); line-height:1.6;">Most shoots go wrong before the shutter. Not because of gear. Because the decisions that should happen before you raise the camera never got made.</div>
@@ -1527,6 +1527,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
   <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); margin-bottom:1rem;">Step 2 of 3</div>
   <h2 style="font-size:1.4rem; font-weight:500; letter-spacing:-0.02em; line-height:1.3; color:var(--text); margin-bottom:1rem;">Take your decisions out with you.</h2>
   <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.8; margin-bottom:2.5rem;">On location, open the Five decisions checklist. Work through each one before you shoot. Tick it off when you have committed to it.</p>
+  <div style="font-size:0.7rem; color:var(--text-dim); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.5rem;">Example</div>
   <div style="display:flex; flex-direction:column; gap:0.6rem; margin-bottom:2.5rem;">
     <div style="background:var(--surface); border-radius:6px; padding:0.9rem 1.1rem; display:flex; align-items:center; gap:0.85rem;">
       <div style="width:22px; height:22px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.7rem; color:#000; font-weight:600;">✓</div>
@@ -1534,11 +1535,11 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </div>
     <div style="background:var(--surface); border-radius:6px; padding:0.9rem 1.1rem; display:flex; align-items:center; gap:0.85rem;">
       <div style="width:22px; height:22px; border-radius:50%; border:1px solid var(--border); flex-shrink:0;"></div>
-      <div style="font-size:0.85rem; color:var(--text-dim);">Light — tap to review</div>
+      <div style="font-size:0.85rem; color:var(--text-dim);">Light: tap to review</div>
     </div>
     <div style="background:var(--surface); border-radius:6px; padding:0.9rem 1.1rem; display:flex; align-items:center; gap:0.85rem;">
       <div style="width:22px; height:22px; border-radius:50%; border:1px solid var(--border); flex-shrink:0;"></div>
-      <div style="font-size:0.85rem; color:var(--text-dim);">Composition — tap to review</div>
+      <div style="font-size:0.85rem; color:var(--text-dim);">Composition: tap to review</div>
     </div>
   </div>
   <button onclick="onboardNext(3)" style="width:100%; background:var(--accent); border:none; border-radius:4px; padding:0.9rem; font-size:0.9rem; font-weight:500; font-family:inherit; color:#000; cursor:pointer; -webkit-appearance:none;">Next</button>
@@ -1592,7 +1593,7 @@ const decisionMeta = {
 // ============================================================
 const plans = {
 'Landscape|Golden Hour': {
-  title: 'Landscape — Golden Hour',
+  title: 'Landscape: Golden Hour',
   summary: 'Low light, long shadows, one element the light is touching.',
   subject: 'The light is doing something specific right now and it will not last. Pick the one element in the scene that the light is actually falling on. Not the whole view. The one thing the light is touching that everything else is not. That is your subject. If the light is hitting a hillside and leaving the valley in shadow, the contrast between the two is the subject. Name it before you raise the camera.',
   light: 'Low, warm, directional. The light is coming from one side and it is raking across the landscape. That means texture shows up, shadows are long, and the difference between lit and unlit parts of the scene is doing most of the work for you. Position yourself so the light is hitting your subject from the side or slightly behind it. Front lit golden hour is flat. Side lit golden hour has depth.',
@@ -1601,7 +1602,7 @@ const plans = {
   edit: 'The warmth is already there. Do not add more. Lift the shadows slightly to show structure in the darker areas without flattening the contrast. Keep the highlights controlled. The goal is to feel like you were standing there watching it, not like you pushed every warm slider to its limit.'
 },
 'Landscape|Overcast': {
-  title: 'Landscape — Overcast',
+  title: 'Landscape: Overcast',
   summary: 'Even light, no direction. The subject decision carries more weight.',
   subject: 'Overcast light removes the shortcut of dramatic light telling you where to look. That means the subject decision carries more weight than usual. Pick one thing before you raise the camera. A lone tree. A wall cutting through the field. A patch of colour against a muted background. One thing. If you cannot name it in a sentence, do not take the photo yet.',
   light: 'The sky is bright but directionless. No hard shadows, no highlights burning out. This is where most people start shooting too early because it feels like the conditions are fine and the light is not getting in the way. It is not getting in the way. But it is also not doing any work for you. Keep the sky to the top third of the frame or cut it out entirely unless it has real texture worth including. Everything else sits in the mid tones. Separation comes from your positioning, not the light.',
@@ -1610,7 +1611,7 @@ const plans = {
   edit: 'Calm and still means leaving things alone more than you think you should. Lift the shadows slightly to open the midtones. Keep contrast low. Cool the white balance a fraction to sit with the overcast sky rather than fight it. The edit should feel like you were standing there. Not like something was done to it afterwards.'
 },
 'Landscape|Bright Midday': {
-  title: 'Landscape — Bright Midday',
+  title: 'Landscape: Bright Midday',
   summary: 'Harsh overhead light. Go graphic rather than pastoral.',
   subject: 'Midday light is harsh and most people avoid it. That is actually useful. If you are shooting now, you are working with what is there rather than waiting for perfect conditions. Find a subject that benefits from hard light or high contrast. Rock formations, architectural elements in the landscape, patterns in the land from above. Strong graphic subjects work better in harsh light than soft pastoral scenes.',
   light: 'The light is coming straight down. Shadows are short and directly below everything. There is almost no directionality. That means you cannot rely on light to create depth. You have to create it through positioning and tonal separation in the edit. Avoid putting the sky in the frame if it is blown out. If it has cloud texture, expose for it and let the foreground sit darker.',
@@ -1619,7 +1620,7 @@ const plans = {
   edit: 'Do not try to make midday light look like golden hour. Work with it. Increase clarity slightly to lean into the texture. Keep the colours honest. If the shadows are deep, leave them deep. The contrast is the point.'
 },
 'Landscape|Blue Hour': {
-  title: 'Landscape — Blue Hour',
+  title: 'Landscape: Blue Hour',
   summary: 'Cool even light, lit sky. Is the land or sky actually the subject?',
   subject: 'Blue hour gives you a short window of even, cool light with a lit sky. The subject needs to make sense at low light levels. Something with a clear silhouette works well. A ridge line, a single tree, a body of water reflecting the sky. The sky is often the most interesting thing at blue hour so ask yourself whether the land or the sky is actually the subject before you decide on your framing.',
   light: 'The light is coming from the sky evenly. There is no directionality but there is colour. Cool blues and sometimes purples depending on cloud cover. It fades fast. Arrive before it starts so you are positioned when it happens rather than scrambling when it does. Expose for the sky. Everything below will be darker and that separation is part of the image.',
@@ -1628,7 +1629,7 @@ const plans = {
   edit: 'Preserve the cool tones. This is not the edit where you add warmth. Lift the shadows enough to show some detail in the foreground without killing the mood. The contrast between the lit sky and the darker land is doing the work. Do not flatten it.'
 },
 'Landscape|Mixed or Unpredictable': {
-  title: 'Landscape — Mixed Conditions',
+  title: 'Landscape: Mixed Conditions',
   summary: 'The light is changing. Pick a subject and wait for it.',
   subject: 'Mixed conditions mean the light is changing. That is actually the most interesting shooting situation if you are ready for it. Pick a subject that works regardless of whether the light lands on it or not. Then wait. The moment the light catches it is the frame. Everything else is preparation.',
   light: 'Watch the clouds. Moving cloud cover creates travelling patches of light across the landscape. Position yourself so your subject is in the path of an incoming patch. Learn to read roughly how fast the light is moving. You will miss the first few. You will get it eventually. The unpredictability is the point.',
@@ -1637,7 +1638,7 @@ const plans = {
   edit: 'Mixed light shoots often have more drama than planned. Work with whatever the light gave you. If a shaft of light landed on your subject, make that the focal point of the edit. Increase the contrast between that area and the rest of the frame slightly.'
 },
 'Coastal|Golden Hour': {
-  title: 'Coastal — Golden Hour',
+  title: 'Coastal: Golden Hour',
   summary: 'Warm light on water, cliffs, or sand. Pick one.',
   subject: 'Coastal golden hour gives you warm light on water, cliffs, or sand. All three respond differently. Water holds the warm reflection. Cliffs show texture. Sand glows. Pick which one is actually your subject and position for that specifically. Do not try to include all three hoping the light ties them together.',
   light: 'The low angle of golden hour light rakes across surfaces and shows texture that disappears at other times of day. On a rocky coastline this is where detail in the rock formations becomes visible. On a sandy beach the ripples in the sand catch the light. Position yourself so the light is coming from the side rather than behind you.',
@@ -1646,7 +1647,7 @@ const plans = {
   edit: 'The warmth is there already. Let it sit. Pull back the highlights on the water so they do not blow. Lift the shadows on the cliffs or rocks slightly. The edit should feel like a real place at a real time of day, not a postcard version of it.'
 },
 'Coastal|Overcast': {
-  title: 'Coastal — Overcast',
+  title: 'Coastal: Overcast',
   summary: 'Richer sea colour, no blown highlights. The sky is the problem.',
   subject: 'Overcast coastal shooting is underrated. The soft light shows the colour of the sea without blowing the highlights out. Pick a subject that benefits from even light and rich colour. Rock pools, coloured boats, textured cliffs, the pattern of the tide on sand. Without dramatic light you need a strong subject more than ever.',
   light: 'No harsh shadows and no blown sky. The sea colour is often richer and more accurate under overcast light than under direct sun. The sky is your biggest problem. It is bright but featureless. Keep it out of the frame unless there is genuine cloud texture. A flat white sky adds nothing.',
@@ -1655,7 +1656,7 @@ const plans = {
   edit: 'Bring out the colour in the water. Overcast coastal shots often have beautiful blues and greens that just need the mid tones opened slightly to show properly. Keep contrast moderate. The mood here is calm not dramatic.'
 },
 'Coastal|Bright Midday': {
-  title: 'Coastal — Bright Midday',
+  title: 'Coastal: Bright Midday',
   summary: 'Harsh light on water. Go graphic. A polariser helps here.',
   subject: 'Midday at the coast is difficult. The light is harsh, the sky is often blown, and the sea reflects the sun directly back at the lens. Go graphic. Look for patterns in the rocks, abstract shapes in the cliffs, the geometry of harbour walls. Subjects that work in high contrast rather than subjects that need soft rendering.',
   light: 'Direct overhead sun creates deep shadows under any overhang or rock feature and blows the highlights on the water surface. A polariser is genuinely useful here. It cuts the surface reflection on the water and brings back sky colour. Without one, avoid pointing the lens anywhere near the sun.',
@@ -1664,7 +1665,7 @@ const plans = {
   edit: 'Work with the contrast rather than against it. Deepen the shadows slightly. Keep the highlights controlled. If there is colour in the water from the polariser, protect it in the edit. Saturation on coastal midday shots tends to need pulling back not pushing forward.'
 },
 'Coastal|Blue Hour': {
-  title: 'Coastal — Blue Hour',
+  title: 'Coastal: Blue Hour',
   summary: 'Sky colour, water reflection, warm harbour lights. A strong combination.',
   subject: 'Coastal blue hour is one of the strongest combinations in landscape photography. The sky holds colour, the water reflects it, and if there are any lights on the harbour or seafront they add warmth against the cool blue. Decide before you arrive whether the sky or the water is the subject and frame accordingly.',
   light: 'The sky is the light source at blue hour. Everything below it is darker. The water reflects the sky which gives you colour in the foreground. Expose for the sky and let the land elements go dark. If there are artificial lights in the scene they will read as warm against the cool blue which creates natural contrast without any effort.',
@@ -1673,7 +1674,7 @@ const plans = {
   edit: 'Preserve the blue tones. This is a cool edit. Lift the shadows just enough to show some detail in the dark foreground elements. Bring the highlights on the sky down enough that any colour in the clouds is visible. Do not add warmth. The coolness is the whole mood.'
 },
 'Coastal|Mixed or Unpredictable': {
-  title: 'Coastal — Mixed Conditions',
+  title: 'Coastal: Mixed Conditions',
   summary: 'Shafts of light on water, storms clearing. Stay wide and wait.',
   subject: 'Mixed coastal conditions are often the best coastal conditions. Storms clearing, sun breaking through cloud over water, shafts of light hitting the sea. Pick a wide subject that gives the changing light somewhere to land. A bay, a stretch of cliff, a wide beach. Then watch and wait.',
   light: 'Moving cloud creates moving light on the water. When a shaft of light hits the sea the colour changes completely. Position yourself facing the direction the light is coming through and watch for the gap in the cloud. You often have ten seconds or less. Be ready before it happens.',
@@ -1682,7 +1683,7 @@ const plans = {
   edit: 'Work with the contrast the weather gave you. Rain reflections need the shadows lifted slightly to show. A shaft of sun on a wet surface needs the warmth protected and the surrounding areas kept darker to show the contrast.'
 },
 'Woodland|Golden Hour': {
-  title: 'Woodland — Golden Hour',
+  title: 'Woodland: Golden Hour',
   summary: 'Light shafts, backlit leaves, long shadows. Light as subject or backdrop.',
   subject: 'Low golden hour light cutting through trees is one of those conditions where the light itself becomes the subject. Shafts of light, long shadows on the forest floor, backlit leaves glowing. Decide whether you are photographing the light or photographing something the light is falling on. Both work but they are different photos.',
   light: 'The light is low and directional. It cuts through gaps in the canopy and creates shafts where there is moisture or dust in the air. Position yourself with the light coming from behind or to the side. Backlit leaves at golden hour glow in a way that disappears in any other condition. Look up as well as across.',
@@ -1691,7 +1692,7 @@ const plans = {
   edit: 'The warmth is there. Protect it rather than add to it. Lift the shadows on the forest floor slightly to show texture. Keep the highlights on any sky visible through the canopy from blowing. The depth of colour in backlit leaves needs the mid tones opened slightly to show properly.'
 },
 'Woodland|Overcast': {
-  title: 'Woodland — Overcast',
+  title: 'Woodland: Overcast',
   summary: 'Even light, rich colour, no contrast problem. Composition does the work.',
   subject: 'Overcast woodland is about colour and texture rather than light and shadow. Rich greens, the texture of bark, the detail in moss and ferns. Pick something with inherent texture or colour as your subject. The even light will render it accurately without the distraction of harsh shadows.',
   light: 'Even, soft, shadowless. This is actually ideal for woodland photography because it removes the harsh contrast problem. Under direct sun woodland is nearly impossible to expose correctly because the bright gaps in the canopy blow out before the dark areas have any detail. Overcast removes that problem entirely.',
@@ -1700,7 +1701,7 @@ const plans = {
   edit: 'Overcast woodland often looks slightly flat straight out of camera. Open the mid tones slightly. Bring out the greens carefully without making them artificial. A small amount of clarity or texture helps bring out bark and leaf detail without looking over processed.'
 },
 'Woodland|Bright Midday': {
-  title: 'Woodland — Bright Midday',
+  title: 'Woodland: Bright Midday',
   summary: 'Extreme contrast. Lean into it or look up.',
   subject: 'Bright midday in woodland creates extreme contrast between the lit canopy gaps and the dark floor. Most people fight this and end up with a badly exposed mess. Work with it instead. Look up. The canopy against a bright sky, the pattern of branches and leaves against light, abstract and graphic compositions that lean into the contrast rather than trying to expose for the whole scene.',
   light: 'The light is overhead and broken by the canopy. You get bright patches on the floor and deep shadow between them. The gaps in the canopy are blown unless you expose specifically for them. Decide whether you are exposing for the floor or the sky and commit to one. You cannot have both at midday without HDR processing.',
@@ -1709,7 +1710,7 @@ const plans = {
   edit: 'Do not try to rescue the parts of the image you did not expose for. Work with the exposure decision you made. If you exposed for the forest floor, the canopy is the background and does not need detail. If the shadows are deep, leave them deep.'
 },
 'Woodland|Blue Hour': {
-  title: 'Woodland — Blue Hour',
+  title: 'Woodland: Blue Hour',
   summary: 'Cool blue light filtering down through the canopy. Look up.',
   subject: 'Blue hour in woodland is a specific and unusual look. The residual blue light in the sky filters down through the canopy and gives the whole scene a cool cast. It works best when there is some sky visible through the trees. The subject is usually the relationship between the tree forms and the light sky above them.',
   light: 'The light level is low and dropping fast. You need a tripod. The light is cool and coming from above. Anything pointing upward through the canopy will be brighter than the forest floor. Work with that separation.',
@@ -1718,7 +1719,7 @@ const plans = {
   edit: 'Preserve the cool blue cast. This is not the edit where you warm things up. Lift the shadows on the tree trunks slightly to show form. The sky visible through the canopy should be the brightest part of the frame. Do not flatten it.'
 },
 'Woodland|Mixed or Unpredictable': {
-  title: 'Woodland — Mixed Conditions',
+  title: 'Woodland: Mixed Conditions',
   summary: 'Moving patches of light on the forest floor. Commit to a frame and wait.',
   subject: 'Moving cloud in woodland creates moving patches of light on the forest floor. When a gap in the cloud aligns with a gap in the canopy you get a shaft of light that lasts seconds. Pick a section of forest floor with a clear subject and wait for the light to find it. You will know the shot when it happens.',
   light: 'Watch the light on the floor rather than the sky. You cannot see the cloud movement from inside the woodland but you can see the light changing on the ground. When it starts to shift, get ready. The shaft of light moves across the floor and you have a short window.',
@@ -1727,7 +1728,7 @@ const plans = {
   edit: 'If you caught a shaft of light, protect the warmth of it and separate it from the surrounding shadow. A slight contrast increase between the lit area and the dark areas can make the light feel more present without looking processed.'
 },
 'Urban|Golden Hour': {
-  title: 'Urban — Golden Hour',
+  title: 'Urban: Golden Hour',
   summary: 'Warm light transforming surfaces. Find where the light is actually entering.',
   subject: 'Golden hour turns ordinary urban surfaces into something worth shooting. Brick, concrete, glass, metal all catch the warm light differently. Pick one surface or one building that the light is doing something specific to. Not the whole street. The one thing the light is transforming right now.',
   light: 'The low angle of golden hour light creates long shadows between buildings and lights up vertical surfaces that face the sun. Glass buildings reflect the warm sky. West-facing streets get lit from one end. Find the streets where the light is actually entering and working. Most streets will be in shade.',
@@ -1736,7 +1737,7 @@ const plans = {
   edit: 'The warmth is there. Do not add to it. Clean up the mid tones. Urban scenes often have a colour cast from different light sources mixing. Correct the white balance for the dominant light, which at golden hour is the sun, and let the artificial lights go warm in comparison.'
 },
 'Urban|Overcast': {
-  title: 'Urban — Overcast',
+  title: 'Urban: Overcast',
   summary: 'Even light means you can shoot anywhere. The moment is everything.',
   subject: 'Overcast urban photography is about detail and people rather than light. Street scenes, architecture, the texture of urban surfaces, the rhythm of a busy street. Pick a specific scene or detail rather than a general view. The even light will render everything accurately which means composition and subject matter more than ever.',
   light: 'No harsh shadows, no blown highlights. The light is even and honest. Colours read accurately. This is good for architecture because you can see the actual material and texture of buildings without half of them in deep shadow. Street photography in overcast conditions means you can shoot in any direction without worrying about the light.',
@@ -1745,7 +1746,7 @@ const plans = {
   edit: 'Overcast urban tends toward flat and grey. A small amount of contrast and clarity brings out the texture in the buildings. Colour is honest under overcast light so do not push saturation. Clean and documentary rather than processed.'
 },
 'Urban|Bright Midday': {
-  title: 'Urban — Bright Midday',
+  title: 'Urban: Bright Midday',
   summary: 'Graphic shadows on streets. The shadow pattern is the composition.',
   subject: 'Midday urban is graphic urban. The strong overhead light creates deep shadows under awnings, in doorways, between buildings. Those shadow shapes become part of the composition. Look for scenes where the contrast between deep shadow and bright light creates geometric patterns. Street photography with strong graphic shadows.',
   light: 'The light is overhead and harsh. People squint. Shadows are directly below everything. This is not the light for photographing building facades in a flattering way. It is the light for photographing the patterns the shadows create on the ground and on walls. Think graphic, think contrast, think geometry.',
@@ -1754,7 +1755,7 @@ const plans = {
   edit: 'High contrast and clean. Deepen the blacks. Keep the highlights controlled. The graphic quality of midday urban photography needs confident contrast, not a flat edit that softens everything.'
 },
 'Urban|Blue Hour': {
-  title: 'Urban — Blue Hour',
+  title: 'Urban: Blue Hour',
   summary: 'Warm artificial lights against a cool blue sky. The transition is the shoot.',
   subject: 'Urban blue hour is when the artificial lights of the city balance with the remaining natural light in the sky. This is the window when both are visible without one overwhelming the other. Lit buildings against a blue sky, neon reflections in wet streets, the warm glow of windows against a cool exterior. The relationship between warm artificial light and cool natural light is the subject.',
   light: 'The sky still has light but it is fading fast. The city lights are now bright enough to register properly. This window lasts about twenty minutes. Arrive before it starts. The right exposure balances the sky and the artificial lights. Too early and the lights are weak against the bright sky. Too late and the sky is black.',
@@ -1763,7 +1764,7 @@ const plans = {
   edit: 'Blue hour urban is a warm and cool edit. The artificial lights are warm. The sky is cool. Preserve that contrast rather than correcting it. Lift the shadows slightly to show detail in the darker parts of the scene without killing the mood.'
 },
 'Urban|Mixed or Unpredictable': {
-  title: 'Urban — Mixed Conditions',
+  title: 'Urban: Mixed Conditions',
   summary: 'Rain, shafts of sun, wet streets. Be in a good location when it changes.',
   subject: 'Mixed urban conditions mean the scene keeps changing. Rain starting or stopping. Sun breaking through cloud over a city street. The moment of change is often more interesting than the stable condition either side of it. Pick a scene and watch for the moment the light does something unexpected in it.',
   light: 'Be opportunistic. Wet streets after rain reflect everything. A shaft of sun through a cloud gap on a city street lasts seconds. Pre-rain light has a specific quality that experienced street photographers know well. You cannot plan for these moments but you can be in a good location when they happen.',
@@ -1772,7 +1773,7 @@ const plans = {
   edit: 'Work with the drama the weather gave you. Rain reflections need the shadows lifted slightly to show. A shaft of sun on a wet street needs the warmth protected and the surrounding areas kept darker to show the contrast.'
 },
 'Portrait|Golden Hour': {
-  title: 'Portrait — Golden Hour',
+  title: 'Portrait: Golden Hour',
   summary: 'Warm, side-lit faces. Decide formal or relaxed before you start.',
   subject: 'The person is the subject. But the decision before the shoot is what you want to say about them. Formal, relaxed, environmental, close. Pick one intention before you start. A relaxed environmental portrait at golden hour is a different shoot from a close formal portrait in the same conditions. Decide which one before you raise the camera.',
   light: 'Golden hour is the most forgiving portrait light there is. Warm, soft, directional. Position your subject so the light is coming from the side or slightly in front of them. Backlit golden hour portraits work if you expose for the face and let the background blow slightly. Front lit is flat. Side lit shows the structure of the face.',
@@ -1781,7 +1782,7 @@ const plans = {
   edit: 'The warmth is already in the light. Protect it. Skin tones at golden hour are flattering and accurate. Do not push the warmth further or the skin starts to look unnatural. Clean edit, natural colour, subject clearly separated from background.'
 },
 'Portrait|Overcast': {
-  title: 'Portrait — Overcast',
+  title: 'Portrait: Overcast',
   summary: 'Clean even light, no shadows. Connection and composition do the work.',
   subject: 'Overcast is clean, even portrait light. No harsh shadows under the eyes, no squinting. The even light means you can focus entirely on expression and connection rather than managing the light. The subject decision here is about the relationship between the person and the environment. Are you making a portrait of a person or a portrait of a person in a place.',
   light: 'The light is coming from the whole sky. It is soft and wrapping. Shadows are present but very soft. This is the light that requires nothing from you technically. It is honest and accurate. What it does not do is add drama or mood. That has to come from the subject and the composition.',
@@ -1790,7 +1791,7 @@ const plans = {
   edit: 'Overcast portraits need a small contrast lift to stop them looking flat. Skin tones are accurate so do not push colour. A small amount of warmth in the white balance goes a long way. Keep the edit clean and focused on making the subject look natural rather than processed.'
 },
 'Portrait|Bright Midday': {
-  title: 'Portrait — Bright Midday',
+  title: 'Portrait: Bright Midday',
   summary: 'Find open shade. The light inside is soft. The blown background works for you.',
   subject: 'Midday is the hardest portrait light. Overhead sun creates shadows under the eyes, the nose, and the chin that are unflattering. The solution is to find open shade. A building overhang, the shadow of a tree, a covered walkway. In open shade the light is soft and even while the background behind you is in direct sun which gives you a bright background to separate the subject from.',
   light: 'Find the shade. Do not try to shoot people in direct midday sun. Position your subject inside the shade facing the direction of the open light source, which is the direction the shade is open toward. The light from the open sky in front of them is soft and directional. It is actually good portrait light if you find it.',
@@ -1799,7 +1800,7 @@ const plans = {
   edit: 'The shade removes the warmth of midday sun. Add a small amount of warmth in the white balance to keep skin tones natural. The high contrast between subject and bright background can be softened slightly in the edit if it is too stark.'
 },
 'Portrait|Blue Hour': {
-  title: 'Portrait — Blue Hour',
+  title: 'Portrait: Blue Hour',
   summary: 'Cool ambient, warm artificial lights on the face. Cinematic and deliberate.',
   subject: 'Blue hour portraits have a specific mood. Cool, cinematic, slightly atmospheric. They work best in urban environments where artificial lights add warmth against the cool sky. The subject is the person against that mood. It is not a casual portrait condition. It is a deliberate, slightly dramatic condition that suits a specific kind of image.',
   light: 'The sky is the ambient light. It is cool and dropping fast. Artificial lights around the person add warmth. The balance between those two light sources is what creates the blue hour portrait quality. Position the person so there is artificial light warming their face slightly against the cool sky background.',
@@ -1808,7 +1809,7 @@ const plans = {
   edit: 'Preserve the cool tones. Lift the shadows to show the face clearly without killing the mood. The warm artificial light on the face against the cool background is the edit you are protecting, not correcting.'
 },
 'Portrait|Mixed or Unpredictable': {
-  title: 'Portrait — Mixed Conditions',
+  title: 'Portrait: Mixed Conditions',
   summary: 'Skin tone shifts with the light. Know the image before conditions change.',
   subject: 'Mixed light is unpredictable for portraits because skin tone shifts with every change in the light. The subject decision stays the same but your technical response needs to be faster. Know what the image is about before the light changes and be ready to shoot when the right light lands.',
   light: 'Watch for patches of soft light between harsh direct sun. A moment of cloud cover softens the light completely. A shaft of filtered light through cloud can be beautiful on a face for a few seconds. Be ready rather than reactive.',
@@ -1817,7 +1818,7 @@ const plans = {
   edit: 'Mixed light portraits often have inconsistent colour across a sequence. Pick the frame where the light was at its best and edit from there rather than trying to correct the ones where the light was wrong.'
 },
 'Event|Golden Hour': {
-  title: 'Event — Golden Hour',
+  title: 'Event: Golden Hour',
   summary: 'Narrow window of golden light. Move between interior and exterior during it.',
   subject: 'Events at golden hour give you a narrow window where the outside light is doing something interesting. Move between the interior and exterior during that window. The candid moments happening in the golden light are usually the strongest images of the day. Position yourself near the exits and windows.',
   light: 'If the event is outdoors, treat it like landscape golden hour but with people. If it is indoors, the golden light through windows creates pools of warm light that people naturally gravitate toward. Find those pools and wait for interesting moments to happen in them.',
@@ -1826,7 +1827,7 @@ const plans = {
   edit: 'Event golden hour images often have warm tones from both the sun and artificial event lighting. A gentle clean edit that preserves the atmosphere without over-processing. People should look natural not like they have been through a heavy filter.'
 },
 'Event|Overcast': {
-  title: 'Event — Overcast',
+  title: 'Event: Overcast',
   summary: 'Technically the easiest event condition. Focus on anticipating moments.',
   subject: 'Overcast event photography is about moments and people rather than light. The technical challenge is reduced. Focus entirely on anticipating where the interesting moments are going to happen and being in position before they do.',
   light: 'Even light means you can shoot anywhere in the venue without worrying about direction. No harsh shadows on faces. No blown backgrounds from windows. Technically the easiest event light condition there is.',
@@ -1835,7 +1836,7 @@ const plans = {
   edit: 'Clean and natural. Overcast event images need a slight contrast lift to stop them looking flat. Skin tones should be accurate. Remove any colour cast from artificial venue lighting with the white balance.'
 },
 'Event|Bright Midday': {
-  title: 'Event — Bright Midday',
+  title: 'Event: Bright Midday',
   summary: 'Find the shade and work from there. Direct midday sun on faces does not work.',
   subject: 'Outdoor events at midday are technically difficult. The same open shade principles that apply to portrait photography apply here. Find the areas of the venue where the light is soft and work from there. Do not try to photograph people in direct overhead sun.',
   light: 'Look for temporary structures, trees, awnings, any natural or built shade. The light in those areas will be soft and workable. The direct sun areas will create squinting, harsh shadows, and blown highlights.',
@@ -1844,7 +1845,7 @@ const plans = {
   edit: 'Midday event images often look harsh straight out of camera. Soften the contrast slightly. Pull back any highlights that have blown on clothing or backgrounds. Keep skin tones natural.'
 },
 'Event|Blue Hour': {
-  title: 'Event — Blue Hour',
+  title: 'Event: Blue Hour',
   summary: 'Natural and artificial light balanced. Shoot during the transition not after.',
   subject: 'Evening events at blue hour have a specific atmosphere. The combination of the remaining natural light and the event lighting creates a quality that feels intentional and cinematic. Prioritise the frames where that combination is visible over the frames where it is just artificial light.',
   light: 'Same blue hour principles as other genres. The window is short. The balance between natural and artificial light is what you are after. Shoot during the transition not after it.',
@@ -1853,7 +1854,7 @@ const plans = {
   edit: 'Preserve the atmospheric quality of the mixed light. Do not correct the cool exterior and warm interior to the same white balance. The contrast between them is the mood of the image.'
 },
 'Event|Mixed or Unpredictable': {
-  title: 'Event — Mixed Conditions',
+  title: 'Event: Mixed Conditions',
   summary: 'Adapt constantly. The right position before the moment matters more than anything.',
   subject: 'Events in mixed light conditions require you to adapt constantly. The light changes, the action changes, the moments are unpredictable. Your job is to be in the right position and have the right settings before the moment happens, not while it is happening.',
   light: 'Keep checking the light as you move through the event. What worked in one part of the venue may not work in another. Be willing to change your settings and position as the conditions change.',
@@ -1862,7 +1863,7 @@ const plans = {
   edit: 'Consistency across a set of event images is important. Pick the dominant light source for the event, set your white balance to that, and apply it consistently across the edit so the images feel like they belong together.'
 },
 'Wildlife|Golden Hour': {
-  title: 'Wildlife — Golden Hour',
+  title: 'Wildlife: Golden Hour',
   summary: 'Be positioned before the animal arrives. The light does the rest.',
   subject: 'Wildlife at golden hour rewards patience over pursuit. The warm low light is beautiful but the animal has to be in it. Pick a location where you know the animal is likely to be at that time of day and position yourself in relation to the light before the animal arrives. The subject is the animal but the decision is where to be.',
   light: 'Low and directional. The same principles as landscape golden hour but the subject is moving. Position yourself so the light is side lighting or slightly front lighting the animal from your perspective. An animal backlit at golden hour can work but you lose detail in the face.',
@@ -1871,7 +1872,7 @@ const plans = {
   edit: 'The warmth of golden hour on fur and feathers is beautiful. Protect it. Lift the shadows slightly to show detail in the darker areas of the animal. Keep the background appropriately out of focus and unprocessed.'
 },
 'Wildlife|Overcast': {
-  title: 'Wildlife — Overcast',
+  title: 'Wildlife: Overcast',
   summary: 'Accurate colour, no harsh shadows. Get close and get sharp.',
   subject: 'Overcast wildlife photography is about getting close enough and having the right settings rather than the light doing the work for you. The even light means colours are accurate and there are no harsh shadows. Focus on the animal and the moment rather than the light quality.',
   light: 'Even, soft, honest. Good for showing the actual colour of feathers or fur accurately. The lack of direction means no flattering modelling on the subject. You are photographing the animal rather than the animal in beautiful light. Both are valid. Know which one you are doing.',
@@ -1880,7 +1881,7 @@ const plans = {
   edit: 'Clean and natural. Overcast wildlife needs a slight contrast lift. Accurate colour rather than pushed saturation. The animal should look real and present, not like a wildlife magazine cover.'
 },
 'Wildlife|Bright Midday': {
-  title: 'Wildlife — Bright Midday',
+  title: 'Wildlife: Bright Midday',
   summary: 'Look for reptiles, insects, raptors. Subjects that suit hard light.',
   subject: 'Most wildlife is less active at midday. The ones that are active in harsh midday conditions tend to be reptiles, birds of prey, and insects. If you are out at midday, look for subjects that suit the hard light rather than fighting it with subjects that do not.',
   light: 'Overhead and harsh. Deep shadows under the subject. Bright highlights on top surfaces. Position yourself so the sun is not directly behind you creating flat front lit images, or directly in front which backlights the subject completely.',
@@ -1889,7 +1890,7 @@ const plans = {
   edit: 'Recover the highlights on the top surfaces of the animal if possible. Midday wildlife often needs the contrast reduced slightly. The shadows under the chin or body can be lifted a fraction to show detail.'
 },
 'Wildlife|Blue Hour': {
-  title: 'Wildlife — Blue Hour',
+  title: 'Wildlife: Blue Hour',
   summary: 'Dawn and dusk. Most wildlife is active now. Be positioned and ready.',
   subject: 'Dawn and dusk are when most wildlife is most active. Blue hour coincides with these transitions. The subject decision is about which animals are present at these times and positioning yourself for them specifically.',
   light: 'Low light, cool tones, fast fading. You need high ISO capability. The light is beautiful but it is low and dropping or rising fast. Work fast and be ready before the light gets to where you want it.',
@@ -1898,7 +1899,7 @@ const plans = {
   edit: 'Blue hour wildlife is a mood edit. Preserve the cool tones. Lift the shadows enough to show some detail in the animal if it is not a silhouette. Keep the sky reading as the light source.'
 },
 'Wildlife|Mixed or Unpredictable': {
-  title: 'Wildlife — Mixed Conditions',
+  title: 'Wildlife: Mixed Conditions',
   summary: 'Have your settings ready. The animal will not wait for the light.',
   subject: 'Wildlife photography is almost always mixed and unpredictable. The animal does not wait for the light. Your subject decision is about which animal and which behaviour you are after and positioning yourself for the best light that appears while you are there.',
   light: 'Be ready for the moment the light is good. Have your settings right for the current conditions and adjust quickly when the light changes. The frames that stand out from a wildlife session are usually the ones where the light was briefly doing something special.',
@@ -1907,7 +1908,7 @@ const plans = {
   edit: 'Pick the frames where the light was at its best. Edit those and do not waste time trying to fix the ones where the light was wrong.'
 },
 'Sport or Action|Golden Hour': {
-  title: 'Sport or Action — Golden Hour',
+  title: 'Sport or Action: Golden Hour',
   summary: 'Warm light on movement. Position for the light first, let the action come to you.',
   subject: 'Sport at golden hour is about the athlete in the light rather than the technical execution of the sport. The warm low light on a person in motion is a specific and beautiful thing. Pick moments where the light is on the face or the key body part rather than behind it.',
   light: 'Low, directional, warm. The challenge is that the light may not be coming from the right direction for the sport you are shooting. Find your position relative to the light first. The action will come to you if you are in the right place.',
@@ -1916,7 +1917,7 @@ const plans = {
   edit: 'Action at golden hour has warmth and energy built in. Protect both. A slight clarity lift on the athlete sharpens the sense of motion without looking over-processed.'
 },
 'Sport or Action|Overcast': {
-  title: 'Sport or Action — Overcast',
+  title: 'Sport or Action: Overcast',
   summary: 'Easiest action light technically. Focus entirely on the peak moment.',
   subject: 'Overcast is technically the easiest action light condition. No harsh shadows, no blown highlights. Focus on anticipating the peak action moment rather than managing the light.',
   light: 'Even and consistent. You can shoot in any direction without worrying about the light. The lack of drama in the light means the drama has to come from the action and the moment.',
@@ -1925,7 +1926,7 @@ const plans = {
   edit: 'Overcast action needs a contrast lift. Clean edit, accurate colours, subject clearly sharp against a blurred background.'
 },
 'Sport or Action|Bright Midday': {
-  title: 'Sport or Action — Bright Midday',
+  title: 'Sport or Action: Bright Midday',
   summary: 'Plenty of light, harsh shadows on faces. Find angles where faces are not shaded.',
   subject: 'Midday action is technically demanding but you have plenty of light. The harsh overhead shadows on faces are the main problem. Position yourself so you are not shooting directly into the shadows under caps, helmets, or brow lines.',
   light: 'Direct overhead sun creates deep eye socket shadows on athletes. Try to find angles where the face is slightly angled toward the sun rather than directly below it. Action sports where the athlete is leaning forward often have the face angled toward the light naturally.',
@@ -1934,7 +1935,7 @@ const plans = {
   edit: 'Pull back the highlights on any blown surfaces. The contrast is probably already high so you may not need to add any. Watch for deep eye socket shadows. A very slight lift in the shadow areas of the face can help.'
 },
 'Sport or Action|Blue Hour': {
-  title: 'Sport or Action — Blue Hour',
+  title: 'Sport or Action: Blue Hour',
   summary: 'Lit venue at dusk. Balance remaining natural light with artificial lighting.',
   subject: 'Action at blue hour is almost always in a lit venue or stadium. The ambient light from floodlights or arena lighting is your working light. The remaining natural light is a bonus if it is still present. The subject decision is the same as any action shoot. The peak moment of the action.',
   light: 'Artificial venue lighting is often mixed colour temperature. Check your white balance for the specific venue. Stadium lights, indoor arena lights, and outdoor floodlights all behave differently. Set a custom white balance if your camera allows it.',
@@ -1943,7 +1944,7 @@ const plans = {
   edit: 'Venue lighting often has an orange or green cast. Correct the white balance first. Reduce noise without losing too much sharpness on the athlete. Tight crops help with the noise by reducing the amount of out of focus background visible.'
 },
 'Sport or Action|Mixed or Unpredictable': {
-  title: 'Sport or Action — Mixed Conditions',
+  title: 'Sport or Action: Mixed Conditions',
   summary: 'Auto ISO and a minimum shutter speed. Adapt fast when the light shifts.',
   subject: 'Outdoor action in mixed conditions is about adapting fast. The action does not stop when the light changes. Know your settings for both the bright and the dark conditions and be ready to switch.',
   light: 'Watch the light constantly. A cloud crossing the sun at the key moment changes your exposure by two stops. Auto ISO with a fixed aperture and minimum shutter speed is the most practical setting for mixed outdoor action.',
@@ -1952,7 +1953,7 @@ const plans = {
   edit: 'Select the frames where the light was at its best. Edit those first and use them as the reference for the rest of the set.'
 },
 'Drone Aerial|Golden Hour': {
-  title: 'Drone Aerial — Golden Hour',
+  title: 'Drone Aerial: Golden Hour',
   summary: 'Long shadows reveal topography. Fly perpendicular to the light direction.',
   subject: 'Aerial golden hour is about shadows as much as light. The low angle creates long shadows that reveal the topography of the land in a way that no other light condition does. Fields, rivers, roads, buildings all cast shadows that become compositional elements from above. The subject is not just what you are flying over but what the shadows are doing to it.',
   light: 'The light is low and directional. From altitude you can see exactly where the light and shadow boundary is across the landscape. Fly perpendicular to the light direction to get the maximum shadow length visible in your frame. Flying directly into or away from the sun removes the shadow dimension completely.',
@@ -1961,7 +1962,7 @@ const plans = {
   edit: 'The shadow detail is the story. Lift the shadow areas enough to show the texture and form revealed by the low light but do not flatten the contrast. The relationship between the lit and shadowed areas is the whole image.'
 },
 'Drone Aerial|Overcast': {
-  title: 'Drone Aerial — Overcast',
+  title: 'Drone Aerial: Overcast',
   summary: 'True colour from above, no shadow distortion. Straight down works well.',
   subject: 'Overcast aerial photography is about colour and pattern rather than light and shadow. The even light shows the true colour of the land, the water, the vegetation, without the distraction of shadow. Aerial overcast is excellent for abstract pattern work, looking straight down, and for showing the actual colour relationships in a landscape.',
   light: 'Even and directionless. Looking straight down in overcast conditions gives you a flat, graphic view with accurate colour and no shadow distortion. Looking across at a low angle gives you a flat image with no depth cues from light.',
@@ -1970,7 +1971,7 @@ const plans = {
   edit: 'Overcast aerial images often look slightly flat. A moderate contrast lift brings out the colour differences in the land. Accurate colour is more important than pushed saturation from altitude.'
 },
 'Drone Aerial|Bright Midday': {
-  title: 'Drone Aerial — Bright Midday',
+  title: 'Drone Aerial: Bright Midday',
   summary: 'Minimal shadow from above. Colour and pattern are your subject.',
   subject: 'Midday aerial removes the shadow dimension almost entirely when looking straight down. Shadows are directly below objects and barely visible. This works for certain subjects. Coastline and water from above. Urban geometry. Anything where the colour and pattern of the surface is the subject rather than the topography.',
   light: 'Overhead light from altitude means minimal shadow on the ground. Water and wet surfaces reflect the sky strongly. Bare land shows its true colour. Forest canopy is lit evenly from above.',
@@ -1979,7 +1980,7 @@ const plans = {
   edit: 'Midday aerial is a clean, accurate edit. Pull back any blown water highlights. Increase contrast slightly to add depth that the flat light removed.'
 },
 'Drone Aerial|Blue Hour': {
-  title: 'Drone Aerial — Blue Hour',
+  title: 'Drone Aerial: Blue Hour',
   summary: 'Lit landscape below, blue sky above, warm artificial lights visible. Cinematic.',
   subject: 'Aerial blue hour is one of the most cinematic combinations available. The lit landscape below, the blue sky above, the warmth of any artificial lights visible from altitude. The subject is the relationship between the man-made and the natural at that specific light quality.',
   light: 'The sky is still lit. The land below may be going into shadow. Any artificial lights are now visible and readable. Fly at the altitude that gives you the best balance between the remaining sky light and the lit artificial elements below.',
@@ -1988,7 +1989,7 @@ const plans = {
   edit: 'Preserve the blue tones in the sky. The warm artificial lights against the cool sky is the mood. Lift the land details slightly to show what is below without killing the atmospheric quality.'
 },
 'Drone Aerial|Mixed or Unpredictable': {
-  title: 'Drone Aerial — Mixed Conditions',
+  title: 'Drone Aerial: Mixed Conditions',
   summary: 'You can see the light patch coming from altitude. Position and wait.',
   subject: 'Moving cloud from altitude creates travelling patches of light and shadow across the landscape that you can see coming before they arrive. Pick your composition and wait for the light patch to move into it. You can see it coming from much further away than you can from the ground.',
   light: 'From altitude you can plan your exposure for the light patch you can see approaching. Position the drone in the composition you want and watch the shadow boundary moving across the land below you.',
@@ -1997,7 +1998,7 @@ const plans = {
   edit: 'Mixed aerial shots often have the most drama. The contrast between lit and shadowed areas of the land is the story. Protect the lit areas and let the shadowed areas sit appropriately dark.'
 },
 'Still Life or Product|Golden Hour': {
-  title: 'Still Life or Product — Golden Hour',
+  title: 'Still Life or Product: Golden Hour',
   summary: 'Warm window light raking across texture. Use a bounce card on the shadow side.',
   subject: 'Natural golden hour light on a still life or product gives you warmth and direction that is hard to replicate artificially. Position the object so the light is coming from one side and raking across any texture in the surface. The subject decision is which face of the object the light should fall on.',
   light: 'Low and directional. Window light at golden hour is one of the most beautiful light sources for still life. Position the object near a window facing the sun and let the warm light fall across it. Use a white card on the shadow side to bounce a small amount of light back into the shadow areas if they are too dark.',
@@ -2006,7 +2007,7 @@ const plans = {
   edit: 'Golden hour still life needs the warmth preserved not pushed further. A slight lift in the shadow areas to show detail. Highlights on any shiny surfaces need to be controlled so they do not blow.'
 },
 'Still Life or Product|Overcast': {
-  title: 'Still Life or Product — Overcast',
+  title: 'Still Life or Product: Overcast',
   summary: 'Even, soft, repeatable. The best light for accurate product photography.',
   subject: 'Overcast is the most controlled and reproducible still life light. Even, soft, no harsh shadows. It is the light used in most professional product photography for exactly this reason. The subject decision is purely compositional because the light is not doing anything dramatic that you need to work with or against.',
   light: 'Even and shadowless. A large window in overcast conditions is close to a large softbox. Position the object close to the window for the softest light. Move it further away for a slightly harder, more directional quality. Overcast window light is controllable and repeatable.',
@@ -2015,7 +2016,7 @@ const plans = {
   edit: 'Overcast still life needs a small contrast lift to stop it looking flat. Accurate colour reproduction. The object should look exactly as it does in real life under clean daylight.'
 },
 'Still Life or Product|Bright Midday': {
-  title: 'Still Life or Product — Bright Midday',
+  title: 'Still Life or Product: Bright Midday',
   summary: 'Avoid direct sun on the object. Find open shade or go indirect indoors.',
   subject: 'Avoid direct midday sun on still life. The harsh shadows and blown highlights are very difficult to manage on small objects. If you are outdoors at midday, find open shade. If you are indoors, position the object away from any direct sunlight coming through windows.',
   light: 'If you are using midday daylight indoors, away from direct sun, it is actually reasonable light. Soft and even from the ambient room light. The problem is direct midday sun falling on the object, not midday light in general.',
@@ -2024,7 +2025,7 @@ const plans = {
   edit: 'Midday shade still life is a clean accurate edit. Pull back any hot spots. Accurate colour.'
 },
 'Still Life or Product|Blue Hour': {
-  title: 'Still Life or Product — Blue Hour',
+  title: 'Still Life or Product: Blue Hour',
   summary: 'Cool blue ambient mixing with warm artificial light. Atmospheric and deliberate.',
   subject: 'Blue hour still life is an unusual choice but it can produce beautiful results. The cool blue ambient light mixing with any warm artificial light sources creates a naturally atmospheric look. Position the object so there is a balance between the cool natural light and any warm artificial sources.',
   light: 'The blue hour quality comes from the colour contrast between the cool ambient light and any warm artificial lights in the scene. A lamp, a candle, practical lighting, all provide warmth against the cool ambient. Work with that contrast intentionally.',
@@ -2033,7 +2034,7 @@ const plans = {
   edit: 'Preserve the contrast between warm and cool. This is an atmospheric edit. Do not correct everything to the same white balance.'
 },
 'Still Life or Product|Mixed or Unpredictable': {
-  title: 'Still Life or Product — Mixed Conditions',
+  title: 'Still Life or Product: Mixed Conditions',
   summary: 'Changing light means inconsistent frames. Wait for a stable condition.',
   subject: 'Mixed natural light for still life is usually a problem to solve rather than a condition to embrace. Changing cloud cover means your light is inconsistent between frames. The solution is either to wait for a stable condition or to shoot fast during a consistent moment.',
   light: 'If you are shooting near a window in mixed outdoor conditions, the light will shift as cloud passes. Either wait for a consistently overcast moment and shoot during that, or wait for direct sun and shoot during that. Trying to shoot across the transition gives you inconsistent frames.',
@@ -3081,7 +3082,7 @@ function resetGearChecklist() {
 
 
 // ============================================================
-// NEW TOOL IDS — update allToolIds
+// NEW TOOL IDS: update allToolIds
 // ============================================================
 // (allToolIds is already defined, we extend it via showToolById override)
 const extraToolIds = ['plan-history-tool','histogram-tool','focal-tool','colour-tool','location-tool'];
@@ -3170,7 +3171,7 @@ function renderPlanHistory() {
       <div style="background:var(--surface); border-radius:6px; padding:1.1rem 1.25rem; margin-bottom:0.75rem;">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
           <div style="flex:1; min-width:0;">
-            <div style="font-size:0.88rem; font-weight:500; color:var(--text);">${entry.shoot} — ${entry.light}</div>
+            <div style="font-size:0.88rem; font-weight:500; color:var(--text);">${entry.shoot}: ${entry.light}</div>
             <div style="font-size:0.72rem; color:var(--text-dim); margin-top:0.2rem;">${entry.camera || ''}</div>
           </div>
           <div style="display:flex; align-items:center; gap:0.75rem; flex-shrink:0; margin-left:1rem;">
@@ -3393,13 +3394,13 @@ function updateColourResult() {
 // LOCATION SCOUTING CHECKLIST
 // ============================================================
 const locationItems = [
-  { key: 'access', label: 'Access confirmed — can I reach this location legally and safely' },
+  { key: 'access', label: 'Access confirmed: can I reach this location legally and safely' },
   { key: 'parking', label: 'Parking or arrival point identified' },
   { key: 'light-direction', label: 'Light direction at the planned shoot time noted' },
   { key: 'golden-times', label: 'Golden hour and blue hour times checked for this date and location' },
   { key: 'weather', label: 'Weather forecast checked for the shoot window' },
   { key: 'subjects', label: 'Potential subjects or compositions identified in advance' },
-  { key: 'hazards', label: 'Any hazards noted — tides, terrain, restricted areas' },
+  { key: 'hazards', label: 'Any hazards noted: tides, terrain, restricted areas' },
   { key: 'backup', label: 'Backup location identified if conditions are wrong' },
   { key: 'time', label: 'Arrival time set to allow setup before the light starts' },
   { key: 'plan-ready', label: 'Shoot plan started in the planner based on this scout' }
@@ -3869,7 +3870,7 @@ function loadState() {
     if (s.responses) Object.assign(decisionResponses, s.responses);
     if (s.plan) {
       window._currentPlan = s.plan;
-      document.getElementById('shoot-title').textContent = (s.ans && s.ans.q1 && s.ans.q2) ? s.ans.q1 + ' — ' + s.ans.q2 : 'Your shoot plan';
+      document.getElementById('shoot-title').textContent = (s.ans && s.ans.q1 && s.ans.q2) ? s.ans.q1 + ': ' + s.ans.q2 : 'Your shoot plan';
       document.getElementById('shoot-subtitle').textContent = '';
       renderShootView();
       // Restore selected buttons
@@ -3919,6 +3920,129 @@ window.goToReflection = window.goToReflection || function() {
   if (typeof renderReflectionHistory === 'function') renderReflectionHistory();
   var banner = document.getElementById('reflect-plan-banner');
   if (banner) banner.style.display = 'none';
+};
+
+window.exportShootSummary = window.exportShootSummary || function() {
+  if (!window._currentPlan) {
+    alert('Build a shoot plan first before exporting.');
+    return;
+  }
+  var plan = window._currentPlan;
+  var shoot = (typeof ans !== 'undefined' && ans.q1) ? ans.q1 : 'Shoot plan';
+  var date = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  var decisions = [
+    { label: 'Subject', content: plan.subject || '' },
+    { label: 'Light', content: plan.light || '' },
+    { label: 'Composition', content: plan.composition || '' },
+    { label: 'Settings', content: plan.settings || '' },
+    { label: 'Edit', content: plan.edit || '' }
+  ];
+  var exportHtml = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Shoot Summary</title><style>body{font-family:-apple-system,sans-serif;max-width:600px;margin:40px auto;padding:0 20px;color:#111;line-height:1.6}.brand{font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#666;margin-bottom:0.5rem}h1{font-size:1.5rem;font-weight:600;margin:0 0 0.25rem}.date{font-size:0.85rem;color:#888;margin-bottom:2rem}.section{margin-bottom:1.5rem;padding:1rem 1.25rem;background:#f8f8f8;border-radius:6px}.label{font-size:0.65rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#888;margin-bottom:0.4rem}.content{font-size:0.9rem;color:#333}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #eee;font-size:0.75rem;color:#aaa}<\/style><\/head><body><div class="brand">Joshua Ball</div><h1>' + shoot + '<\/h1><div class="date">' + date + '<\/div>';
+  decisions.forEach(function(d) {
+    exportHtml += '<div class="section"><div class="label">' + d.label + '<\/div><div class="content">' + d.content + '<\/div><\/div>';
+  });
+  exportHtml += '<div class="footer">Shoot Planner - joshuajball.com\/method<\/div><\/body><\/html>';
+  var blob = new Blob([exportHtml], { type: 'text/html' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = shoot.replace(/[^a-z0-9]/gi, '-').toLowerCase() + '-shoot-plan.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+};
+
+window.selectShootInterval = window.selectShootInterval || function(mins, btn) {
+  window._shootIntervalMins = mins;
+  document.querySelectorAll('#shoot-mode-tool .option-btn').forEach(function(b) { b.classList.remove('selected'); });
+  if (btn) btn.classList.add('selected');
+};
+
+window.startShootMode = window.startShootMode || function() {
+  var trackFrames = document.getElementById('track-frames');
+  window._shootTotal = 0;
+  window._shootKeepers = 0;
+  window._shootSeconds = 0;
+  window._shootIntervalMins = window._shootIntervalMins || 20;
+  window._shootNextCheck = window._shootIntervalMins * 60;
+  window._shootPromptIdx = 0;
+
+  var setup = document.getElementById('shoot-mode-setup');
+  var active = document.getElementById('shoot-mode-active');
+  var summary = document.getElementById('shoot-mode-summary');
+  var frameCounter = document.getElementById('shoot-mode-frame-counter');
+  if (setup) setup.style.display = 'none';
+  if (active) active.style.display = 'block';
+  if (summary) summary.style.display = 'none';
+  if (frameCounter) frameCounter.style.display = (trackFrames && trackFrames.checked) ? 'block' : 'none';
+
+  var prompts = [
+    'Are you still shooting toward your original subject intention, or have you drifted?',
+    'Is the light doing what you expected? Have conditions changed?',
+    'Look at your last five frames. Are you deciding or reacting?',
+    'When did you last consciously choose a composition?',
+    'Are your settings still serving what you are shooting?'
+  ];
+
+  if (window._shootModeTimer) clearInterval(window._shootModeTimer);
+  window._shootModeTimer = setInterval(function() {
+    window._shootSeconds++;
+    window._shootNextCheck--;
+
+    var mins = Math.floor(window._shootSeconds / 60);
+    var secs = window._shootSeconds % 60;
+    var timerEl = document.getElementById('shoot-mode-timer-display');
+    var nextEl = document.getElementById('shoot-mode-next');
+    if (timerEl) timerEl.textContent = String(mins).padStart(2,'0') + ':' + String(secs).padStart(2,'0');
+
+    var nextMins = Math.floor(window._shootNextCheck / 60);
+    var nextSecs = window._shootNextCheck % 60;
+    if (nextEl) nextEl.textContent = 'Next check in ' + String(nextMins).padStart(2,'0') + ':' + String(nextSecs).padStart(2,'0');
+
+    if (window._shootNextCheck <= 0) {
+      window._shootNextCheck = window._shootIntervalMins * 60;
+      var prompt = document.getElementById('shoot-mode-decision-prompt');
+      var promptText = document.getElementById('shoot-mode-prompt-text');
+      if (prompt && promptText) {
+        promptText.textContent = prompts[window._shootPromptIdx % prompts.length];
+        window._shootPromptIdx++;
+        prompt.style.display = 'block';
+      }
+    }
+  }, 1000);
+};
+
+window.stopShootMode = window.stopShootMode || function() {
+  if (window._shootModeTimer) { clearInterval(window._shootModeTimer); window._shootModeTimer = null; }
+  var active = document.getElementById('shoot-mode-active');
+  var summary = document.getElementById('shoot-mode-summary');
+  if (active) active.style.display = 'none';
+  if (summary) summary.style.display = 'block';
+  var mins = Math.floor((window._shootSeconds || 0) / 60);
+  var text = 'Session time: ' + mins + ' minute' + (mins !== 1 ? 's' : '') + '.';
+  if (window._shootTotal > 0) {
+    var rate = Math.round((window._shootKeepers / window._shootTotal) * 100);
+    text += ' Frames: ' + window._shootTotal + ' total, ' + window._shootKeepers + ' keepers (' + rate + '%).';
+  }
+  var el = document.getElementById('shoot-mode-summary-text');
+  if (el) el.textContent = text;
+};
+
+window.addFrame = window.addFrame || function(isKeeper) {
+  window._shootTotal = (window._shootTotal || 0) + 1;
+  if (isKeeper) window._shootKeepers = (window._shootKeepers || 0) + 1;
+  var t = document.getElementById('total-frames');
+  var k = document.getElementById('keeper-frames');
+  var r = document.getElementById('keeper-rate-display');
+  if (t) t.textContent = window._shootTotal;
+  if (k) k.textContent = window._shootKeepers;
+  if (r && window._shootTotal > 0) r.textContent = Math.round((window._shootKeepers / window._shootTotal) * 100) + '% keeper rate';
+};
+
+window.dismissDecisionPrompt = window.dismissDecisionPrompt || function() {
+  var el = document.getElementById('shoot-mode-decision-prompt');
+  if (el) el.style.display = 'none';
 };
 
 window.goToShootMode = window.goToShootMode || function() {
@@ -4322,7 +4446,7 @@ let exportHtml = `<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Shoot Summary — ${shoot}<\/title>
+<title>Shoot Summary: ${shoot}<\/title>
 <style>
   body { font-family: -apple-system, sans-serif; max-width: 600px; margin: 40px auto; padding: 0 20px; color: #111; line-height: 1.6; }
   .brand { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #666; margin-bottom: 0.5rem; }
@@ -4336,12 +4460,12 @@ let exportHtml = `<!DOCTYPE html>
 <\/style>
 <\/head>
 <body>
-<div class="brand">Joshua Ball — The Photographer's Method</div>
+<div class="brand">Joshua Ball: The Photographer's Method</div>
 <h1>${shoot}</h1>
 <div class="date">${date}</div>
 <div class="progress">${checkedCount} of 5 decisions confirmed before shooting</div>
 ${decisions.map(d => `<div class="section"><div class="label">${d.label}</div><div class="content">${d.content}</div></div>`).join('')}
-<div class="footer">Generated by Shoot Planner — joshuajball.com/method</div>
+<div class="footer">Generated by Shoot Planner: joshuajball.com/method</div>
 <\/body>
 <\/html>`;
 
