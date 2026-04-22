@@ -3106,7 +3106,10 @@ function loadPlanForEdit(i) {
     const history = JSON.parse(localStorage.getItem('plan-history') || '[]');
     const entry = history[i];
     if (!entry || !entry.answers) {
-      alert('This plan was saved before edit was available. Build a new plan to use this feature.');
+      // For imported plans, open the planner fresh so they can build a new plan
+      if (confirm('This plan was imported so the original answers are not available.\n\nOpen the planner to build a new plan based on this shoot?')) {
+        goToPlanner();
+      }
       return;
     }
     // Pre-fill answers
@@ -3141,11 +3144,13 @@ function duplicatePlan(i) {
     if (history.length >= 30) { alert('Your plan history is full. The oldest plan has been removed to make space.'); }
     try { localStorage.setItem('plan-history', JSON.stringify(history.slice(0, 30))); } catch(e) {}
     renderPlanHistory();
-    // If entry has answers, load it for editing
+    // If entry has answers, offer to edit it
     if (copy.answers) {
       if (confirm('Duplicate created. Do you want to edit it now?')) {
         loadPlanForEdit(0);
       }
+    } else {
+      alert('Duplicate created. Tap Edit on the new entry to open the planner and rebuild it.');
     }
   } catch(e) { alert('Could not duplicate plan.'); }
 }
