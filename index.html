@@ -3105,12 +3105,35 @@ function loadPlanForEdit(i) {
   try {
     const history = JSON.parse(localStorage.getItem('plan-history') || '[]');
     const entry = history[i];
-    if (!entry || !entry.answers) {
-      // For imported plans, open the planner fresh so they can build a new plan
-      if (confirm('This plan was imported so the original answers are not available.\n\nOpen the planner to build a new plan based on this shoot?')) {
-        goToPlanner();
+    if (!entry) return;
+
+    if (!entry.answers) {
+      // No answers saved - build answers from what we know
+      // Try to match shoot type from title
+      const shootTypes = ['Landscape','Coastal','Woodland','Urban','Portrait','Event','Wildlife','Sport or Action','Drone Aerial','Still Life or Product'];
+      const lightTypes = ['Golden Hour','Overcast','Bright Midday','Blue Hour','Mixed or Unpredictable'];
+      const title = entry.shoot || '';
+
+      let q1Match = '';
+      for (var s of shootTypes) {
+        if (title.toLowerCase().indexOf(s.toLowerCase()) >= 0) { q1Match = s; break; }
       }
-      return;
+      let q2Match = '';
+      for (var l of lightTypes) {
+        if (title.toLowerCase().indexOf(l.toLowerCase().split(' ')[0]) >= 0) { q2Match = l; break; }
+      }
+      if (!q2Match && entry.light) {
+        for (var l2 of lightTypes) {
+          if (entry.light.toLowerCase().indexOf(l2.toLowerCase().split(' ')[0]) >= 0) { q2Match = l2; break; }
+        }
+      }
+
+      // Build partial answers from what we have
+      entry.answers = {
+        q1: q1Match || entry.shoot || '',
+        q2: q2Match || entry.light || '',
+        q3: '', q4: '', q5: '', q6: ''
+      };
     }
     // Pre-fill answers
     Object.assign(ans, entry.answers);
@@ -3149,9 +3172,7 @@ function duplicatePlan(i) {
       if (confirm('Duplicate created. Do you want to edit it now?')) {
         loadPlanForEdit(0);
       }
-    } else {
-      alert('Duplicate created. Tap Edit on the new entry to open the planner and rebuild it.');
-    }
+
   } catch(e) { alert('Could not duplicate plan.'); }
 }
 
