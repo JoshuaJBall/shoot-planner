@@ -54,7 +54,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 .screen.active { display: block; animation: fadeUp 0.3s ease; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 .progress-wrap { margin-bottom: 2rem; }
-.progress-track { height: 1px; background: var(--border); margin-bottom: 0.5rem; overflow: hidden; }
+.progress-track { height: 2px; background: var(--border); margin-bottom: 0.5rem; overflow: hidden; }
 .progress-fill { height: 100%; background: var(--accent); transition: width 0.4s ease; }
 .progress-label { font-size: 0.7rem; color: var(--text-dim); letter-spacing: 0.1em; }
 .question-block { margin-bottom: 2rem; }
@@ -301,7 +301,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 
 <!-- PLAN STAGE -->
 
-<div id="plan-stage" style="padding:0 1.25rem; min-height:100vh; background:var(--bg);">
+<div id="plan-stage" style="padding:0 1.25rem;">
 
   <div id="screen-q1" class="screen">
     <div class="progress-wrap">
@@ -3119,13 +3119,29 @@ function loadPlanForEdit(i) {
         if (title.toLowerCase().indexOf(shootTypes[si].toLowerCase()) >= 0) { q1Match = shootTypes[si]; break; }
       }
       var q2Match = '';
-      for (var li = 0; li < lightTypes.length; li++) {
-        if (title.toLowerCase().indexOf(lightTypes[li].toLowerCase().split(' ')[0]) >= 0) { q2Match = lightTypes[li]; break; }
-      }
-      if (!q2Match && entry.light) {
-        for (var li2 = 0; li2 < lightTypes.length; li2++) {
-          if (entry.light.toLowerCase().indexOf(lightTypes[li2].toLowerCase().split(' ')[0]) >= 0) { q2Match = lightTypes[li2]; break; }
+      // Try to extract from title format "ShootType: LightCondition"
+      var titleParts = title.split(': ');
+      if (titleParts.length > 1) {
+        var lightPart = titleParts[1].trim();
+        for (var li = 0; li < lightTypes.length; li++) {
+          if (lightPart.toLowerCase().indexOf(lightTypes[li].toLowerCase().split(' ')[0]) >= 0) { q2Match = lightTypes[li]; break; }
+          if (lightTypes[li].toLowerCase().indexOf(lightPart.toLowerCase().split(' ')[0]) >= 0) { q2Match = lightTypes[li]; break; }
         }
+      }
+      // Fallback: search full title
+      if (!q2Match) {
+        for (var li2 = 0; li2 < lightTypes.length; li2++) {
+          if (title.toLowerCase().indexOf(lightTypes[li2].toLowerCase().split(' ')[0]) >= 0) { q2Match = lightTypes[li2]; break; }
+        }
+      }
+      // Fallback: search entry.light description for keywords
+      if (!q2Match && entry.light) {
+        var lightDesc = entry.light.toLowerCase();
+        if (lightDesc.indexOf('golden') >= 0 || lightDesc.indexOf('warm') >= 0 && lightDesc.indexOf('low') >= 0) q2Match = 'Golden Hour';
+        else if (lightDesc.indexOf('blue hour') >= 0 || lightDesc.indexOf('blue') >= 0 && lightDesc.indexOf('twilight') >= 0) q2Match = 'Blue Hour';
+        else if (lightDesc.indexOf('overcast') >= 0 || lightDesc.indexOf('flat') >= 0 || lightDesc.indexOf('sky evenly') >= 0 || lightDesc.indexOf('directionless') >= 0) q2Match = 'Overcast';
+        else if (lightDesc.indexOf('midday') >= 0 || lightDesc.indexOf('harsh') >= 0 || lightDesc.indexOf('overhead') >= 0) q2Match = 'Bright Midday';
+        else if (lightDesc.indexOf('mixed') >= 0 || lightDesc.indexOf('unpredictable') >= 0 || lightDesc.indexOf('changing') >= 0) q2Match = 'Mixed or Unpredictable';
       }
 
       // Build partial answers from what we have
