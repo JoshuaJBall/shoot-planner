@@ -301,7 +301,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 
 <!-- PLAN STAGE -->
 
-<div id="plan-stage" style="padding:0 1.25rem;">
+<div id="plan-stage" style="padding:0 1.25rem; display:none;">
 
   <div id="screen-q1" class="screen">
     <div class="progress-wrap">
@@ -2299,23 +2299,28 @@ document.getElementById(‘shoot-complete’).style.display = count === 5 ? ‘b
 }
 
 function confirmReset() {
-if (window._currentPlan && !confirm(‘Start a new shoot? Your current plan will be cleared.’)) return;
 resetAll();
 }
 
 function resetAll() {
-Object.keys(ans).forEach(k => delete ans[k]);
-Object.keys(checked).forEach(k => checked[k] = false);
-Object.keys(decisionResponses).forEach(k => delete decisionResponses[k]);
+Object.keys(ans).forEach(function(k) { delete ans[k]; });
+Object.keys(checked).forEach(function(k) { checked[k] = false; });
+Object.keys(decisionResponses).forEach(function(k) { delete decisionResponses[k]; });
 window._currentPlan = null;
 window._editingHistoryIndex = null;
-document.querySelectorAll(’.option-btn’).forEach(b => b.classList.remove(‘selected’));
+var optBtns = document.querySelectorAll(’.option-btn’);
+for (var i = 0; i < optBtns.length; i++) optBtns[i].classList.remove(‘selected’);
 document.getElementById(‘decisions-list’).innerHTML = ‘’;
 document.getElementById(‘shoot-complete’).style.display = ‘none’;
 document.getElementById(‘stage-tabs’).style.display = ‘none’;
 document.getElementById(‘header-detail’).style.display = ‘none’;
 document.getElementById(‘home-btn’).style.display = ‘none’;
-document.querySelectorAll(’.screen’).forEach(s => s.classList.remove(‘active’));
+var planStage = document.getElementById(‘plan-stage’);
+var shootStage = document.getElementById(‘shoot-stage’);
+if (planStage) planStage.style.display = ‘none’;
+if (shootStage) shootStage.style.display = ‘none’;
+var screens = document.querySelectorAll(’.screen’);
+for (var j = 0; j < screens.length; j++) screens[j].classList.remove(‘active’);
 document.getElementById(‘screen-home’).classList.add(‘active’);
 document.getElementById(‘screen-home’).style.display = ‘block’;
 saveState();
@@ -3958,7 +3963,7 @@ var planStage = document.getElementById(‘plan-stage’);
 var shootStage = document.getElementById(‘shoot-stage’);
 if (planStage) planStage.style.display = ‘none’;
 if (shootStage) shootStage.style.display = ‘none’;
-document.querySelectorAll(’.screen’).forEach(function(s) { s.classList.remove(‘active’); });
+var _screens = document.querySelectorAll(’.screen’); for (var _si = 0; _si < _screens.length; _si++) _screens[_si].classList.remove(‘active’);
 document.getElementById(‘screen-home’).classList.add(‘active’);
 document.getElementById(‘screen-home’).style.display = ‘block’;
 document.getElementById(‘stage-tabs’).style.display = ‘none’;
@@ -4293,7 +4298,7 @@ try { localStorage.setItem(‘plan-history’, JSON.stringify(history.slice(0, 3
 
 if (resultEl) {
 resultEl.textContent = ‘Plan imported successfully. Added to your plan history above.’;
-resultEl.style.color = ‘var(–text)’;
+resultEl.style.color = ‘var(-text)’;
 }
 if (typeof renderPlanHistory === ‘function’) renderPlanHistory();
 input.value = ‘’;
@@ -4346,7 +4351,7 @@ html += ‘</div>’;
 // Session list
 sessions.forEach(function(s, i) {
 var rateText = s.rate !== null ? s.rate + ‘% keepers’ : ‘No frames logged’;
-var rateColor = s.rate === null ? ‘var(–text-dim)’ : s.rate >= 50 ? ‘var(–text)’ : s.rate >= 25 ? ‘var(–text-muted)’ : ‘var(–text-dim)’;
+var rateColor = s.rate === null ? ‘var(-text-dim)’ : s.rate >= 50 ? ‘var(-text)’ : s.rate >= 25 ? ‘var(-text-muted)’ : ‘var(-text-dim)’;
 html += ‘<div style="border:1px solid var(--border); border-radius:6px; padding:1rem; margin-bottom:0.75rem;">’;
 html += ‘<div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">’;
 html += ‘<div style="font-size:0.85rem; font-weight:500; color:var(--text); flex:1; padding-right:0.5rem;">’ + s.shoot + ‘</div>’;
@@ -4768,7 +4773,7 @@ var planStage = document.getElementById('plan-stage');
 var shootStage = document.getElementById('shoot-stage');
 if (planStage) planStage.style.display = 'none';
 if (shootStage) shootStage.style.display = 'none';
-document.querySelectorAll('.screen').forEach(function(s) { s.classList.remove('active'); });
+var _screens = document.querySelectorAll('.screen'); for (var _si = 0; _si < _screens.length; _si++) _screens[_si].classList.remove('active');
 document.getElementById('screen-home').classList.add('active');
 document.getElementById('screen-home').style.display = 'block';
 document.getElementById('stage-tabs').style.display = 'none';
