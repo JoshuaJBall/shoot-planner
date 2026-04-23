@@ -4765,8 +4765,6 @@ function exportShootSummary() {
 // INIT: run on load
 // ============================================================
 function initAppFeatures() {
-var ps = document.getElementById('plan-stage');
-if (ps && !ps.style.display) ps.style.display = 'none';
 checkPostShootPrompt();
 }
 
@@ -4839,6 +4837,9 @@ if ('serviceWorker' in navigator && navigator.serviceWorker.getRegistrations) {
     }
   };
   document.addEventListener('DOMContentLoaded',function(){
+    // Hide plan-stage on load so it doesn't overlap home screen
+    var ps = document.getElementById('plan-stage');
+    if (ps) ps.style.display = 'none';
     // Wire up file import input
     var importInput = document.getElementById('import-file-input');
     if (importInput) {
