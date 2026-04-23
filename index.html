@@ -4812,6 +4812,12 @@ if ('serviceWorker' in navigator && navigator.serviceWorker.getRegistrations) {
 (function(){
   var PASS='Photography2001';
   var KEY='sp-unlocked';
+
+  function startApp() {
+    if(typeof initAppFeatures==='function') initAppFeatures();
+    if(typeof checkOnboarding==='function') checkOnboarding();
+  }
+
   window.checkPassword=function(){
     var input=document.getElementById('gate-input').value;
     var err=document.getElementById('gate-error');
@@ -4819,11 +4825,13 @@ if ('serviceWorker' in navigator && navigator.serviceWorker.getRegistrations) {
       try{localStorage.setItem(KEY,'1');}catch(e){}
       var gate=document.getElementById('password-gate');
       if(gate) gate.style.display='none';
+      startApp();
     }else{
       err.style.display='block';
       document.getElementById('gate-input').value='';
     }
   };
+
   document.addEventListener('DOMContentLoaded',function(){
     // Hide plan-stage so it doesn't overlap home screen
     var ps = document.getElementById('plan-stage');
@@ -4844,11 +4852,12 @@ if ('serviceWorker' in navigator && navigator.serviceWorker.getRegistrations) {
     if(!unlocked){
       var gate=document.getElementById('password-gate');
       if(gate) gate.style.display='flex';
+    } else {
+      startApp();
     }
-    if(typeof initAppFeatures==='function') initAppFeatures();
-    if(typeof checkOnboarding==='function') checkOnboarding();
   });
 })();
+
 </script>
 
 </body>
