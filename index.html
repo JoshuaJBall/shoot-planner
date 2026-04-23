@@ -290,7 +290,13 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
   </div>
 </div>
 
+<div style="display: none;">
+  </div>
 </div>
+
+</div>
+
+  </div>
 </div>
 
 <!-- PLAN STAGE -->
@@ -1586,7 +1592,6 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 <script>
 
 window.addEventListener('unhandledrejection', function(e) { if (e) e.preventDefault(); });
-
 const ans = {};
 const checked = { subject: false, light: false, composition: false, settings: false, edit: false };
 const decisionOrder = ['subject','light','composition','settings','edit'];
@@ -2294,28 +2299,23 @@ document.getElementById(‘shoot-complete’).style.display = count === 5 ? ‘b
 }
 
 function confirmReset() {
+if (window._currentPlan && !confirm(‘Start a new shoot? Your current plan will be cleared.’)) return;
 resetAll();
 }
 
 function resetAll() {
-Object.keys(ans).forEach(function(k) { delete ans[k]; });
-Object.keys(checked).forEach(function(k) { checked[k] = false; });
-Object.keys(decisionResponses).forEach(function(k) { delete decisionResponses[k]; });
+Object.keys(ans).forEach(k => delete ans[k]);
+Object.keys(checked).forEach(k => checked[k] = false);
+Object.keys(decisionResponses).forEach(k => delete decisionResponses[k]);
 window._currentPlan = null;
 window._editingHistoryIndex = null;
-var optBtns = document.querySelectorAll(’.option-btn’);
-for (var i = 0; i < optBtns.length; i++) optBtns[i].classList.remove(‘selected’);
+document.querySelectorAll(’.option-btn’).forEach(b => b.classList.remove(‘selected’));
 document.getElementById(‘decisions-list’).innerHTML = ‘’;
 document.getElementById(‘shoot-complete’).style.display = ‘none’;
 document.getElementById(‘stage-tabs’).style.display = ‘none’;
 document.getElementById(‘header-detail’).style.display = ‘none’;
 document.getElementById(‘home-btn’).style.display = ‘none’;
-var planStage = document.getElementById(‘plan-stage’);
-var shootStage = document.getElementById(‘shoot-stage’);
-if (planStage) planStage.style.display = ‘none’;
-if (shootStage) shootStage.style.display = ‘none’;
-var screens = document.querySelectorAll(’.screen’);
-for (var j = 0; j < screens.length; j++) screens[j].classList.remove(‘active’);
+document.querySelectorAll(’.screen’).forEach(s => s.classList.remove(‘active’));
 document.getElementById(‘screen-home’).classList.add(‘active’);
 document.getElementById(‘screen-home’).style.display = ‘block’;
 saveState();
@@ -2377,8 +2377,9 @@ document.getElementById(‘screen-home’).style.display = ‘none’;
 document.getElementById(‘header-detail’).style.display = ‘block’;
 document.getElementById(‘home-btn’).style.display = ‘block’;
 document.getElementById(‘stage-tabs’).style.display = ‘none’;
-var _tools = [‘light-tool’,‘edit-checklist’,‘decision-audit’,‘consistency-tracker’,‘wb-helper’,‘exposure-tool’,‘reflection-tool’,‘brief-generator’,‘gear-checklist’,‘plan-history-tool’,‘histogram-tool’,‘focal-tool’,‘colour-tool’,‘location-tool’,‘dof-tool’,‘shotlist-tool’,‘reciprocity-tool’,‘rawjpeg-tool’,‘print-tool’,‘shoot-mode-tool’];
-for (var _ti = 0; _ti < _tools.length; _ti++) { var _tel = document.getElementById(_tools[_ti]); if (_tel) _tel.style.display = ‘none’; }
+[‘light-tool’,‘edit-checklist’,‘decision-audit’,‘consistency-tracker’,‘wb-helper’,‘exposure-tool’,‘reflection-tool’,‘brief-generator’,‘gear-checklist’].forEach(t => {
+document.getElementById(t).style.display = ‘none’;
+});
 document.getElementById(‘plan-stage’).style.display = ‘none’;
 document.getElementById(‘shoot-stage’).style.display = ‘none’;
 document.getElementById(id).style.display = ‘block’;
@@ -3013,7 +3014,7 @@ const briefs = {
 { title: ‘One aperture all session’, constraint: ‘Set your aperture before you start and do not change it. Every frame uses the same depth of field. Learn what your chosen aperture does in every situation you encounter.’, success: ‘You understand what that aperture produces across different subjects and distances.’ },
 { title: ‘Manual only’, constraint: ‘Shoot entirely in manual mode. Set shutter speed, aperture, and ISO in the correct order for every frame. No auto, no priority modes.’, success: ‘You set correct exposure for ten frames in a row without checking the histogram.’ },
 { title: ‘Creative shutter speed’, constraint: ‘Choose either to freeze all movement or to blur all movement. Decide before you start and do not switch. Every frame uses a shutter speed that serves that choice.’, success: ‘The shutter speed decision is visible and intentional in every frame.’ },
-{ title: ‘Base ISO only’, constraint: ‘You cannot raise ISO above your camera base ISO for the entire session. Every exposure decision must work within that constraint. Find the light or use a tripod.’, success: ‘Every frame is clean with no noise and the exposure decisions are visible in the result.’ },
+{ title: ‘Base ISO only’, constraint: ‘You cannot raise ISO above your cameras base ISO for the entire session. Every exposure decision must work within that constraint. Find the light or use a tripod.’, success: ‘Every frame is clean with no noise and the exposure decisions are visible in the result.’ },
 { title: ‘Expose for the shadows’, constraint: ‘In every frame, expose so the shadow areas have visible detail. Let the highlights do whatever they do. Shadow detail is the priority in every exposure decision.’, success: ‘Every frame shows clear shadow detail and the highlight decisions are conscious trade-offs.’ },
 { title: ‘Expose for the highlights’, constraint: ‘In every frame, expose so no highlights are blown. Let the shadows go dark. Highlight protection is the only exposure priority.’, success: ‘Every frame holds highlight detail and the shadow decisions are conscious trade-offs.’ },
 { title: ‘Minimum viable ISO’, constraint: ‘For every frame, set the lowest possible ISO that still gives you correct exposure with your chosen shutter speed and aperture. No rounding up. No safety margin. The minimum.’, success: ‘You can state the exact ISO for every frame and why it was the minimum.’ },
@@ -3841,7 +3842,7 @@ const results = {
 ‘no|controlled|quick’:                 { rec: ‘JPEG’, reason: ‘Controlled, no editing, speed. JPEG is exactly right for this situation.’, tip: ‘The camera is doing all the work. Make sure you have set it up well before the session starts.’ },
 ‘no|auto|print-large’:                 { rec: ‘RAW’, reason: ‘Auto or semi-auto settings with large print output is a risk combination. Shoot RAW so you can correct what the camera gets wrong.’, tip: ‘Auto settings can produce inconsistent results. RAW gives you the ability to standardise the look across the batch in editing.’ },
 ‘no|auto|web-social’:                  { rec: ‘JPEG’, reason: ‘Auto settings and web output. JPEG is practical. The camera will produce acceptable results in most situations.’, tip: ‘Check your results periodically during the shoot. Auto settings can drift in changing conditions.’ },
-‘no|auto|archive’:                     { rec: ‘RAW’, reason: ‘Archive always means RAW. Auto settings make RAW even more important because the camera may have made decisions you want to override later.’, tip: ‘RAW preserves all the original sensor data regardless of what the camera auto settings were doing. You can re-interpret it later.’ },
+‘no|auto|archive’:                     { rec: ‘RAW’, reason: ‘Archive always means RAW. Auto settings make RAW even more important because the camera may have made decisions you want to override later.’, tip: ‘RAW preserves all the original sensor data regardless of what the cameras auto settings were doing. You can re-interpret it later.’ },
 ‘no|auto|quick’:                       { rec: ‘JPEG’, reason: ‘Auto settings and speed priority. JPEG is the right choice. The camera is doing everything, let it output JPEG directly.’, tip: ‘Make sure your memory card is fast enough for the burst rate you need. A slow card can cause the buffer to fill and slow down shooting.’ },
 ‘yes-heavily|auto|print-large’:        { rec: ‘RAW’, reason: ‘Significant editing for large prints always needs RAW. Auto settings make this even more important as you will need to correct what the camera got wrong.’, tip: ‘Switch to manual or semi-manual settings for important shoots. Auto settings give the camera decisions that should be yours.’ },
 ‘yes-heavily|auto|web-social’:         { rec: ‘RAW’, reason: ‘If you are editing significantly, shoot RAW regardless of the output size. The editing headroom is always worth it.’, tip: ‘Consider learning aperture priority or shutter priority. They give you creative control over the most important decisions while the camera handles exposure.’ },
@@ -3957,7 +3958,7 @@ var planStage = document.getElementById(‘plan-stage’);
 var shootStage = document.getElementById(‘shoot-stage’);
 if (planStage) planStage.style.display = ‘none’;
 if (shootStage) shootStage.style.display = ‘none’;
-var _screens = document.querySelectorAll(’.screen’); for (var _si = 0; _si < _screens.length; _si++) _screens[_si].classList.remove(‘active’);
+document.querySelectorAll(’.screen’).forEach(function(s) { s.classList.remove(‘active’); });
 document.getElementById(‘screen-home’).classList.add(‘active’);
 document.getElementById(‘screen-home’).style.display = ‘block’;
 document.getElementById(‘stage-tabs’).style.display = ‘none’;
@@ -4145,6 +4146,7 @@ if (window._shootModeTimer) clearInterval(window._shootModeTimer);
 window._shootModeTimer = setInterval(function() {
 window._shootSeconds++;
 window._shootNextCheck–;
+
 var mins = Math.floor(window._shootSeconds / 60);
 var secs = window._shootSeconds % 60;
 var timerEl = document.getElementById(‘shoot-mode-timer-display’);
@@ -4292,7 +4294,7 @@ try { localStorage.setItem(‘plan-history’, JSON.stringify(history.slice(0, 3
 
 if (resultEl) {
 resultEl.textContent = ‘Plan imported successfully. Added to your plan history above.’;
-resultEl.style.color = ‘var(-text)’;
+resultEl.style.color = ‘var(–text)’;
 }
 if (typeof renderPlanHistory === ‘function’) renderPlanHistory();
 input.value = ‘’;
@@ -4345,7 +4347,7 @@ html += ‘</div>’;
 // Session list
 sessions.forEach(function(s, i) {
 var rateText = s.rate !== null ? s.rate + ‘% keepers’ : ‘No frames logged’;
-var rateColor = s.rate === null ? ‘var(-text-dim)’ : s.rate >= 50 ? ‘var(-text)’ : s.rate >= 25 ? ‘var(-text-muted)’ : ‘var(-text-dim)’;
+var rateColor = s.rate === null ? ‘var(–text-dim)’ : s.rate >= 50 ? ‘var(–text)’ : s.rate >= 25 ? ‘var(–text-muted)’ : ‘var(–text-dim)’;
 html += ‘<div style="border:1px solid var(--border); border-radius:6px; padding:1rem; margin-bottom:0.75rem;">’;
 html += ‘<div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">’;
 html += ‘<div style="font-size:0.85rem; font-weight:500; color:var(--text); flex:1; padding-right:0.5rem;">’ + s.shoot + ‘</div>’;
@@ -4767,7 +4769,7 @@ var planStage = document.getElementById('plan-stage');
 var shootStage = document.getElementById('shoot-stage');
 if (planStage) planStage.style.display = 'none';
 if (shootStage) shootStage.style.display = 'none';
-var _screens = document.querySelectorAll('.screen'); for (var _si = 0; _si < _screens.length; _si++) _screens[_si].classList.remove('active');
+document.querySelectorAll('.screen').forEach(function(s) { s.classList.remove('active'); });
 document.getElementById('screen-home').classList.add('active');
 document.getElementById('screen-home').style.display = 'block';
 document.getElementById('stage-tabs').style.display = 'none';
@@ -4812,12 +4814,6 @@ if ('serviceWorker' in navigator && navigator.serviceWorker.getRegistrations) {
 (function(){
   var PASS='Photography2001';
   var KEY='sp-unlocked';
-
-  function startApp() {
-    if(typeof initAppFeatures==='function') initAppFeatures();
-    if(typeof checkOnboarding==='function') checkOnboarding();
-  }
-
   window.checkPassword=function(){
     var input=document.getElementById('gate-input').value;
     var err=document.getElementById('gate-error');
@@ -4825,17 +4821,12 @@ if ('serviceWorker' in navigator && navigator.serviceWorker.getRegistrations) {
       try{localStorage.setItem(KEY,'1');}catch(e){}
       var gate=document.getElementById('password-gate');
       if(gate) gate.style.display='none';
-      startApp();
     }else{
       err.style.display='block';
       document.getElementById('gate-input').value='';
     }
   };
-
   document.addEventListener('DOMContentLoaded',function(){
-    // Hide plan-stage so it doesn't overlap home screen
-    var ps = document.getElementById('plan-stage');
-    if (ps) ps.style.display = 'none';
     // Wire up file import input
     var importInput = document.getElementById('import-file-input');
     if (importInput) {
@@ -4852,12 +4843,11 @@ if ('serviceWorker' in navigator && navigator.serviceWorker.getRegistrations) {
     if(!unlocked){
       var gate=document.getElementById('password-gate');
       if(gate) gate.style.display='flex';
-    } else {
-      startApp();
     }
   });
+  if(typeof initAppFeatures==='function') initAppFeatures();
+  if(typeof checkOnboarding==='function') checkOnboarding();
 })();
-
 </script>
 
 </body>
