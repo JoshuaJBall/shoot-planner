@@ -289,6 +289,14 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
     </button>
   </div>
 </div>
+
+<div style="display: none;">
+  </div>
+</div>
+
+</div>
+
+  </div>
 </div>
 
 <!-- PLAN STAGE -->
@@ -4050,64 +4058,6 @@ try { localStorage.setItem(‘sp-onboarded’, ‘1’); } catch(e) {}
 var overlay = document.getElementById(‘onboarding-overlay’);
 if (overlay) overlay.style.display = ‘none’;
 }
-// Ensure all functions are in global scope for Android
-if (typeof goToPlanner === “function”) window.goToPlanner = goToPlanner;
-if (typeof goToChecklist === “function”) window.goToChecklist = goToChecklist;
-if (typeof goToLightTool === “function”) window.goToLightTool = goToLightTool;
-if (typeof goToGear === “function”) window.goToGear = goToGear;
-if (typeof goToEditChecklist === “function”) window.goToEditChecklist = goToEditChecklist;
-if (typeof goToExposure === “function”) window.goToExposure = goToExposure;
-if (typeof goToWB === “function”) window.goToWB = goToWB;
-if (typeof goToAudit === “function”) window.goToAudit = goToAudit;
-if (typeof goToTracker === “function”) window.goToTracker = goToTracker;
-if (typeof goToBrief === “function”) window.goToBrief = goToBrief;
-if (typeof goToHistogram === “function”) window.goToHistogram = goToHistogram;
-if (typeof goToFocal === “function”) window.goToFocal = goToFocal;
-if (typeof goToColour === “function”) window.goToColour = goToColour;
-if (typeof goToLocation === “function”) window.goToLocation = goToLocation;
-if (typeof goToPlanHistory === “function”) window.goToPlanHistory = goToPlanHistory;
-if (typeof goToShootMode === “function”) window.goToShootMode = goToShootMode;
-if (typeof goToReflection === “function”) window.goToReflection = goToReflection;
-if (typeof goHome === “function”) window.goHome = goHome;
-if (typeof buildPlan === “function”) window.buildPlan = buildPlan;
-if (typeof switchTab === “function”) window.switchTab = switchTab;
-if (typeof showPlanScreen === “function”) window.showPlanScreen = showPlanScreen;
-if (typeof selectOpt === “function”) window.selectOpt = selectOpt;
-if (typeof nextQ === “function”) window.nextQ = nextQ;
-if (typeof goToQ === “function”) window.goToQ = goToQ;
-if (typeof confirmDecision === “function”) window.confirmDecision = confirmDecision;
-if (typeof toggleDecision === “function”) window.toggleDecision = toggleDecision;
-if (typeof logShoot === “function”) window.logShoot = logShoot;
-if (typeof renderTracker === “function”) window.renderTracker = renderTracker;
-if (typeof clearTrackerLog === “function”) window.clearTrackerLog = clearTrackerLog;
-if (typeof saveReflection === “function”) window.saveReflection = saveReflection;
-if (typeof clearReflectionHistory === “function”) window.clearReflectionHistory = clearReflectionHistory;
-if (typeof deleteReflection === “function”) window.deleteReflection = deleteReflection;
-if (typeof toggleShootHistPlan === “function”) window.toggleShootHistPlan = toggleShootHistPlan;
-if (typeof renderShootStagePlanHistory === “function”) window.renderShootStagePlanHistory = renderShootStagePlanHistory;
-if (typeof setDecisionResponse === “function”) window.setDecisionResponse = setDecisionResponse;
-if (typeof getDecisionKey === “function”) window.getDecisionKey = getDecisionKey;
-if (typeof deleteTrackerEntry === “function”) window.deleteTrackerEntry = deleteTrackerEntry;
-if (typeof deletePlanEntry === “function”) window.deletePlanEntry = deletePlanEntry;
-if (typeof duplicatePlan === “function”) window.duplicatePlan = duplicatePlan;
-if (typeof loadPlanForEdit === “function”) window.loadPlanForEdit = loadPlanForEdit;
-if (typeof togglePlanDetail === “function”) window.togglePlanDetail = togglePlanDetail;
-if (typeof exportShootSummary === “function”) window.exportShootSummary = exportShootSummary;
-if (typeof handleImportFile === “function”) window.handleImportFile = handleImportFile;
-if (typeof dismissPostShootPrompt === “function”) window.dismissPostShootPrompt = dismissPostShootPrompt;
-if (typeof confirmReset === “function”) window.confirmReset = confirmReset;
-if (typeof onboardNext === “function”) window.onboardNext = onboardNext;
-if (typeof onboardDone === “function”) window.onboardDone = onboardDone;
-if (typeof showEditReminder === “function”) window.showEditReminder = showEditReminder;
-if (typeof hideEditReminder === “function”) window.hideEditReminder = hideEditReminder;
-if (typeof startShootMode === “function”) window.startShootMode = startShootMode;
-if (typeof stopShootMode === “function”) window.stopShootMode = stopShootMode;
-if (typeof addFrame === “function”) window.addFrame = addFrame;
-if (typeof dismissDecisionPrompt === “function”) window.dismissDecisionPrompt = dismissDecisionPrompt;
-if (typeof selectShootInterval === “function”) window.selectShootInterval = selectShootInterval;
-if (typeof deleteSession === “function”) window.deleteSession = deleteSession;
-if (typeof renderSessionsLog === “function”) window.renderSessionsLog = renderSessionsLog;
-
 loadState();
 
 // Define critical navigation functions directly on window
