@@ -1592,6 +1592,13 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 <script>
 
 window.addEventListener('unhandledrejection', function(e) { if (e) e.preventDefault(); });
+window.onerror = function(msg, src, line, col, err) {
+  if (line === 0) return true;
+  var d = document.getElementById('_dbg');
+  if (!d) { d = document.createElement('div'); d.id = '_dbg'; d.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:#c00;color:#fff;padding:0.5rem;font-size:0.7rem;z-index:99999;word-break:break-all;'; document.body.appendChild(d); }
+  d.innerHTML += '<div>' + msg + ' line:' + line + '</div>';
+  return false;
+};
 const ans = {};
 const checked = { subject: false, light: false, composition: false, settings: false, edit: false };
 const decisionOrder = ['subject','light','composition','settings','edit'];
