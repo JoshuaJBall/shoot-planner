@@ -301,7 +301,7 @@ html, body { min-height: 100%; background: var(--bg); color: var(--text); font-f
 
 <!-- PLAN STAGE -->
 
-<div id="plan-stage" style="padding:0 1.25rem; display:none;">
+<div id="plan-stage" style="padding:0 1.25rem;">
 
   <div id="screen-q1" class="screen">
     <div class="progress-wrap">
@@ -2382,9 +2382,8 @@ document.getElementById(‘screen-home’).style.display = ‘none’;
 document.getElementById(‘header-detail’).style.display = ‘block’;
 document.getElementById(‘home-btn’).style.display = ‘block’;
 document.getElementById(‘stage-tabs’).style.display = ‘none’;
-[‘light-tool’,‘edit-checklist’,‘decision-audit’,‘consistency-tracker’,‘wb-helper’,‘exposure-tool’,‘reflection-tool’,‘brief-generator’,‘gear-checklist’].forEach(t => {
-document.getElementById(t).style.display = ‘none’;
-});
+var _tools = [‘light-tool’,‘edit-checklist’,‘decision-audit’,‘consistency-tracker’,‘wb-helper’,‘exposure-tool’,‘reflection-tool’,‘brief-generator’,‘gear-checklist’,‘plan-history-tool’,‘histogram-tool’,‘focal-tool’,‘colour-tool’,‘location-tool’,‘dof-tool’,‘shotlist-tool’,‘reciprocity-tool’,‘rawjpeg-tool’,‘print-tool’,‘shoot-mode-tool’];
+for (var _ti = 0; _ti < _tools.length; _ti++) { var _tel = document.getElementById(_tools[_ti]); if (_tel) _tel.style.display = ‘none’; }
 document.getElementById(‘plan-stage’).style.display = ‘none’;
 document.getElementById(‘shoot-stage’).style.display = ‘none’;
 document.getElementById(id).style.display = ‘block’;
@@ -4759,6 +4758,8 @@ function exportShootSummary() {
 // INIT: run on load
 // ============================================================
 function initAppFeatures() {
+var ps = document.getElementById('plan-stage');
+if (ps && !ps.style.display) ps.style.display = 'none';
 checkPostShootPrompt();
 }
 
