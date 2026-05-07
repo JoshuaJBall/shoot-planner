@@ -4877,15 +4877,6 @@ if ('serviceWorker' in navigator && navigator.serviceWorker.getRegistrations) {
     }
   };
   document.addEventListener('DOMContentLoaded',function(){
-    // Wire up file import input
-    var importInput = document.getElementById('import-file-input');
-    if (importInput) {
-      importInput.addEventListener('change', function() {
-        if (this.files && this.files[0]) {
-          handleImportFile(this);
-        }
-      });
-    }
     var input=document.getElementById('gate-input');
     if(input){input.addEventListener('keydown',function(e){if(e.key==='Enter')window.checkPassword();});}
     var unlocked=false;
