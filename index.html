@@ -4882,7 +4882,7 @@ if ('serviceWorker' in navigator && navigator.serviceWorker.getRegistrations) {
     if (importInput) {
       importInput.addEventListener('change', function() {
         if (this.files && this.files[0]) {
-          importShootSummary(this);
+          handleImportFile(this);
         }
       });
     }
