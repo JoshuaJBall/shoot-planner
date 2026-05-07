@@ -4292,8 +4292,12 @@ window.goToShootMode = window.goToShootMode || function() {
   showToolById('shoot-mode-tool');
 };
 
+window._importInProgress = false;
 window.handleImportFile = function(input) {
   if (!input || !input.files || !input.files[0]) return;
+  if (window._importInProgress) return;
+  window._importInProgress = true;
+  setTimeout(function() { window._importInProgress = false; }, 2000);
   var file = input.files[0];
   var resultEl = document.getElementById('import-result');
   if (resultEl) { resultEl.style.display = 'block'; resultEl.textContent = 'Reading file...'; resultEl.style.color = 'var(--text-muted)'; }
