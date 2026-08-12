@@ -2,7 +2,7 @@
   "name": "Before The Shot by Joshua Ball",
   "short_name": "Before The Shot",
   "description": "Plan your shoot. Take your five decisions out with you.",
-  "start_url": "/shoot-planner/",
+  "start_url": "/before-the-shot/",
   "display": "standalone",
   "background_color": "#0a0a0a",
   "theme_color": "#0a0a0a",
