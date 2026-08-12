@@ -1,1 +1,1 @@
-# before-the-shot
+# shoot-planner
